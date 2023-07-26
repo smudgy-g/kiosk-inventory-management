@@ -1,0 +1,42 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Client {
+  id                Int             @id @default(autoincrement())
+  companyName       String
+  email             String          @unique
+  contactName       String
+  updatedAt         DateTime        @updatedAt
+  order             Order[]
+}
+
+model Supplier {
+  id                Int             @id @default(autoincrement())
+  companyName       String          @unique
+  email             String          @unique
+  contactName       String
+  products          Product[]
+  order             Order[]
+}
+
+model Product {
+  id                Int             @id @default(autoincrement())
+  supplierId        Int 
+  productId         Int?
+  name              String
+  price             Float
+  supplier          Supplier        @relation(fields: [supplierId], references: [id])
+  order             Order[]
+}
+
+model Order {
+  id                Int             @id @default(autoincrement())
+  clientId          Int
+  supplierId        Int
+  productId         Int
+  client            Client          @relation(fields: [clientId], references: [id])
+  supplier          Supplier        @relation(fields: [supplierId], references: [id])
+  product           Product         @relation(fields: [productId], references: [id])
+}
