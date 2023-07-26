@@ -29,6 +29,8 @@ model Product {
   price             Float
   supplier          Supplier        @relation(fields: [supplierId], references: [id])
   order             Order[]
+
+  @@index([supplierId])
 }
 
 model Order {
@@ -39,4 +41,12 @@ model Order {
   client            Client          @relation(fields: [clientId], references: [id])
   supplier          Supplier        @relation(fields: [supplierId], references: [id])
   product           Product         @relation(fields: [productId], references: [id])
+
+  @@index([clientId])
+  @@index([supplierId])
+  @@index([productId])
+}
+
+generator client {
+  provider = "prisma-client-js"
 }
