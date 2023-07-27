@@ -1,19 +1,19 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Login from './components/Login';
+import Product from './components/Product';
+import Client from './components/Client';
 
-
-
-function App () {
-  
-
+function App() {
   return (
-    <div className='App'>
-      <header>pineapplelogo kiosk</header>
-      <main>
-        <Login />
-      </main>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='/client' element={<Client />} />
+        <Route path='/supplier1' element={<Product />} />
+      </Routes>
+    </Router>
   );
 }
 

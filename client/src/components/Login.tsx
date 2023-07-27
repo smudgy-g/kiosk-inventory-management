@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -9,23 +9,25 @@ export default function Login() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Email</label>
-      <input
-        name='email'
-        value={email}
-        placeholder='Enter you email address'
-        // onChange={setEmail((e) => e.target.value)} 
-      />
+    <>
+      <form onSubmit={handleSubmit}>
+        <label>Email</label>
+        <input
+          name='email'
+          value={email}
+          placeholder='Enter you email address'
+          // onChange={setEmail((e) => e.target.value)}
+        />
 
-      <label>Password</label>
-      <input
-        name='password'
-        value={password}
-        // onChange={setPassword((e) => e.target.value)} 
-      />
+        <label>Password</label>
+        <input
+          name='password'
+          value={password}
+          // onChange={setPassword((e) => e.target.value)}
+        />
 
-      <button className='login-btn'>Login</button>
-    </form>
+        <button className='login-btn'>Login</button>
+      </form>
+    </>
   );
 }

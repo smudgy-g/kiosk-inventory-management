@@ -1,0 +1,40 @@
+.supplier-component-container {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  width: 90vw;
+  gap: 10px;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.supplier-icon {
+  width: 50px;
+}
+.supplier-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.supplier-name {
+  text-align: left;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 25px;
+}
+
+.small-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0066CC;
+  padding: 10px;
+  border-radius: 15px;
+
+}
