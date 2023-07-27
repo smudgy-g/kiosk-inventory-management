@@ -38,7 +38,7 @@ async function createClient(req, res) {
 async function getClient(req, res) {
   // use the id
   try {
-    const clientId = req.params.id;
+    const clientId = req.params.clientId;
 
     await prisma.$connect();
     const client = await prisma.client.findUnique({

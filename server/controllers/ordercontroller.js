@@ -16,7 +16,7 @@ async function createOrder(req, res) {
         products: {
           create: products.map(({ productId, quantity }) => ({
             product: { connect: { id: parseInt(productId) } },
-            quantity: parseInt(quantity),
+            quantity: parseFloat(quantity),
           })),
         },
       },
