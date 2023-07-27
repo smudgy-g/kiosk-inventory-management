@@ -30,31 +30,34 @@ model Product {
   name              String
   price             Float
   supplier          Supplier        @relation(fields: [supplierId], references: [id])
-  orders            OrderItem[]
+  orders            OrderProduct[]         
 
-  @@index([supplierId])
+  // @@index([supplierId])
 }
 
 model Order {
   id                Int         @id @default(autoincrement())
   clientId          Int
   supplierId        Int
+  price             Int
   client            Client      @relation(fields: [clientId], references: [id])
   supplier          Supplier    @relation(fields: [supplierId], references: [id])
-  orderItems        OrderItem[] 
+  products          OrderProduct[]   
+  
 
   @@index([clientId])
   @@index([supplierId])
 }
 
-model OrderItem {
-  orderId            Int
-  productId          Int
-
-  order              Order   @relation(fields: [orderId], references: [id])
-  product            Product @relation(fields: [productId], references: [id])
+model OrderProduct {
+  quantity          Int
+  orderId           Int
+  order             Order        @relation(fields: [orderId], references: [id])
+  productId         Int
+  product           Product      @relation(fields: [productId], references: [id])
 
   @@id([orderId, productId])
+  @@unique([orderId, productId])
 }
 
 generator client {

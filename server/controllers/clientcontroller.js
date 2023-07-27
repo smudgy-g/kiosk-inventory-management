@@ -7,7 +7,7 @@ async function createClient(req, res) {
     const { companyName, email, contactName } = req.body;
 
     if (!companyName || !email || !contactName)
-      res.status(400).send('Incomplete fields.');
+      return res.status(400).send('Incomplete fields.');
 
     await prisma.$connect();
 
@@ -16,9 +16,8 @@ async function createClient(req, res) {
         email: email,
       },
     });
-    console.log('found?', foundClient);
 
-    if (foundClient) res.status(404).send('Client already exists');
+    if (foundClient) return res.status(404).send();
 
     const newClient = await prisma.client.create({
       data: {

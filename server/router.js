@@ -6,7 +6,7 @@ const order = require('./controllers/ordercontroller');
 
 // client routes
 router.post('/client', client.createClient);
-router.get('/client:id', client.getClient);
+router.get('/client/:id', client.getClient);
 
 // suppplier routes
 router.get('/supplier:clientId', supplier.getSuppliers);
@@ -16,6 +16,6 @@ router.post('/supplier', supplier.createSupplier);
 router.post('/product', product.createProduct);
 
 // order routes
-// router.get('/order', order);
+router.post('/order', order.createOrder);
 
 module.exports = router;

@@ -16,12 +16,14 @@ function App() {
         <form onSubmit={handleSubmit}>
           <label>Email</label>
           <input
+            name="email"
             value={email}
             placeholder='Enter you email address'
             onChange={setEmail((e) => e.target.value)}></input>
         
           <label>Password</label>
           <input
+            name="password"
             value={password}
             onChange={setPassword((e) => e.target.value)}></input>
 

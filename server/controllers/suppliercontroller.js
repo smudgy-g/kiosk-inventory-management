@@ -22,7 +22,6 @@ async function getSuppliers(req, res) {
 
 async function createSupplier(req, res) {
   try {
-    console.log(req.body);
     const { companyName, email, contactName, clientId } = req.body;
     if (!companyName || !email || !contactName || !clientId)
       res.status(400).send('Incomplete fields.');
@@ -33,17 +32,19 @@ async function createSupplier(req, res) {
         companyName: companyName,
       },
     });
-    if (foundSupplier)
-      res.status(404).send('Supplier already exists: ', foundSupplier);
+    if (foundSupplier) {
+      return res.status(404).send();
+    }
+
     const newSupplier = await prisma.supplier.create({
       data: {
         companyName: companyName,
         email: email,
         contactName: contactName,
-        clientId: clientId,
+        clientId: parseInt(clientId),
       },
     });
-    res.status(201).send('New supplier created!', newSupplier);
+    res.status(201).send(newSupplier);
     await prisma.$disconnect;
   } catch (error) {
     res.status(400).send(`Error creating new supplier: ${error}`);
