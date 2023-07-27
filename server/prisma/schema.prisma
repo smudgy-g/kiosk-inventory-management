@@ -37,23 +37,23 @@ model Product {
 }
 
 model Order {
-  id          Int         @id @default(autoincrement())
-  clientId    Int
-  supplierId  Int
-  client      Client      @relation(fields: [clientId], references: [id])
-  supplier    Supplier    @relation(fields: [supplierId], references: [id])
-  orderItems  OrderItem[] @relation("OrderItem", references: [orderId, productId])
+  id                Int         @id @default(autoincrement())
+  clientId          Int
+  supplierId        Int
+  client            Client      @relation(fields: [clientId], references: [id])
+  supplier          Supplier    @relation(fields: [supplierId], references: [id])
+  orderItems        OrderItem[] 
 
   @@index([clientId])
   @@index([supplierId])
 }
 
 model OrderItem {
-  orderId   Int
-  productId Int
+  orderId            Int
+  productId          Int
 
-  order     Order   @relation(fields: [orderId], references: [id], name: "orderItemOrderId")
-  product   Product @relation(fields: [productId], references: [id])
+  order              Order   @relation(fields: [orderId], references: [id])
+  product            Product @relation(fields: [productId], references: [id])
 
   @@id([orderId, productId])
 }
