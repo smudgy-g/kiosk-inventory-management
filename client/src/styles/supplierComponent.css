@@ -36,5 +36,12 @@
   background-color: #0066CC;
   padding: 10px;
   border-radius: 15px;
+  cursor: pointer;
+  transition: all ease-in-out 100ms;
+}
 
+.small-button:hover,
+.small-button:focus {
+  outline: 2px solid #fff;
+  outline-offset: -4px;
 }

@@ -1,6 +1,10 @@
-/* :root {
-  
-} */
+:root {
+  --text: #001724;
+  --background: #fafafa;
+  --primary: #0066CC;
+  --secondary: #70e000;
+  --accent: #7f0ff0;
+}
 
 body {
   margin: 0;
@@ -11,4 +15,35 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  width: 130px;
+  padding: 1rem;
+  border-radius: 10px;
+  color: beige;
+  transition: ease-in-out 100ms;
+  cursor: pointer;
+}
+.btn:hover,
+.btn:active {
+  outline: 3px solid #fff;
+  outline-offset: -5px;
+}
+
+
+.blue {
+  background-color: var(--primary);
+}
+.black {
+  background-color: var(--accent);
+}
+
+.margin-30-top {
+  margin-top: 30px;
 }
