@@ -1,7 +1,4 @@
-// import the Prisma client from the index.js file
-const prisma = require('../index');
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
-
-module.exports = {
-  
-}
+module.exports = {};

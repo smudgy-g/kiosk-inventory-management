@@ -1,19 +1,20 @@
-// import the Prisma client from the index.js file
-const prisma = require('../index');
-
-// SUPPLIER QUERIES
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 async function getSuppliers(req, res) {
   try {
     // get suppliers for client using client id
     const { client } = req.params.clientId;
+
+    await prisma.$connect();
     const suppliers = await prisma.supplier.findMany({
       where: {
         clientId: client,
       },
     });
-    //return list of suppliers
+
     res.status(200).send(suppliers);
+    await prisma.$disconnect;
   } catch (error) {
     res.status(400).send(`Error getting suppliers: ${error}`);
   }
@@ -26,6 +27,7 @@ async function createSupplier(req, res) {
     if (!companyName || !email || !contactName || !clientId)
       res.status(400).send('Incomplete fields.');
 
+    await prisma.$connect();
     const foundSupplier = await prisma.supplier.findUnique({
       where: {
         companyName: companyName,
@@ -42,6 +44,7 @@ async function createSupplier(req, res) {
       },
     });
     res.status(201).send('New supplier created!', newSupplier);
+    await prisma.$disconnect;
   } catch (error) {
     res.status(400).send(`Error creating new supplier: ${error}`);
   }

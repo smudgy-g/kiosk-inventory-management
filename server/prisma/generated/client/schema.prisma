@@ -1,0 +1,64 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Client {
+  id                Int             @id @default(autoincrement())
+  companyName       String
+  email             String          @unique
+  contactName       String
+  updatedAt         DateTime        @updatedAt
+  order             Order[]
+  supplier          Supplier[]
+}
+
+model Supplier {
+  id                Int             @id @default(autoincrement())
+  companyName       String          @unique
+  email             String          @unique
+  contactName       String
+  clientId          Int
+  products          Product[]
+  order             Order[]
+  client            Client           @relation(fields: [clientId], references: [id])
+}
+
+model Product {
+  id                Int             @id @default(autoincrement())
+  supplierId        Int 
+  productId         Int?
+  name              String
+  price             Float
+  supplier          Supplier        @relation(fields: [supplierId], references: [id])
+  orders            OrderItem[]
+
+  @@index([supplierId])
+}
+
+model Order {
+  id                Int         @id @default(autoincrement())
+  clientId          Int
+  supplierId        Int
+  client            Client      @relation(fields: [clientId], references: [id])
+  supplier          Supplier    @relation(fields: [supplierId], references: [id])
+  orderItems        OrderItem[] 
+
+  @@index([clientId])
+  @@index([supplierId])
+}
+
+model OrderItem {
+  orderId            Int
+  productId          Int
+
+  order              Order   @relation(fields: [orderId], references: [id])
+  product            Product @relation(fields: [productId], references: [id])
+
+  @@id([orderId, productId])
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output = "./generated/client"
+}

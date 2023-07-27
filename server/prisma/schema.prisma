@@ -8,7 +8,6 @@ model Client {
   companyName       String
   email             String          @unique
   contactName       String
-  updatedAt         DateTime        @updatedAt
   order             Order[]
   supplier          Supplier[]
 }

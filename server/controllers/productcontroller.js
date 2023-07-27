@@ -1,5 +1,5 @@
-// import the Prisma client from the index.js file
-const prisma = require('../index');
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 async function createProduct(req, res) {
   try {
@@ -8,6 +8,7 @@ async function createProduct(req, res) {
     if (!supplierId || !name || !price)
       res.status(400).send('Incomplete fields.');
 
+    await prisma.$connect();
     const newClient = await prisma.product.create({
       data: {
         supplierId: supplierId,
@@ -17,6 +18,8 @@ async function createProduct(req, res) {
       },
     });
     res.status(201).send('New client created!', newClient);
+
+    await prisma.$disconnect;
   } catch (error) {
     res.status(400).send(`Error creating new supplier: ${error}`);
   }
