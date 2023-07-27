@@ -10,6 +10,7 @@ model Client {
   contactName       String
   updatedAt         DateTime        @updatedAt
   order             Order[]
+  supplier          Supplier[]
 }
 
 model Supplier {
@@ -17,8 +18,10 @@ model Supplier {
   companyName       String          @unique
   email             String          @unique
   contactName       String
+  clientId          Int
   products          Product[]
   order             Order[]
+  client            Client           @relation(fields: [clientId], references: [id])
 }
 
 model Product {
@@ -28,23 +31,31 @@ model Product {
   name              String
   price             Float
   supplier          Supplier        @relation(fields: [supplierId], references: [id])
-  order             Order[]
+  orders            OrderItem[]
 
   @@index([supplierId])
 }
 
 model Order {
-  id                Int             @id @default(autoincrement())
-  clientId          Int
-  supplierId        Int
-  productId         Int
-  client            Client          @relation(fields: [clientId], references: [id])
-  supplier          Supplier        @relation(fields: [supplierId], references: [id])
-  product           Product         @relation(fields: [productId], references: [id])
+  id          Int         @id @default(autoincrement())
+  clientId    Int
+  supplierId  Int
+  client      Client      @relation(fields: [clientId], references: [id])
+  supplier    Supplier    @relation(fields: [supplierId], references: [id])
+  orderItems  OrderItem[] @relation("OrderItem", references: [orderId, productId])
 
   @@index([clientId])
   @@index([supplierId])
-  @@index([productId])
+}
+
+model OrderItem {
+  orderId   Int
+  productId Int
+
+  order     Order   @relation(fields: [orderId], references: [id], name: "orderItemOrderId")
+  product   Product @relation(fields: [productId], references: [id])
+
+  @@id([orderId, productId])
 }
 
 generator client {
