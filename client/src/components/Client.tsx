@@ -1,20 +1,45 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import SupplierComponent from './SupplierComponent';
-import '../styles/client.css'
+import { useAppSelector } from '../app/hooks';
+import { getClientSuppliers } from '../services/supplierService';
+// remove this and move to tailwind
+import '../styles/client.css';
 
+interface Supplier {
+  clientId: Number;
+  companyName: String;
+  contactName: String;
+  email: String;
+  id: Number;
+}
+
+//In component files, import the pre-typed hooks instead of the standard hooks from React Redux
 export default function Client() {
+  const clientId = useAppSelector((state) => state.client.id);
+  const [suppliers, setSuppliers] = useState<Supplier[]>([]);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const fetchSuppliers = async () => {
+      const res = await getClientSuppliers(clientId);
+      setSuppliers(res);
+      setLoaded(true);
+    };
+
+    fetchSuppliers();
+  }, [clientId, loaded]);
+
   return (
     <>
       <header>
-        logo
-        <h1>Shenanigans</h1>
+        <h1 className=''>Shenanigans</h1>
       </header>
       <main>
         <div className='supplier-list-container'>
-          <SupplierComponent name='Beer Dewds' />
-          <SupplierComponent name='Victorias Veggies' />
-          <SupplierComponent name='Sick Spirits' />
-          <SupplierComponent name='Meat Munchers' />
+          {suppliers.map((supplier) => (
+            <SupplierComponent name={supplier.companyName} id={supplier.id} />
+          ))}
         </div>
         <div className='flex-row margin-30-top'>
           <div className='btn blue'>Stocktake</div>

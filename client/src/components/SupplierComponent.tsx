@@ -6,11 +6,16 @@ import '../styles/supplierComponent.css';
 
 interface SupplierComponentProps {
   name: String;
+  id: Number;
 }
 
 export default function SupplierComponent(props: SupplierComponentProps) {
+  function handleDirect() {
+    // <Link to={props.id}></Link>
+  }
+
   return (
-    <div className='supplier-component-container'>
+    <div className='supplier-component-container' onClick={handleDirect}>
       <div>
         <svg
           xmlns='http://www.w3.org/2000/svg'
