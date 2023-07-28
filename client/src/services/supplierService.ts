@@ -1,3 +1,4 @@
+import { newSupplier } from '../app/interfaces';
 const BASE_URL = 'http://localhost:8080/supplier';
 
 export function getClientSuppliers(id: Number) {
@@ -9,14 +10,14 @@ export function getClientSuppliers(id: Number) {
     .catch((err) => console.log(`Error retrieving events: ${err}`));
 }
 
-// function createEvent(event) {
-//   fetch(baseURL, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(event),
-//   })
-//     .then((response) => response.json())
-//     .catch((err) => console.log(`Error creating new event: ${err}`));
-// }
+export function addSupplierToClient(supplier: newSupplier) {
+  fetch(`${BASE_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(supplier),
+  })
+    .then((response) => console.log(response.json()))
+    .catch((err) => console.log(`Error creating new event: ${err}`));
+}

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import '../styles/supplierComponent.css';
 
 interface SupplierComponentProps {
+  key: String;
   name: String;
   id: Number;
 }

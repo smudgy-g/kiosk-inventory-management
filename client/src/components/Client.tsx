@@ -5,14 +5,15 @@ import { useAppSelector } from '../app/hooks';
 import { getClientSuppliers } from '../services/supplierService';
 // remove this and move to tailwind
 import '../styles/client.css';
+import { Supplier } from '../app/interfaces';
 
-interface Supplier {
-  clientId: Number;
-  companyName: String;
-  contactName: String;
-  email: String;
-  id: Number;
-}
+// interface Supplier {
+//   clientId: Number;
+//   companyName: String;
+//   contactName: String;
+//   email: String;
+//   id: Number;
+// }
 
 //In component files, import the pre-typed hooks instead of the standard hooks from React Redux
 export default function Client() {
@@ -38,7 +39,11 @@ export default function Client() {
       <main>
         <div className='supplier-list-container'>
           {suppliers.map((supplier) => (
-            <SupplierComponent name={supplier.companyName} id={supplier.id} />
+            <SupplierComponent
+              key={supplier.id.toString()}
+              name={supplier.companyName}
+              id={supplier.id}
+            />
           ))}
         </div>
         <div className='flex-row margin-30-top'>
