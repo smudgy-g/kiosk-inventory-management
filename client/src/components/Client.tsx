@@ -4,6 +4,7 @@ import SupplierComponent from './SupplierComponent';
 import { useAppSelector } from '../app/hooks';
 import { getClientSuppliers } from '../services/supplierService';
 import { Supplier } from '../app/interfaces';
+import { useNavigate } from 'react-router-dom';
 
 export default function Client() {
   const clientId = useAppSelector((state) => state.client.id);
@@ -20,11 +21,17 @@ export default function Client() {
     fetchSuppliers();
   }, [clientId, loaded]);
 
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate('/supplier/add');
+  }
+
   return (
     <>
       <header className='flex justify-between py-5 px-7 mb-2'>
         <div className='flex gap-2 items-center'>
-          <img src='./images/orange.png' alt='orange logo' className='h-10' />
+          <img src='/images/orange.png' alt='orange logo' className='h-10' />
           <h1 className='text-2xl font-bold'>kiosk</h1>
         </div>
         <button className='bg-black py-2 px-6 rounded-full text-white cursor-pointer'>
@@ -46,7 +53,9 @@ export default function Client() {
           <button className='bg-blue-700 py-2 w-36 rounded-full font-bold text-white cursor-pointer'>
             Stocktake
           </button>
-          <button className='bg-green-700 text-white font-bold py-2 w-36 rounded-full cursor-pointer'>
+          <button
+            onClick={handleClick}
+            className='bg-green-700 text-white font-bold py-2 w-36 rounded-full cursor-pointer'>
             Add Supplier
           </button>
         </footer>
