@@ -4,18 +4,19 @@ const client = require('./controllers/clientcontroller');
 const product = require('./controllers/productcontroller');
 const order = require('./controllers/ordercontroller');
 
-// client routes
+// client 
 router.post('/client', client.createClient);
 router.get('/client/:clientId', client.getClient);
 
-// suppplier routes
+// supplier 
 router.get('/supplier/:clientId', supplier.getSuppliers);
-router.post('/supplier', supplier.createSupplier);
+router.post('/supplier/', supplier.createSupplier);
 
-// product routes
+// product 
 router.post('/product', product.createProduct);
+router.get('/product/:supplierId', product.getProducts);
 
-// order routes
+// order 
 router.post('/order', order.createOrder);
 
 module.exports = router;

@@ -7,15 +7,7 @@ import { getClientSuppliers } from '../services/supplierService';
 import '../styles/client.css';
 import { Supplier } from '../app/interfaces';
 
-// interface Supplier {
-//   clientId: Number;
-//   companyName: String;
-//   contactName: String;
-//   email: String;
-//   id: Number;
-// }
 
-//In component files, import the pre-typed hooks instead of the standard hooks from React Redux
 export default function Client() {
   const clientId = useAppSelector((state) => state.client.id);
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
@@ -47,8 +39,8 @@ export default function Client() {
           ))}
         </div>
         <div className='flex-row margin-30-top'>
-          <div className='btn blue'>Stocktake</div>
-          <div className='btn black'>Add Supplier</div>
+          <button>Stocktake</button>
+          <button>Add Supplier</button>
         </div>
       </main>
     </>

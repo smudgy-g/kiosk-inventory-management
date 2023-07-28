@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 async function getSuppliers(req, res) {
   try {
     // get suppliers for client using client id
-    const { client } = req.params.clientId;
+    const {client} = req.params.clientId;
 
     await prisma.$connect();
     const suppliers = await prisma.supplier.findMany({

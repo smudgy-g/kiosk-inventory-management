@@ -7,7 +7,7 @@ export function getClientSuppliers(id: Number) {
       const suppliers = await response.json();
       return suppliers;
     })
-    .catch((err) => console.log(`Error retrieving events: ${err}`));
+    .catch((err) => console.log(`Error retrieving suppliers: ${err}`));
 }
 
 export function addSupplierToClient(supplier: newSupplier) {
@@ -19,5 +19,5 @@ export function addSupplierToClient(supplier: newSupplier) {
     body: JSON.stringify(supplier),
   })
     .then((response) => console.log(response.json()))
-    .catch((err) => console.log(`Error creating new event: ${err}`));
+    .catch((err) => console.log(`Error creating new supplier: ${err}`));
 }

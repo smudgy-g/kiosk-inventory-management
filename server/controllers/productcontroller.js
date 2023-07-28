@@ -24,6 +24,23 @@ async function createProduct(req, res) {
   }
 }
 
+async function getProducts(req, res) {
+  try {
+    const id = parseInt(req.params.supplierId);
+    await prisma.$connect();
+    const products = await prisma.product.findMany({
+      where: {
+        supplierId: id,
+      },
+    });
+    res.status(200).send(products);
+    await prisma.$disconnect;
+  } catch (error) {
+    res.status(400).send(error);
+  }
+}
+
 module.exports = {
   createProduct,
+  getProducts,
 };

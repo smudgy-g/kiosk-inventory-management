@@ -19,6 +19,10 @@ export default function AddSupplier() {
       email: email,
     };
     addSupplierToClient(supplier);
+    //check if all good, reireect back to suppierList page
+    
+
+    //otherwise, stay on page
   }
   return (
     <div>
