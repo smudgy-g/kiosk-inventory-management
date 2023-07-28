@@ -27,3 +27,8 @@ export interface Product {
   name: String;
   price: String;
 }
+
+export interface LocationState {
+  id: string;
+  name: String;
+}

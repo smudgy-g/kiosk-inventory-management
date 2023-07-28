@@ -3,11 +3,7 @@ import { useEffect, useState } from 'react';
 import { getSupplierProducts } from '../services/productService';
 import { Product } from '../app/interfaces';
 import { useLocation } from 'react-router-dom';
-
-interface LocationState {
-  id: string;
-  name: String;
-}
+import { LocationState } from '../app/interfaces';
 
 export default function OrderingComponent() {
   const location = useLocation();
@@ -30,10 +26,10 @@ export default function OrderingComponent() {
     fetchSuppliers();
   }, [loaded]);
 
-  // console.log(isArray(products));
   return (
     <>
       <h1>{supplierName}</h1>
+      <span>Create Order</span>
       <ul>
         {products.map((item) => (
           <li key={item.id.toString()}>

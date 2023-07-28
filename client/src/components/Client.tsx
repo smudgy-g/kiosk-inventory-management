@@ -3,10 +3,7 @@ import { useEffect, useState } from 'react';
 import SupplierComponent from './SupplierComponent';
 import { useAppSelector } from '../app/hooks';
 import { getClientSuppliers } from '../services/supplierService';
-// remove this and move to tailwind
-import '../styles/client.css';
 import { Supplier } from '../app/interfaces';
-
 
 export default function Client() {
   const clientId = useAppSelector((state) => state.client.id);
@@ -25,11 +22,18 @@ export default function Client() {
 
   return (
     <>
-      <header>
-        <h1 className=''>Shenanigans</h1>
+      <header className='flex justify-between py-5 px-7 mb-2'>
+        <div className='flex gap-2 items-center'>
+          <img src='/orange.png' alt='orange logo' className='h-10' />
+          <h1 className='text-2xl font-bold'>kiosk</h1>
+        </div>
+        <button className='bg-black py-2 px-6 rounded-full text-white cursor-pointer'>
+          Logout
+        </button>
       </header>
-      <main>
-        <div className='supplier-list-container'>
+      <main className='text-left px-5'>
+        <h1 className='text-3xl font-bold'>Shenanigans</h1>
+        <div className=''>
           {suppliers.map((supplier) => (
             <SupplierComponent
               key={supplier.id.toString()}
@@ -38,9 +42,13 @@ export default function Client() {
             />
           ))}
         </div>
-        <div className='flex-row margin-30-top'>
-          <button>Stocktake</button>
-          <button>Add Supplier</button>
+        <div className='flex justify-between absolute bottom-0 left-0 w-full py-4 px-5'>
+          <button className='bg-blue-700 py-2 w-36 rounded-full font-bold text-white cursor-pointer'>
+            Stocktake
+          </button>
+          <button className='bg-green-700 text-white font-bold py-2 w-36 rounded-full cursor-pointer'>
+            Add Supplier
+          </button>
         </div>
       </main>
     </>
