@@ -26,7 +26,7 @@ export default function SupplierComponent({
     <div className='grid grid-cols-3 gap-1 w-90vw items-center mt-6 p-2 rounded shadow-md'>
       <div className='col-span-1' onClick={handleClick}>
         <img
-          src='./images/cocktail.png'
+          src='/images/cocktail.png'
           alt='img'
           className='h-24 rounded-lg'
         />

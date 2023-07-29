@@ -4,11 +4,12 @@ import SupplierComponent from './SupplierComponent';
 import { useClientContext } from '../app/store';
 import { getClientSuppliers } from '../services/supplierService';
 import { Supplier } from '../app/interfaces';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Spinner from './Spinner';
 
 export default function Client() {
   const {clientId} = useClientContext();
+  const {id} = useParams();
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
   const [loaded, setLoaded] = useState(false);
 

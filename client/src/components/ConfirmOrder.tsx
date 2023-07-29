@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ProductToOrder } from '../app/interfaces';
 import { useSupplierContext, useClientContext } from '../app/store';
 import Spinner from './Spinner';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 //props: { products: ProductToOrder[] }
 export default function ConfirmOrder() {
@@ -11,6 +11,7 @@ export default function ConfirmOrder() {
   const [orderAmount, setOrderAmount] = useState<number>(0);
   const [loaded, setLoaded] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const productsToOrder: ProductToOrder[] =
     location.state?.productsToOrder || [];
   const supplierName = location.state?.supplierName || '';
@@ -61,7 +62,7 @@ export default function ConfirmOrder() {
       </main>
       <footer className='flex justify-between fixed bottom-0 left-0 w-full py-4 px-5'>
         <button
-          onClick={() => console.log('back')}
+          onClick={() => navigate(-1)}
           className='bg-black py-2 w-36 rounded-full font-bold text-white cursor-pointer'>
           Back
         </button>
