@@ -24,7 +24,7 @@ export interface SupplierContextType {
   setSupplierId: (c: number) => void;
 }
 
-export interface Product {
+export interface ProductType {
   id: Number;
   supplierId: Number;
   productId: Number | undefined;
@@ -44,9 +44,19 @@ export interface ProductComponentTypes {
   onUpdateQuantity: Function;
 }
 
-export interface ProductToOrder {
+export interface ProductToOrderType {
   id: number;
   price: number;
   quantity: number;
   name: String;
+}
+
+export interface OrderType {
+  clientId: number;
+  supplierId: number;
+  price: number;
+  products: {
+    productId: number;
+    quantity: number;
+  }[];
 }

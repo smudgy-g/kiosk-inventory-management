@@ -9,7 +9,7 @@ import Spinner from './Spinner';
 
 export default function Client() {
   const {clientId} = useClientContext();
-  const {id} = useParams();
+  // const {id} = useParams();
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
   const [loaded, setLoaded] = useState(false);
 

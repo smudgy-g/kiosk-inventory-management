@@ -1,21 +1,19 @@
 import { useEffect, useState } from 'react';
 import { getSupplierProducts } from '../services/productService';
-import { Product } from '../app/interfaces';
+import { ProductToOrderType, ProductType } from '../app/interfaces';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { LocationState } from '../app/interfaces';
 import ProductComponent from './ProductComponent';
-import { ProductToOrder } from '../app/interfaces';
-
 import Spinner from './Spinner';
 
 export default function OrderingComponent() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<ProductType[]>([]);
   const [loaded, setLoaded] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const clientId = (location.state as LocationState)?.id;
   const supplierName = (location.state as LocationState)?.name;
-  const [productsToOrder, setProductsToOrder] = useState<ProductToOrder[]>([]);
+  const [productsToOrder, setProductsToOrder] = useState<ProductToOrderType[]>([]);
   
   function handleGoBack() {
     navigate(-1);
@@ -34,7 +32,7 @@ export default function OrderingComponent() {
   }, [loaded]);
 
   // Callback function to update the quantity of a product in the state
-  const updateProductQuantity = (item: ProductToOrder) => {
+  const updateProductQuantity = (item: ProductToOrderType) => {
     // if (item.quantity === 0) {return};
     const updatedProducts = [...productsToOrder];
     const productIndex = updatedProducts.findIndex(
@@ -50,7 +48,7 @@ export default function OrderingComponent() {
   };
 
   // removed any products with no quantity
-  function filterProductsToOrder(arr: ProductToOrder[]) {
+  function filterProductsToOrder(arr: ProductToOrderType[]) {
     return arr.filter((item) => item.quantity > 0);
   }
 

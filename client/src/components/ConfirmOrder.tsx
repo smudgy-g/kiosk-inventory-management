@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ProductToOrder } from '../app/interfaces';
+import { ProductToOrderType, OrderType } from '../app/interfaces';
 import { useSupplierContext, useClientContext } from '../app/store';
 import Spinner from './Spinner';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ export default function ConfirmOrder() {
   const [loaded, setLoaded] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const productsToOrder: ProductToOrder[] =
+  const productsToOrder: ProductToOrderType[] =
     location.state?.productsToOrder || [];
   const supplierName = location.state?.supplierName || '';
 
@@ -23,12 +23,26 @@ export default function ConfirmOrder() {
     console.log(supplierName, supplierId, clientId);
   }, []);
 
-  function totalOrderAmount(arr: ProductToOrder[]) {
+  function totalOrderAmount(arr: ProductToOrderType[]) {
     return arr.reduce((acc, { quantity, price }) => {
       const subTotal = quantity * price;
       acc = acc + subTotal;
       return acc;
     }, 0);
+  }
+
+  function sendOrder() {
+    const order: OrderType = {
+      clientId: clientId,
+      supplierId: supplierId,
+      price: orderAmount,
+      products: productsToOrder.map((product) => ({
+        productId: product.id,
+        quantity: product.quantity,
+      })),
+    };
+
+    console.log('Order:', order);
   }
 
   return (
@@ -68,7 +82,7 @@ export default function ConfirmOrder() {
         </button>
         <button
           className='bg-green-700 text-white font-bold py-2 w-36 rounded-full cursor-pointer'
-          onClick={() => console.log('next')}>
+          onClick={sendOrder}>
           Confirm
         </button>
       </footer>
