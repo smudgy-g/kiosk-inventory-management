@@ -1,16 +1,19 @@
-import { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
-// import { FiInfo } from 'react-icons/fi';
-
-interface ProductComponentTypes {
-  name: String;
-  price: String;
-}
+import { ProductComponentTypes } from '../app/interfaces';
 
 export default function ProductComponent(props: ProductComponentTypes) {
   const [quantity, setQuantity] = useState(0);
-  
+
+  useEffect(() => {
+    const productToOrder = {
+      id: props.id,
+      price: props.price,
+      quantity: quantity,
+      name: props.name,
+    };
+    props.onUpdateQuantity(productToOrder);
+  }, [quantity]);
 
   function increment() {
     setQuantity(quantity + 1);
@@ -26,7 +29,6 @@ export default function ProductComponent(props: ProductComponentTypes) {
     else setQuantity(value);
     setQuantity(value);
   }
-
 
   return (
     <div className='flex justify-between m-5'>

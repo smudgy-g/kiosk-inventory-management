@@ -19,7 +19,6 @@ export default function Login() {
     setEmail('');
     setPassword('');
     await clientContext?.setClientId(id);
-    // console.log(clientContext, email, password);
     navigate('/client');
   }
 

@@ -32,3 +32,17 @@ export interface LocationState {
   id: string;
   name: String;
 }
+
+export interface ProductComponentTypes {
+  id: Number;
+  name: String;
+  price: String;
+  onUpdateQuantity: Function;
+}
+
+export interface ProductToOrder {
+  id: number;
+  price: Number;
+  quantity: number;
+  name: String;
+}

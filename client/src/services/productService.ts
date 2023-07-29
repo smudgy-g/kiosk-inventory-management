@@ -6,7 +6,6 @@ export function getSupplierProducts(supplierId: string) {
   return fetch(`${BASE_URL}/product/${id}`)
     .then(async (response) => {
       const products = await response.json();
-      console.log(products);
       return products;
     })
     .catch((err) => console.log(`Error retrieving products: ${err}`));
