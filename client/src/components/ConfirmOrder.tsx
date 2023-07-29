@@ -38,7 +38,8 @@ export default function ConfirmOrder() {
       supplierId: supplierId,
       price: orderAmount,
       products: productsToOrder.map((product) => ({
-        productId: product.id,
+        productName: product.name,
+        id: product.id,
         quantity: product.quantity,
       })),
     };

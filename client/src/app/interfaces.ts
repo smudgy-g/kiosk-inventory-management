@@ -56,7 +56,7 @@ export interface OrderType {
   supplierId: number;
   price: number;
   products: {
-    productId: number;
+    id: number;
     quantity: number;
   }[];
 }

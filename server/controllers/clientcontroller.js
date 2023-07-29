@@ -3,7 +3,6 @@ const prisma = new PrismaClient();
 
 async function createClient(req, res) {
   try {
-    // console.log(req.body);
     const { companyName, email, contactName } = req.body;
 
     if (!companyName || !email || !contactName)
@@ -26,8 +25,6 @@ async function createClient(req, res) {
         contactName: contactName,
       },
     });
-
-    console.log(newClient);
     res.status(201).send(newClient);
     await prisma.$disconnect;
   } catch (error) {
