@@ -7,16 +7,16 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'kioskinventorymanagement@gmail.com',
-    // pass: '1nvent0rY!!',
     pass: 'kibrbtrosshsgcji',
   },
 });
 
 async function main(supplier, client, productList) {
+  console.log(supplier, client, productList);
   const info = await transporter.sendMail({
     from: '"Smudgy-G" <kioskinventorymanagement@gmail.com>',
     to: 'adamgriff86@gmail.com',
-    subject: client.companyName,
+    subject: `${client.companyName}`,
     html: `
     <body>
       <h1>Order for ${client.companyName}</h1>
@@ -28,8 +28,8 @@ async function main(supplier, client, productList) {
       } would like to order the following items for the next available delivery date: </p>
 
       <ul>
-        <li><strong>Supplier:</strong> [Supplier Name]</li>
-        <li><strong>Contact:</strong> [Contact Name]</li>
+        <li><strong>Supplier:</strong>${supplier.companyName}</li>
+        <li><strong>Contact:</strong> ${supplier.contactName}</li>
       </ul>
 
       <table>
@@ -37,6 +37,7 @@ async function main(supplier, client, productList) {
           <tr>
             <th>Product ID</th>
             <th>Product Name</th>
+            <th>Quantity</th>
           </tr>
         </thead>
         <tbody>
@@ -45,7 +46,7 @@ async function main(supplier, client, productList) {
               (product) => `
             <tr>
               <td>${product.productId}</td>
-              <td>${product.name}</td>
+              <td>${product.productName}</td>
               <td>${product.quantity}</td>
             </tr>
           `
@@ -67,33 +68,22 @@ async function main(supplier, client, productList) {
 }
 
 async function sendOrder(clientId, supplierId, productList) {
-  const supplier = getSupplierDetails(supplierId);
-  const client = getClientDetails(clientId);
+  try {
+    const supplier = await getSupplierDetails(supplierId);
+    const client = await getClientDetails(clientId);
 
-  const productListWithId = await Promise.all(
-    productList.map(async (product) => {
-      const productId = await getProductId(product.id);
-      return {
-        ...product,
-        productId,
-      };
-    })
-  );
-  main(supplier, client, productListWithId);
+    const productListWithId = await Promise.all(
+      productList.map(async (product) => {
+        const productId = await getProductId(product.id);
+        return {
+          ...product,
+          productId,
+        };
+      })
+    );
+    await main(supplier, client, productListWithId);
+  } catch (error) {
+    console.log(error);
+  }
 }
-/*
-{
-  id: 3,
-  companyName: 'Beer Dewds',
-  email: 'adamgriff86@gmail.com',
-  contactName: 'Philip J. Fry',
-  clientId: 1
-}
-{
-  id: 2,
-  companyName: "Big Ben's Burgers",
-  email: 'ben@bbb.com.au',
-  contactName: 'Benjamin Ramjan'
-}
-*/
 module.exports = { sendOrder };

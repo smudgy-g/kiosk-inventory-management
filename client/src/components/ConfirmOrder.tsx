@@ -21,7 +21,6 @@ export default function ConfirmOrder() {
     const total = totalOrderAmount(productsToOrder);
     setOrderAmount(total);
     setLoaded(true);
-    console.log(supplierName, supplierId, clientId);
   }, []);
 
   function totalOrderAmount(arr: ProductToOrderType[]) {
