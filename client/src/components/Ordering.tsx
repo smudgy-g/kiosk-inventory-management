@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { LocationState } from '../app/interfaces';
 import ProductComponent from './ProductComponent';
 import { ProductToOrder } from '../app/interfaces';
+import Spinner from './Spinner';
 
 export default function OrderingComponent() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -50,7 +51,7 @@ export default function OrderingComponent() {
 
   // removed any products with no quantity
   function filterProductsToOrder(arr: ProductToOrder[]) {
-    return arr.filter(item => item.quantity > 0)
+    return arr.filter((item) => item.quantity > 0);
   }
 
   // pass on to nodemailer in seperate function to create email template and send off
@@ -65,6 +66,7 @@ export default function OrderingComponent() {
         </div>
       </header>
       <main className='h-full overflow-y-auto pb-10'>
+        {!loaded && <Spinner />}
         <ul>
           {products.map((item) => (
             <ProductComponent
@@ -83,7 +85,9 @@ export default function OrderingComponent() {
           className='bg-black py-2 w-36 rounded-full font-bold text-white cursor-pointer'>
           Back
         </button>
-        <button className='bg-green-700 text-white font-bold py-2 w-36 rounded-full cursor-pointer' onClick={() => console.log(productsToOrder)}>
+        <button
+          className='bg-green-700 text-white font-bold py-2 w-36 rounded-full cursor-pointer'
+          onClick={() => console.log(productsToOrder)}>
           Next
         </button>
       </footer>

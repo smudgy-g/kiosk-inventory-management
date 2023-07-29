@@ -5,6 +5,7 @@ import { useAppSelector } from '../app/hooks';
 import { getClientSuppliers } from '../services/supplierService';
 import { Supplier } from '../app/interfaces';
 import { useNavigate } from 'react-router-dom';
+import Spinner from './Spinner';
 
 export default function Client() {
   const clientId = useAppSelector((state) => state.client.id);
@@ -41,6 +42,7 @@ export default function Client() {
         </button>
       </header>
       <main className='text-left px-5'>
+        {!loaded && <Spinner />}
         <h1 className='text-3xl font-bold'>Shenanigans</h1>
         <div className=''>
           {suppliers.map((supplier) => (
