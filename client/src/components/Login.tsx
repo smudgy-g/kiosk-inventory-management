@@ -5,18 +5,15 @@ import { useNavigate } from 'react-router-dom';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [id, setId] = useState(0);
   const navigate = useNavigate();
-  const { clientId, setClientId } = useClientContext();
+  const { setClientId } = useClientContext();
 
   async function handleSubmit(e: any) {
     e.preventDefault();
-    // setId(4);
     setEmail('');
     setPassword('');
     await setClientId(2);
-    // navigate('/client');
-    navigate(`/client/${clientId}`);
+    navigate(`/client`);
   }
 
   return (

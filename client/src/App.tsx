@@ -8,10 +8,6 @@ import AddSupplier from './components/AddSupplier';
 import { ClientContext, SupplierContext } from './app/store';
 import ConfirmOrder from './components/ConfirmOrder';
 
-// export const SupplierContext = createContext<ClientContextType | undefined>(
-//   undefined
-// );
-
 function App() {
   const [clientId, setClientId] = useState<number>(0);
   const [supplierId, setSupplierId] = useState<number>(0);
@@ -22,7 +18,7 @@ function App() {
         <Router>
           <Routes>
             <Route path='/' element={<Login />} />
-            <Route path='/client/:id' element={<Client />} />
+            <Route path='/client' element={<Client />} />
             <Route path='/products/' element={<Ordering />} />
             <Route path='/order' element={<ConfirmOrder />} />
             <Route path='/supplier/add' element={<AddSupplier />} />

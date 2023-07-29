@@ -28,7 +28,7 @@ async function main(supplier, client, productList) {
       } would like to order the following items for the next available delivery date: </p>
 
       <ul>
-        <li><strong>Supplier:</strong>${supplier.companyName}</li>
+        <li><strong>Supplier:</strong> ${supplier.companyName}</li>
         <li><strong>Contact:</strong> ${supplier.contactName}</li>
       </ul>
 

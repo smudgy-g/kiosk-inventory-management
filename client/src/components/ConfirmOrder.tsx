@@ -43,6 +43,7 @@ export default function ConfirmOrder() {
       })),
     };
     sendOrder(order);
+    navigate('/client');
   }
 
   return (
