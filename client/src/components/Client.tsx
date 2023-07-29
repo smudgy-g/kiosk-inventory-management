@@ -50,6 +50,7 @@ export default function Client() {
               key={supplier.id.toString()}
               name={supplier.companyName}
               id={supplier.id}
+              
             />
           ))}
         </div>

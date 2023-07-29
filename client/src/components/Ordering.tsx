@@ -1,4 +1,3 @@
-// import { useAppSelector } from "../app/hooks";
 import { useEffect, useState } from 'react';
 import { getSupplierProducts } from '../services/productService';
 import { Product } from '../app/interfaces';
@@ -6,6 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { LocationState } from '../app/interfaces';
 import ProductComponent from './ProductComponent';
 import { ProductToOrder } from '../app/interfaces';
+
 import Spinner from './Spinner';
 
 export default function OrderingComponent() {
@@ -16,7 +16,7 @@ export default function OrderingComponent() {
   const clientId = (location.state as LocationState)?.id;
   const supplierName = (location.state as LocationState)?.name;
   const [productsToOrder, setProductsToOrder] = useState<ProductToOrder[]>([]);
-
+  
   function handleGoBack() {
     navigate(-1);
   }

@@ -1,7 +1,7 @@
 import { addSupplierToClient } from '../services/supplierService';
 import { newSupplier } from '../app/interfaces';
 import { useState } from 'react';
-import { useAppSelector } from '../app/hooks';
+import { useClientContext } from '../app/store';
 import { useNavigate } from 'react-router-dom';
 
 export default function AddSupplier() {
@@ -10,12 +10,12 @@ export default function AddSupplier() {
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
 
-  const clientID = useAppSelector((state) => state.client.id);
+  const { clientId } = useClientContext();
 
   function handleSubmit(e: any) {
     e.preventDefault();
     const supplier: newSupplier = {
-      clientId: clientID,
+      clientId: clientId,
       companyName: company,
       contactName: contact,
       email: email,

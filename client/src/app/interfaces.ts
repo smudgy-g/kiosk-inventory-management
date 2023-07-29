@@ -5,7 +5,7 @@ export interface Supplier {
   companyName: String;
   contactName: String;
   email: String;
-  id: Number;
+  id: number;
 }
 
 export interface newSupplier {
@@ -17,8 +17,11 @@ export interface newSupplier {
 
 export interface ClientContextType {
   clientId: number;
-  // setClientId: React.Dispatch<React.SetStateAction<number>>;
   setClientId: (c: number) => void;
+}
+export interface SupplierContextType {
+  supplierId: number;
+  setSupplierId: (c: number) => void;
 }
 
 export interface Product {
