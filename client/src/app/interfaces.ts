@@ -46,7 +46,7 @@ export interface ProductComponentTypes {
 
 export interface ProductToOrder {
   id: number;
-  price: Number;
+  price: number;
   quantity: number;
   name: String;
 }

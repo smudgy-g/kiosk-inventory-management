@@ -87,7 +87,9 @@ export default function OrderingComponent() {
         </button>
         <button
           className='bg-green-700 text-white font-bold py-2 w-36 rounded-full cursor-pointer'
-          onClick={() => console.log(productsToOrder)}>
+          onClick={() =>
+            navigate('/order', { state: { productsToOrder, supplierName } })
+          }>
           Next
         </button>
       </footer>
