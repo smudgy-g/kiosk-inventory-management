@@ -34,7 +34,9 @@ export default function Client() {
           <img src='/images/orange.png' alt='orange logo' className='h-10' />
           <h1 className='text-2xl font-bold'>kiosk</h1>
         </div>
-        <button className='bg-black py-2 px-6 rounded-full text-white cursor-pointer'>
+        <button
+          onClick={() => navigate('/')}
+          className='bg-black py-2 px-6 rounded-full text-white cursor-pointer'>
           Logout
         </button>
       </header>
