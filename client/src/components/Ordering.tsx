@@ -37,7 +37,6 @@ export default function OrderingComponent() {
 
   // Callback function to update the quantity of a product in the state
   const updateProductQuantity = (item: ProductToOrderType) => {
-    // if (item.quantity === 0) {return};
     const updatedProducts = [...productsToOrder];
     const productIndex = updatedProducts.findIndex(
       (product) => product.id === item.id
@@ -51,12 +50,9 @@ export default function OrderingComponent() {
     setProductsToOrder(filteredProducts);
   };
 
-  // removed any products with no quantity
   function filterProductsToOrder(arr: ProductToOrderType[]) {
     return arr.filter((item) => item.quantity > 0);
   }
-
-  // pass on to nodemailer in seperate function to create email template and send off
 
   return (
     <>

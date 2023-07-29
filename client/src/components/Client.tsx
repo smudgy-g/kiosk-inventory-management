@@ -9,6 +9,7 @@ import { Supplier } from '../app/interfaces';
 import { useNavigate } from 'react-router-dom';
 import Spinner from './Spinner';
 import ClientHeaderComponent from './ClientHeaderComponent';
+import DeleteModal from './DeleteModal';
 
 export default function Client() {
   const { clientId } = useClientContext();
@@ -50,6 +51,7 @@ export default function Client() {
         <ClientHeaderComponent />
       </div>
       <main className='text-left px-5 overflow-auto mb-16 mt-24'>
+        {/* <DeleteModal onDelete={() => handleDelete(supplier.id)} /> */}
         {!loaded && <Spinner />}
         <h1 className='text-3xl font-bold'>{clientName}</h1>
         <div className=''>
