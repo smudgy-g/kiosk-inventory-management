@@ -8,11 +8,13 @@ interface SupplierComponentProps {
   key: String;
   name: String;
   id: number;
+  onDelete: Function;
 }
 
 export default function SupplierComponent({
   id,
   name,
+  onDelete,
 }: SupplierComponentProps) {
   const { setSupplierId } = useSupplierContext();
   const navigate = useNavigate();
@@ -22,21 +24,23 @@ export default function SupplierComponent({
     navigate('/products/', { state: { id, name } });
   }
 
+  function handleDelete() {
+    onDelete();
+  }
+
   return (
     <div className='grid grid-cols-3 gap-1 w-90vw items-center mt-6 p-2 rounded shadow-md'>
       <div className='col-span-1' onClick={handleClick}>
-        <img
-          src='/images/cocktail.png'
-          alt='img'
-          className='h-24 rounded-lg'
-        />
+        <img src='/images/cocktail.png' alt='img' className='h-24 rounded-lg' />
       </div>
       <div className='flex flex-col justify-between h-full col-span-2'>
         <div className='text-left text-xl font-bold mb-2' onClick={handleClick}>
           {name}
         </div>
         <div className='flex justify-end gap-6'>
-          <div className='bg-blue-600 p-3 rounded-xl cursor-pointer'>
+          <div
+            className='bg-blue-600 p-3 rounded-xl cursor-pointer'
+            onClick={handleDelete}>
             <FaTrash color='white' />
           </div>
           <div className='bg-blue-600 p-3 rounded-xl cursor-pointer'>

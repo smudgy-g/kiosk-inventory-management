@@ -20,9 +20,13 @@ export default function AddSupplier() {
       contactName: contact,
       email: email,
     };
-    addSupplierToClient(supplier);
+    addSupplierToClient(supplier).then(() => {
+      navigate('/client')
+    }).catch((error: Error) => {
+      alert('Unable to add supplier. Please try again.')
+    });
     //check if all good, reireect back to suppierList page
-
+    
     //otherwise, stay on page
   }
 

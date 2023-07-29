@@ -4,7 +4,7 @@ import SupplierComponent from './SupplierComponent';
 import { useClientContext } from '../app/store';
 import { getClientSuppliers } from '../services/supplierService';
 import { getClientDetails } from '../services/clientService';
-
+import { deleteSupplier } from '../services/supplierService';
 import { Supplier } from '../app/interfaces';
 import { useNavigate } from 'react-router-dom';
 import Spinner from './Spinner';
@@ -18,7 +18,9 @@ export default function Client() {
 
   useEffect(() => {
     const fetchClient = async () => {
-      const res = await getClientDetails(clientId);
+      const res = await getClientDetails(clientId).then((response) =>
+        response.json()
+      );
       setClientName(res.companyName);
     };
 
@@ -37,6 +39,11 @@ export default function Client() {
     navigate('/supplier/add');
   }
 
+  function handleDelete(id: number) {
+    deleteSupplier(id);
+    setSuppliers(suppliers.filter((supplier) => supplier.id !== id));
+  }
+
   return (
     <>
       <div>
@@ -51,6 +58,7 @@ export default function Client() {
               key={supplier.id.toString()}
               name={supplier.companyName}
               id={supplier.id}
+              onDelete={() => handleDelete(supplier.id)}
             />
           ))}
         </div>

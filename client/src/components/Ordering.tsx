@@ -13,8 +13,10 @@ export default function OrderingComponent() {
   const navigate = useNavigate();
   const clientId = (location.state as LocationState)?.id;
   const supplierName = (location.state as LocationState)?.name;
-  const [productsToOrder, setProductsToOrder] = useState<ProductToOrderType[]>([]);
-  
+  const [productsToOrder, setProductsToOrder] = useState<ProductToOrderType[]>(
+    []
+  );
+
   function handleGoBack() {
     navigate(-1);
   }
@@ -22,7 +24,9 @@ export default function OrderingComponent() {
   useEffect(() => {
     const fetchSuppliers = async () => {
       if (clientId) {
-        const res = await getSupplierProducts(clientId);
+        const res = await getSupplierProducts(clientId).then((response) =>
+          response.json()
+        );
         setProducts(res);
         setLoaded(true);
       }

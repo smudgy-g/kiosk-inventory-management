@@ -11,6 +11,7 @@ router.get('/client/:clientId', client.getClient);
 // supplier 
 router.get('/supplier/:clientId', supplier.getSuppliers);
 router.post('/supplier/', supplier.createSupplier);
+router.delete('/supplier', supplier.deleteSupplier);
 
 // product 
 router.post('/product', product.createProduct);

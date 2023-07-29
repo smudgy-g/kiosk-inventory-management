@@ -10,14 +10,22 @@ export function getClientSuppliers(id: Number) {
     .catch((err) => console.log(`Error retrieving suppliers: ${err}`));
 }
 
-export function addSupplierToClient(supplier: newSupplier) {
-  fetch(`${BASE_URL}`, {
+export function addSupplierToClient(supplier: newSupplier): Promise<Response> {
+  return fetch(`${BASE_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(supplier),
-  })
-    .then((response) => console.log(response.json()))
-    .catch((err) => console.log(`Error creating new supplier: ${err}`));
+  });
+}
+
+export function deleteSupplier(id: number) {
+  return fetch(`${BASE_URL}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ supplierId: id }),
+  });
 }

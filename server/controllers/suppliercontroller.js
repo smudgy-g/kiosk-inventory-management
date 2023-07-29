@@ -45,15 +45,32 @@ async function createSupplier(req, res) {
       },
     });
     res.status(201).send(newSupplier);
-    
+
     await prisma.$disconnect;
   } catch (error) {
     res.status(400).send(`Error creating new supplier: ${error}`);
   }
 }
 
+async function deleteSupplier(req, res) {
+  try {
+    const { supplierId } = req.body;
+    await prisma.$connect();
+    const result = await prisma.supplier.delete({
+      where: {
+        id: supplierId,
+      },
+    });
+
+    res.status(200).send(result);
+    await prisma.$disconnect;
+  } catch (error) {
+    res.status(400).send(`Error getting suppliers: ${error}`);
+  }
+}
 
 module.exports = {
   getSuppliers,
   createSupplier,
+  deleteSupplier,
 };

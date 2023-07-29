@@ -42,8 +42,9 @@ export default function ConfirmOrder() {
         quantity: product.quantity,
       })),
     };
-    sendOrder(order);
-    navigate('/client');
+    sendOrder(order)
+      .then(() => navigate('/client'))
+      .catch((err) => alert('Error sending order. PLease try again'));
   }
 
   return (
