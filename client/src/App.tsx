@@ -1,27 +1,22 @@
-import React, { createContext, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Login from './components/Login';
 import Ordering from './components/Ordering';
 import Client from './components/Client';
 import AddSupplier from './components/AddSupplier';
-import { ClientContextType } from './app/interfaces';
+import { ClientContext } from './app/store';
 
-export const ClientContext = createContext<ClientContextType | undefined>(
-  undefined
-);
-export const SupplierContext = createContext<ClientContextType | undefined>(
-  undefined
-);
-
+// export const SupplierContext = createContext<ClientContextType | undefined>(
+//   undefined
+// );
 
 function App() {
-  const [clientId, setClientId] = useState<Number>(0);
+  const [clientId, setClientId] = useState<number>(0);
   // const [supplierId, setSupplierId] = useState<Number>(0);
 
   return (
-    <ClientContext.Provider
-      value={({ clientId, setClientId })}>
+    <ClientContext.Provider value={{ clientId, setClientId }}>
       <Router>
         <Routes>
           <Route path='/' element={<Login />} />

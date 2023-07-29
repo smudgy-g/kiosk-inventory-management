@@ -1,14 +1,14 @@
 // import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import SupplierComponent from './SupplierComponent';
-import { useAppSelector } from '../app/hooks';
+import { useClientContext } from '../app/store';
 import { getClientSuppliers } from '../services/supplierService';
 import { Supplier } from '../app/interfaces';
 import { useNavigate } from 'react-router-dom';
 import Spinner from './Spinner';
 
 export default function Client() {
-  const clientId = useAppSelector((state) => state.client.id);
+  const {clientId} = useClientContext();
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
   const [loaded, setLoaded] = useState(false);
 

@@ -16,8 +16,9 @@ export interface newSupplier {
 }
 
 export interface ClientContextType {
-  clientId: Number;
-  setClientId: React.Dispatch<React.SetStateAction<Number>>;
+  clientId: number;
+  // setClientId: React.Dispatch<React.SetStateAction<number>>;
+  setClientId: (c: number) => void;
 }
 
 export interface Product {
