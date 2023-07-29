@@ -3,6 +3,7 @@ import { ProductToOrderType, OrderType } from '../app/interfaces';
 import { useSupplierContext, useClientContext } from '../app/store';
 import Spinner from './Spinner';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { sendOrder } from '../services/orderingService';
 
 //props: { products: ProductToOrder[] }
 export default function ConfirmOrder() {
@@ -31,7 +32,7 @@ export default function ConfirmOrder() {
     }, 0);
   }
 
-  function sendOrder() {
+  function send() {
     const order: OrderType = {
       clientId: clientId,
       supplierId: supplierId,
@@ -41,8 +42,7 @@ export default function ConfirmOrder() {
         quantity: product.quantity,
       })),
     };
-
-    console.log('Order:', order);
+    sendOrder(order);
   }
 
   return (
@@ -82,7 +82,7 @@ export default function ConfirmOrder() {
         </button>
         <button
           className='bg-green-700 text-white font-bold py-2 w-36 rounded-full cursor-pointer'
-          onClick={sendOrder}>
+          onClick={send}>
           Confirm
         </button>
       </footer>
