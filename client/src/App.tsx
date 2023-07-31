@@ -22,7 +22,7 @@ function App() {
             <Route path='/products/' element={<Ordering />} />
             <Route path='/order' element={<ConfirmOrder />} />
             <Route path='/supplier/add' element={<AddSupplier />} />
-            <Route path='*' element={<h3>Adam sent you here, didn't he.</h3>} />
+            <Route path='*' element={<h3>Adam sent you here, right?</h3>} />
           </Routes>
         </Router>
       </SupplierContext.Provider>

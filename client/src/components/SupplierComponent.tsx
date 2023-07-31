@@ -9,7 +9,8 @@ interface SupplierComponentProps {
   key: string;
   name: string;
   id: number;
-  onDelete: () => void;
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  onDelete: Function;
 }
 
 export default function SupplierComponent({

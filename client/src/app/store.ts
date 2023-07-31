@@ -3,12 +3,12 @@ import { ClientContextType, SupplierContextType } from './interfaces';
 
 export const ClientContext = createContext<ClientContextType>({
   clientId: 0,
-  setClientId: () => {},
+  setClientId: () => void 0,
 });
 
 export const SupplierContext = createContext<SupplierContextType>({
   supplierId: 0,
-  setSupplierId: () => {},
+  setSupplierId: () => void 0,
 });
 
 export const useClientContext = () => useContext(ClientContext);

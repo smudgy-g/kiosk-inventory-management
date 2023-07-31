@@ -1,5 +1,5 @@
 const BASE_URL = 'http://localhost:8080/client';
 
-export function getClientDetails(id: Number) {
-  return fetch(`${BASE_URL}/${id}`);
+export function getClientDetails(id: number) {
+  return fetch(`${BASE_URL}/${id}`).then(async (response) => response.json());
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import { addSupplierToClient } from '../services/supplierService';
 import { newSupplier } from '../app/interfaces';
 import { useState } from 'react';
@@ -13,7 +13,7 @@ export default function AddSupplier() {
 
   const { clientId } = useClientContext();
 
-  function handleSubmit(e: any) {
+  function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const supplier: newSupplier = {
       clientId: clientId,
@@ -26,11 +26,11 @@ export default function AddSupplier() {
         navigate('/client');
       })
       .catch((error: Error) => {
+        console.log(error);
         alert('Unable to add supplier. Please try again.');
       });
-    //check if all good, reireect back to suppierList page
 
-    //otherwise, stay on page
+    //add message modal
   }
 
   function handleGoBack() {

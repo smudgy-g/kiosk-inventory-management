@@ -19,9 +19,7 @@ export default function Client() {
 
   useEffect(() => {
     const fetchClient = async () => {
-      const res = await getClientDetails(clientId).then((response) =>
-        response.json()
-      );
+      const res = await getClientDetails(clientId);
       setClientName(res.companyName);
     };
 

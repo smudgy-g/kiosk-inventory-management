@@ -1,7 +1,7 @@
 import { newSupplier } from '../app/interfaces';
 const BASE_URL = 'http://localhost:8080/supplier';
 
-export function getClientSuppliers(id: Number) {
+export function getClientSuppliers(id: number) {
   return fetch(`${BASE_URL}/${id}`)
     .then(async (response) => {
       const suppliers = await response.json();
