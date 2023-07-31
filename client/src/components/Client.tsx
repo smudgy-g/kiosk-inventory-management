@@ -59,10 +59,10 @@ export default function Client() {
       <div>
         <ClientHeaderComponent />
       </div>
-      <main className='text-left px-5 overflow-auto mb-16 mt-24'>
+      <main className='text-left px-5 overflow-auto mb-16 pb-2 mt-24'>
         {!loaded && <Spinner />}
         <h1 className='text-3xl font-bold'>{clientName}</h1>
-        <div className=''>
+        
           {suppliers.map((supplier) => (
             <SupplierComponent
               key={supplier.id.toString()}
@@ -75,7 +75,6 @@ export default function Client() {
           {isOpen && (
             <DeleteModal handleDelete={handleDelete} setIsOpen={setIsOpen} />
           )}
-        </div>
       </main>
       <footer className='fixed bottom-0 left-0 flex justify-between bg-white w-full py-4 px-5'>
         <button className='bg-blue-700 py-2 w-36 rounded-full font-bold text-white cursor-pointer'>

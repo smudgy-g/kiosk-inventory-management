@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaTrash } from 'react-icons/fa';
-import { FiInfo } from 'react-icons/fi';
+import { FaTrash, FaPlus, FaInfo } from 'react-icons/fa';
 import { useSupplier } from '../contexts/SupplierProvider';
 import { SupplierContextType } from '../interfaces';
 
@@ -10,8 +9,6 @@ interface SupplierComponentProps {
   name: string;
   id: number;
   setIsOpen: (x: boolean) => void;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  // onDelete: Function;
   setSupplierToDelete: (x: number) => void;
 }
 
@@ -66,10 +63,10 @@ SupplierComponentProps) {
           <div
             className='bg-blue-600 p-3 rounded-xl cursor-pointer'
             onClick={handleAddProduct}>
-            <FaTrash color='white' />
+            <FaPlus color='white' />
           </div>
           <div className='bg-blue-600 p-3 rounded-xl cursor-pointer'>
-            <FiInfo color='white' />
+            <FaInfo color='white' />
           </div>
         </div>
       </div>

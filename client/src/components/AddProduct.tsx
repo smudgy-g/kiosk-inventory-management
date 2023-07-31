@@ -60,7 +60,7 @@ export default function AppProduct() {
             required
             className='border border-solid border-slate-100 p-2 rounded-md'
           />
-          <label className='text-lg mb-2 mt-6'>Product Code::</label>
+          <label className='text-lg mb-2 mt-6'>Product Code:</label>
           <input
             name='productId'
             placeholder='Product code'
