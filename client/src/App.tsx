@@ -9,6 +9,7 @@ import ConfirmOrder from './components/ConfirmOrder';
 import AddProduct from './components/AddProduct';
 import ClientProvider from './contexts/ClientProvider';
 import SupplierProvider from './contexts/SupplierProvider';
+import SupplierDetails from './components/SupplierDetails';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='/order' element={<Ordering />} />
             <Route path='/order/confirm' element={<ConfirmOrder />} />
             <Route path='/supplier/add' element={<AddSupplier />} />
+            <Route path='/supplier/details' element={<SupplierDetails />} />
             <Route path='/supplier/add/product' element={<AddProduct />} />
             <Route path='*' element={<h3>Adam sent you here, right?</h3>} />
           </Routes>

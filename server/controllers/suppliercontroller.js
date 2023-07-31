@@ -1,4 +1,5 @@
 import { prisma } from '../prisma/client.js';
+import { getSupplierDetails } from '../models/supplierModel.js';
 
 export async function getSuppliers(req, res) {
   try {
@@ -12,6 +13,16 @@ export async function getSuppliers(req, res) {
     res.status(200).send(suppliers);
   } catch (error) {
     res.status(400).send(`Error getting suppliers: ${error}`);
+  }
+}
+export async function getDetails(req, res) {
+  try {
+    const { id } = req.body;
+    const data = await getSupplierDetails(id);
+
+    res.status(200).send(data);
+  } catch (error) {
+    res.status(400).send(`Error getting supplier details: ${error}`);
   }
 }
 

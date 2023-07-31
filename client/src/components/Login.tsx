@@ -13,7 +13,7 @@ export default function Login() {
     e.preventDefault();
     setEmail('');
     setPassword('');
-    updateClientId(2);
+    updateClientId(1);
     navigate(`/client`);
   }
 

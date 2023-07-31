@@ -29,3 +29,13 @@ export async function deleteSupplier(id: number): Promise<Response> {
     body: JSON.stringify({ supplierId: id }),
   });
 }
+
+export async function getSupplierDetails(id: number) {
+  return fetch(`${BASE_URL}/details/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ id: id }),
+  }).then((response) => response.json());
+}

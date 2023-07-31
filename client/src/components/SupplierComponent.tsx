@@ -45,6 +45,12 @@ SupplierComponentProps) {
     setIsOpen(true);
   }
 
+  function handleViewInfo() {
+    updateSupplierId(id);
+    updateSupplierName(name);
+    navigate('/supplier/details');
+  }
+
   return (
     <div className='grid grid-cols-3 gap-1 w-90vw items-center mt-6 p-2 rounded shadow-md'>
       <div className='col-span-1' onClick={handleClick}>
@@ -65,7 +71,9 @@ SupplierComponentProps) {
             onClick={handleAddProduct}>
             <FaPlus color='white' />
           </div>
-          <div className='bg-blue-600 p-3 rounded-xl cursor-pointer'>
+          <div
+            className='bg-blue-600 p-3 rounded-xl cursor-pointer'
+            onClick={handleViewInfo}>
             <FaInfo color='white' />
           </div>
         </div>

@@ -4,6 +4,7 @@ import { ClientContextType, newSupplier } from '../interfaces';
 import { useState } from 'react';
 import { useClient } from '../contexts/ClientProvider';
 import { useNavigate } from 'react-router-dom';
+import LogoComponent from './Logo';
 
 export default function AddSupplier() {
   const [company, setCompany] = useState('');
@@ -40,10 +41,7 @@ export default function AddSupplier() {
   return (
     <>
       <header className='text-left py-5 px-7 mb-2'>
-        <div className='flex gap-2 items-center mb-4'>
-          <img src='/images/orange.png' alt='orange logo' className='h-10' />
-          <h2 className='text-2xl font-bold'>kiosk</h2>
-        </div>
+        <LogoComponent />
         <h1 className='text-3xl font-bold'>Add Supplier</h1>
       </header>
       <main className='text-left'>
