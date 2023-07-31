@@ -1,3 +1,4 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
 import { FiInfo } from 'react-icons/fi';
@@ -5,10 +6,10 @@ import { FiInfo } from 'react-icons/fi';
 import { useSupplierContext } from '../app/store';
 
 interface SupplierComponentProps {
-  key: String;
-  name: String;
+  key: string;
+  name: string;
   id: number;
-  onDelete: Function;
+  onDelete: () => void;
 }
 
 export default function SupplierComponent({

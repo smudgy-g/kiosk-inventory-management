@@ -1,3 +1,4 @@
+import React from 'react';
 import { addSupplierToClient } from '../services/supplierService';
 import { newSupplier } from '../app/interfaces';
 import { useState } from 'react';
@@ -20,13 +21,15 @@ export default function AddSupplier() {
       contactName: contact,
       email: email,
     };
-    addSupplierToClient(supplier).then(() => {
-      navigate('/client')
-    }).catch((error: Error) => {
-      alert('Unable to add supplier. Please try again.')
-    });
+    addSupplierToClient(supplier)
+      .then(() => {
+        navigate('/client');
+      })
+      .catch((error: Error) => {
+        alert('Unable to add supplier. Please try again.');
+      });
     //check if all good, reireect back to suppierList page
-    
+
     //otherwise, stay on page
   }
 

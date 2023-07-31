@@ -1,7 +1,7 @@
-// import { useState } from 'react';
+import React from 'react';
 
 interface DeleteModalProps {
-  onDelete: Function;
+  onDelete: () => void;
 }
 
 export default function DeleteModal({ onDelete }: DeleteModalProps) {

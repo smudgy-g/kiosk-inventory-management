@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ProductToOrderType, OrderType } from '../app/interfaces';
 import { useSupplierContext, useClientContext } from '../app/store';
 import Spinner from './Spinner';

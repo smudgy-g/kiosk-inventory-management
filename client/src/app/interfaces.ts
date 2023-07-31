@@ -1,18 +1,18 @@
 import React from 'react';
 
 export interface Supplier {
-  clientId: Number;
-  companyName: String;
-  contactName: String;
-  email: String;
+  clientId: number;
+  companyName: string;
+  contactName: string;
+  email: string;
   id: number;
 }
 
 export interface newSupplier {
-  clientId: Number;
-  companyName: String;
-  contactName: String;
-  email: String;
+  clientId: number;
+  companyName: string;
+  contactName: string;
+  email: string;
 }
 
 export interface ClientContextType {
@@ -25,22 +25,23 @@ export interface SupplierContextType {
 }
 
 export interface ProductType {
-  id: Number;
-  supplierId: Number;
-  productId: Number | undefined;
-  name: String;
-  price: String;
+  id: number;
+  supplierId: number;
+  productId: number | undefined;
+  name: string;
+  price: string;
 }
 
 export interface LocationState {
   id: string;
-  name: String;
+  name: string;
 }
 
 export interface ProductComponentTypes {
-  id: Number;
-  name: String;
-  price: String;
+  id: number;
+  name: string;
+  price: string;
+  // eslint-disable-next-line @typescript-eslint/ban-types
   onUpdateQuantity: Function;
 }
 
@@ -48,7 +49,7 @@ export interface ProductToOrderType {
   id: number;
   price: number;
   quantity: number;
-  name: String;
+  name: string;
 }
 
 export interface OrderType {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getSupplierProducts } from '../services/productService';
 import { ProductToOrderType, ProductType } from '../app/interfaces';
 import { useLocation, useNavigate } from 'react-router-dom';

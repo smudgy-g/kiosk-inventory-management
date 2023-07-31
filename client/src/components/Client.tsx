@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+import React from 'react';
 import { useEffect, useState } from 'react';
 import SupplierComponent from './SupplierComponent';
 import { useClientContext } from '../app/store';
