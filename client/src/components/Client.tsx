@@ -62,27 +62,27 @@ export default function Client() {
       <main className='text-left px-5 overflow-auto mb-16 pb-2 mt-24'>
         {!loaded && <Spinner />}
         <h1 className='text-3xl font-bold'>{clientName}</h1>
-        
-          {suppliers.map((supplier) => (
-            <SupplierComponent
-              key={supplier.id.toString()}
-              name={supplier.companyName}
-              id={supplier.id}
-              setSupplierToDelete={setSupplierToDelete}
-              setIsOpen={setIsOpen}
-            />
-          ))}
-          {isOpen && (
-            <DeleteModal handleDelete={handleDelete} setIsOpen={setIsOpen} />
-          )}
+
+        {suppliers.map((supplier) => (
+          <SupplierComponent
+            key={supplier.id.toString()}
+            name={supplier.companyName}
+            id={supplier.id}
+            setSupplierToDelete={setSupplierToDelete}
+            setIsOpen={setIsOpen}
+          />
+        ))}
+        {isOpen && (
+          <DeleteModal handleDelete={handleDelete} setIsOpen={setIsOpen} />
+        )}
       </main>
       <footer className='fixed bottom-0 left-0 flex justify-between bg-white w-full py-4 px-5'>
-        <button className='bg-blue-700 py-2 w-36 rounded-full font-bold text-white cursor-pointer'>
+        <button className='bg-primary py-2 w-36 rounded-full font-bold text-dark cursor-pointer'>
           Stocktake
         </button>
         <button
           onClick={handleClick}
-          className='bg-green-700 text-white font-bold py-2 w-36 rounded-full cursor-pointer'>
+          className='bg-secondary text-white font-bold py-2 w-36 rounded-full cursor-pointer'>
           Add Supplier
         </button>
       </footer>

@@ -32,10 +32,10 @@ export default function ProductComponent(props: ProductComponentTypes) {
 
   return (
     <div className='flex justify-between m-5'>
-      <h3 className='text-lg whitespace-normal text-left'>{props.name}</h3>
+      <h3 className='text-md whitespace-normal text-left pr-1'>{props.name}</h3>
       <div className='flex items-center'>
         <div
-          className='bg-blue-600 rounded-full cursor-pointer'
+          className='cursor-pointer'
           onClick={increment}>
           <AiOutlinePlusCircle color='white' size='30px' />
         </div>
@@ -46,10 +46,10 @@ export default function ProductComponent(props: ProductComponentTypes) {
           min={0}
           max={99}
           onChange={handleChange}
-          className='w-8 text-center text-lg font-bold mx-2'
+          className='w-8 text-center text-xl text-text font-bold mx-2 bg-background'
         />
         <div
-          className='bg-blue-600 rounded-full cursor-pointer'
+          className='cursor-pointer'
           onClick={decrement}>
           <AiOutlineMinusCircle color='white' size='30px' />
         </div>

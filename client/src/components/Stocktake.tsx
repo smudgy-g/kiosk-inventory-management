@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getSupplierProducts } from '../services/productService';
+import { GiPineapple } from 'react-icons/gi';
 import {
   ProductToOrderType,
   ProductType,
@@ -60,7 +61,7 @@ export default function OrderingComponent() {
   return (
     <>
       <header className='flex py-5 px-7 mb-2'>
-        <img src='/images/orange.png' alt='orange logo' className='h-10 ' />
+        <GiPineapple size={'40px'} />
         <div className='grow'>
           <h1 className='text-3xl font-bold mb-2'>{supplierName}</h1>
           <h3 className='text-xl'>Create Order</h3>

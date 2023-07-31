@@ -6,11 +6,11 @@ export default function ClientHeaderComponent() {
   const navigate = useNavigate();
 
   return (
-    <header className='fixed top-0 right-0 left-0 flex justify-between py-5 px-7 mb-2 bg-white shadow-md'>
+    <header className='fixed top-0 right-0 left-0 flex justify-between py-5 px-7 mb-2'>
       <LogoComponent />
       <button
         onClick={() => navigate('/')}
-        className='bg-black py-2 px-6 rounded-full text-white cursor-pointer'>
+        className='bg-accent py-2 px-6 rounded-full text-dark cursor-pointer'>
         Logout
       </button>
     </header>

@@ -2,21 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --text: #001724;
-  --background: #fafafa;
-  --primary: #0066cc;
-  --secondary: #70e000;
-  --accent: #7f0ff0;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 
 body {
   margin: 0;
+  background-color: #091b11;
+  color: white;
   /* padding: 15px; */
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   text-align: center;
   box-sizing: border-box;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+input {
+  color: black;
 }

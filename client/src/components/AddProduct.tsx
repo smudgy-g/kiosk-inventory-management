@@ -43,12 +43,12 @@ export default function AppProduct() {
   return (
     <>
       <header className='text-left py-5 px-7 mb-2'>
-        <LogoComponent/>
+        <LogoComponent />
         <h1 className='text-3xl font-bold'>Add Product</h1>
       </header>
       <main className='text-left'>
         <form onSubmit={handleSubmit} className='flex flex-col px-7 '>
-          <label className='text-lg mb-2 mt-6'>Product Name:</label>
+          <label className='text-lg mb-2 mt-6 font-bold'>Product Name:</label>
           <input
             name='productName'
             placeholder='Product name'
@@ -58,7 +58,7 @@ export default function AppProduct() {
             required
             className='border border-solid border-slate-100 p-2 rounded-md'
           />
-          <label className='text-lg mb-2 mt-6'>Product Code:</label>
+          <label className='text-lg mb-2 mt-6 font-bold'>Product Code:</label>
           <input
             name='productId'
             placeholder='Product code'
@@ -68,7 +68,7 @@ export default function AppProduct() {
             required
             className='border border-solid border-slate-100 p-2 rounded-md'
           />
-          <label className='text-lg mb-2 mt-6'>Price:</label>
+          <label className='text-lg mb-2 mt-6 font-bold'>Price:</label>
           <input
             name='price'
             placeholder='price'
@@ -80,7 +80,7 @@ export default function AppProduct() {
           />
           <button
             type='submit'
-            className='bg-orange-600 rounded-lg mt-5 p-2 text-white font-bold'>
+            className='bg-secondary rounded-lg mt-10 p-2 font-bold'>
             Add Product
           </button>
         </form>
@@ -88,7 +88,7 @@ export default function AppProduct() {
       <footer className='mt-8'>
         <button
           onClick={handleGoBack}
-          className='bg-black py-2 w-36 rounded-full font-bold text-white cursor-pointer'>
+          className='bg-primary py-2 w-36 rounded-full font-bold text-dark cursor-pointer'>
           Back
         </button>
       </footer>

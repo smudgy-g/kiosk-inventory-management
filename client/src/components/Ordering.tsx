@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { getSupplierProducts } from '../services/productService';
-import { ProductToOrderType, ProductType, SupplierContextType } from '../interfaces';
+import {
+  ProductToOrderType,
+  ProductType,
+  SupplierContextType,
+} from '../interfaces';
 import { useNavigate } from 'react-router-dom';
 import ProductComponent from './ProductComponent';
 import Spinner from './Spinner';
 import { useSupplier } from '../contexts/SupplierProvider';
+import { GiPineapple } from 'react-icons/gi';
 // import { useClient } from '../contexts/ClientProvider';
 
 export default function OrderingComponent() {
@@ -55,11 +60,13 @@ export default function OrderingComponent() {
 
   return (
     <>
-      <header className='flex py-5 px-7 mb-2'>
-        <img src='/images/orange.png' alt='orange logo' className='h-10 ' />
-        <div className='grow'>
-          <h1 className='text-3xl font-bold mb-2'>{supplierName}</h1>
-          <h3 className='text-xl'>Create Order</h3>
+      <header className='flex py-5 px-7 mb-2 gap-4'>
+        <GiPineapple size={'40px'} />
+        <div className='grow text-left'>
+          <h1 className='text-4xl font-bold mb-2 font-DMSerif'>
+            {supplierName}
+          </h1>
+          <h3 className='text-2xl font-bold'>Create Order</h3>
         </div>
       </header>
       <main className='h-full overflow-y-auto pb-10'>
@@ -79,11 +86,11 @@ export default function OrderingComponent() {
       <footer className='flex justify-between fixed bottom-0 left-0 w-full py-4 px-5'>
         <button
           onClick={handleGoBack}
-          className='bg-black py-2 w-36 rounded-full font-bold text-white cursor-pointer'>
+          className='bg-primary text-dark py-2 w-36 rounded-full font-bold cursor-pointer'>
           Back
         </button>
         <button
-          className='bg-green-700 text-white font-bold py-2 w-36 rounded-full cursor-pointer'
+          className='bg-secondary text-white font-bold py-2 w-36 rounded-full cursor-pointer'
           onClick={() =>
             navigate('/order/confirm', {
               state: { productsToOrder, supplierName },

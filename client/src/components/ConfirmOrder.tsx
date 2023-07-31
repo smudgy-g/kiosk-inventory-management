@@ -5,6 +5,7 @@ import { useClient } from '../contexts/ClientProvider';
 import Spinner from './Spinner';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { sendOrder } from '../services/orderingService';
+import { GiPineapple } from 'react-icons/gi';
 
 //props: { products: ProductToOrder[] }
 export default function ConfirmOrder() {
@@ -55,7 +56,7 @@ export default function ConfirmOrder() {
   return (
     <div>
       <header className='flex py-5 px-7 mb-2'>
-        <img src='/images/orange.png' alt='orange logo' className='h-10 ' />
+        <GiPineapple size={'40px'} />
         <div className='grow'>
           <h1 className='text-3xl font-bold mb-2'>{supplierName}</h1>
           <h3 className='text-xl'>Confirm Order</h3>
@@ -84,11 +85,11 @@ export default function ConfirmOrder() {
       <footer className='flex justify-between fixed bottom-0 left-0 w-full py-4 px-5'>
         <button
           onClick={() => navigateBack()}
-          className='bg-black py-2 w-36 rounded-full font-bold text-white cursor-pointer'>
+          className='bg-primary py-2 w-36 rounded-full text-dark font-bold cursor-pointer'>
           Back
         </button>
         <button
-          className='bg-green-700 text-white font-bold py-2 w-36 rounded-full cursor-pointer'
+          className='bg-secondary text-white font-bold py-2 w-36 rounded-full cursor-pointer'
           onClick={send}>
           Confirm
         </button>

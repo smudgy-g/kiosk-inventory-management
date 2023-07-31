@@ -42,11 +42,11 @@ export default function AddSupplier() {
     <>
       <header className='text-left py-5 px-7 mb-2'>
         <LogoComponent />
-        <h1 className='text-3xl font-bold'>Add Supplier</h1>
+        <h1 className='mt-6 text-3xl font-bold'>Add Supplier</h1>
       </header>
-      <main className='text-left'>
+      <main className='mt-1 text-left'>
         <form onSubmit={handleSubmit} className='flex flex-col px-7 '>
-          <label className='text-lg mb-2 mt-6'>Company Name:</label>
+          <label className='text-lg mb-2 mt-6 font-bold'>Company Name:</label>
           <input
             name='companyName'
             placeholder='Company Name'
@@ -55,7 +55,7 @@ export default function AddSupplier() {
             required
             className='border border-solid border-slate-100 p-2 rounded-md'
           />
-          <label className='text-lg mb-2 mt-6'>Contact Name:</label>
+          <label className='text-lg mb-2 mt-4 font-bold'>Contact Name:</label>
           <input
             name='contactName'
             placeholder='Contact Name'
@@ -64,7 +64,7 @@ export default function AddSupplier() {
             required
             className='border border-solid border-slate-100 p-2 rounded-md'
           />
-          <label className='text-lg mb-2 mt-6'>Email:</label>
+          <label className='text-lg mb-2 mt-4 font-bold'>Email:</label>
           <input
             name='email'
             placeholder='Email'
@@ -76,7 +76,7 @@ export default function AddSupplier() {
           />
           <button
             type='submit'
-            className='bg-orange-600 rounded-lg mt-5 p-2 text-white font-bold'>
+            className='bg-secondary rounded-lg mt-8 p-2 text-white font-bold'>
             Add Supplier
           </button>
         </form>
@@ -84,7 +84,7 @@ export default function AddSupplier() {
       <footer className='mt-8'>
         <button
           onClick={handleGoBack}
-          className='bg-black py-2 w-36 rounded-full font-bold text-white cursor-pointer'>
+          className='bg-primary py-2 w-36 rounded-full font-bold text-dark cursor-pointer'>
           Back
         </button>
       </footer>

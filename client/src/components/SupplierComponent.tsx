@@ -52,7 +52,7 @@ SupplierComponentProps) {
   }
 
   return (
-    <div className='grid grid-cols-3 gap-1 w-90vw items-center mt-6 p-2 rounded shadow-md'>
+    <div className='grid grid-cols-3 gap-1 w-90vw items-center mt-6 p-2 rounded border border-accent'>
       <div className='col-span-1' onClick={handleClick}>
         <img src='/images/cocktail.png' alt='img' className='h-24 rounded-lg' />
       </div>
@@ -62,17 +62,17 @@ SupplierComponentProps) {
         </div>
         <div className='flex justify-end gap-6'>
           <div
-            className='bg-blue-600 p-3 rounded-xl cursor-pointer'
+            className='bg-primary p-3 rounded-xl cursor-pointer'
             onClick={handleDelete}>
-            <FaTrash color='white' />
+            <FaTrash color='black' />
           </div>
           <div
-            className='bg-blue-600 p-3 rounded-xl cursor-pointer'
+            className='bg-secondary p-3 rounded-xl cursor-pointer'
             onClick={handleAddProduct}>
             <FaPlus color='white' />
           </div>
           <div
-            className='bg-blue-600 p-3 rounded-xl cursor-pointer'
+            className='bg-secondary p-3 rounded-xl cursor-pointer'
             onClick={handleViewInfo}>
             <FaInfo color='white' />
           </div>

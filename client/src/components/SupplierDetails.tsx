@@ -33,20 +33,20 @@ export default function SupplierDetails() {
       <div className='py-5 px-7 mb-2'>
         <LogoComponent />
       </div>
-      <main className='px-7'>
+      <main className='px-7 mt-12'>
         <div className=''>
-          <h3 className='text-3xl font-bold'>{details?.name}</h3>
+          <h3 className='text-3xl font-bold font-DMSerif'>{details?.name}</h3>
         </div>
         <div className='mt-5 mb-7'>
           <p className='text-lg'>Contact:</p>
-          <p className='text-xl'>{details?.contact}</p>
+          <p className='mt-1 text-2xl font-bold'>{details?.contact}</p>
         </div>
         <a href='mailto:${details?.email}' className='text-xl'>{details?.email}</a>
       </main>
       <footer className='fixed bottom-0 left-0 right-0 py-5'>
         <button
           onClick={() => navigate(-1)}
-          className='bg-black py-2 w-36 rounded-full font-bold text-white cursor-pointer'>
+          className='bg-accent py-2 w-36 rounded-full font-bold text-dark cursor-pointer'>
           Back
         </button>
       </footer>
