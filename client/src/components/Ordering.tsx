@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { getSupplierProducts } from '../services/productService';
-import { ProductToOrderType, ProductType } from '../interfaces';
+import { ProductToOrderType, ProductType, SupplierContextType } from '../interfaces';
 import { useNavigate } from 'react-router-dom';
 import ProductComponent from './ProductComponent';
 import Spinner from './Spinner';
 import { useSupplier } from '../contexts/SupplierProvider';
-import { useClient } from '../contexts/ClientProvider';
+// import { useClient } from '../contexts/ClientProvider';
 
 export default function OrderingComponent() {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [loaded, setLoaded] = useState(false);
   const navigate = useNavigate();
-  const { clientId } = useClient();
-  const {supplierName} = useSupplier();
+  // const { clientId } = useClient() as ClientContextType;
+  const { supplierId, supplierName } = useSupplier() as SupplierContextType;
   const [productsToOrder, setProductsToOrder] = useState<ProductToOrderType[]>(
     []
   );
@@ -23,8 +23,8 @@ export default function OrderingComponent() {
 
   useEffect(() => {
     const fetchSupplierProducts = async () => {
-      if (clientId) {
-        const res = await getSupplierProducts(clientId).then((response) =>
+      if (supplierId) {
+        const res = await getSupplierProducts(supplierId).then((response) =>
           response.json()
         );
         setProducts(res);

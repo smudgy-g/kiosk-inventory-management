@@ -17,20 +17,20 @@ export interface newSupplier {
 
 export interface ClientContextType {
   clientId: number;
-  setClientId: (c: number) => void;
+  updateClientId: (id: number) => void;
+  // setClientId: React.Dispatch<React.SetStateAction<number>>;
   clientName: string;
-  setClientName: (c: string) => void;
+  updateClientName: (name: string) => void;
+  // setClientName: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface SupplierContextType {
   supplierId: number;
-  setSupplierId: (c: number) => void;
+  updateSupplierId: (id: number) => void;
+  // setSupplierId: React.Dispatch<React.SetStateAction<number>>;
   supplierName: string;
-  setSupplierName: (c: string) => void;
-}
-export interface CurrentOrderContextType {
-  supplierId: number;
-  setSupplierId: (c: number) => number;
+  updateSupplierName: (name: string) => void;
+  // setSupplierName: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface ProductType {

@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { useClient } from '../contexts/ClientProvider';
 import { useNavigate } from 'react-router-dom';
+import { ClientContextType } from '../interfaces';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { setClientId } = useClient();
+  const { updateClientId } = useClient() as ClientContextType;
 
-  async function handleSubmit(e: any) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setEmail('');
     setPassword('');
-    setClientId(2);
+    updateClientId(2);
     navigate(`/client`);
   }
 

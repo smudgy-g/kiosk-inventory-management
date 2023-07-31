@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ProductToOrderType, OrderType } from '../interfaces';
+import { ProductToOrderType, OrderType, ClientContextType, SupplierContextType } from '../interfaces';
 import { useSupplier } from '../contexts/SupplierProvider';
 import { useClient } from '../contexts/ClientProvider';
 import Spinner from './Spinner';
@@ -8,8 +8,8 @@ import { sendOrder } from '../services/orderingService';
 
 //props: { products: ProductToOrder[] }
 export default function ConfirmOrder() {
-  const { supplierId, supplierName } = useSupplier();
-  const { clientId } = useClient();
+  const { supplierId, supplierName } = useSupplier() as SupplierContextType;
+  const { clientId } = useClient() as ClientContextType;
   const [orderAmount, setOrderAmount] = useState<number>(0);
   const [loaded, setLoaded] = useState(false);
   const location = useLocation();

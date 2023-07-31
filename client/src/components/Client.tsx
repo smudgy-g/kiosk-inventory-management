@@ -5,14 +5,15 @@ import { useClient } from '../contexts/ClientProvider';
 import { getClientSuppliers } from '../services/supplierService';
 import { getClientDetails } from '../services/clientService';
 import { deleteSupplier } from '../services/supplierService';
-import { Supplier } from '../interfaces';
+import { ClientContextType, Supplier } from '../interfaces';
 import { useNavigate } from 'react-router-dom';
 import Spinner from './Spinner';
 import ClientHeaderComponent from './ClientHeaderComponent';
 import DeleteModal from './DeleteModal';
 
 export default function Client() {
-  const { clientId, clientName, setClientName } = useClient();
+  const { clientId, clientName, updateClientName } =
+    useClient() as ClientContextType;
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -22,8 +23,7 @@ export default function Client() {
     const fetchClientName = async () => {
       console.log(clientId);
       const res = await getClientDetails(clientId);
-      console.log(res);
-      setClientName(res.companyName);
+      updateClientName(res.companyName);
     };
 
     const fetchSuppliers = async () => {

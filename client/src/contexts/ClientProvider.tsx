@@ -2,16 +2,19 @@ import React, { ReactNode, createContext, useContext, useState } from 'react';
 import { ClientContextType } from '../interfaces';
 // import { getClientDetails } from '../services/clientService';
 
-export const ClientContext = createContext<ClientContextType>({
-  clientId: 2,
-  setClientId: () => 0,
-  clientName: '',
-  setClientName: () => '',
-});
+export const ClientContext = createContext<ClientContextType | null>(null);
 
 export default function ClientProvider({ children }: { children: ReactNode }) {
   const [clientId, setClientId] = useState<number>(0);
   const [clientName, setClientName] = useState<string>('');
+
+  const updateClientId = (id: number) => {
+    setClientId(id);
+  };
+
+  const updateClientName = (name: string) => {
+    setClientName(name);
+  };
 
   // const logout = () => {
   //   setClientId(null);
@@ -28,7 +31,7 @@ export default function ClientProvider({ children }: { children: ReactNode }) {
 
   return (
     <ClientContext.Provider
-      value={{ clientId, clientName, setClientId, setClientName }}>
+      value={{ clientId, clientName, updateClientName, updateClientId }}>
       {children}
     </ClientContext.Provider>
   );

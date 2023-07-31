@@ -1,12 +1,7 @@
 import React, { ReactNode, createContext, useContext, useState } from 'react';
 import { SupplierContextType } from '../interfaces';
 
-export const SupplierContext = createContext<SupplierContextType>({
-  supplierId: 2,
-  setSupplierId: () => 0,
-  supplierName: '',
-  setSupplierName: () => '',
-});
+export const SupplierContext = createContext<SupplierContextType | null>(null);
 
 export default function SupplierProvider({
   children,
@@ -16,9 +11,16 @@ export default function SupplierProvider({
   const [supplierId, setSupplierId] = useState<number>(0);
   const [supplierName, setSupplierName] = useState<string>('');
 
+  const updateSupplierId = (id: number) => {
+    setSupplierId(id)
+  }
+
+  const updateSupplierName = (name: string) => {
+    setSupplierName(name);
+  }
   return (
     <SupplierContext.Provider
-      value={{ supplierId, supplierName, setSupplierId, setSupplierName }}>
+      value={{ supplierId, supplierName, updateSupplierId, updateSupplierName }}>
       {children}
     </SupplierContext.Provider>
   );

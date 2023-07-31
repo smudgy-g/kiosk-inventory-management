@@ -1,6 +1,6 @@
 import React, { FormEvent } from 'react';
 import { addSupplierToClient } from '../services/supplierService';
-import { newSupplier } from '../interfaces';
+import { ClientContextType, newSupplier } from '../interfaces';
 import { useState } from 'react';
 import { useClient } from '../contexts/ClientProvider';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +11,7 @@ export default function AddSupplier() {
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
 
-  const { clientId } = useClient();
+  const { clientId } = useClient() as ClientContextType;
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();

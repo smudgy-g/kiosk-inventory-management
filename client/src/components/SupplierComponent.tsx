@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
 import { FiInfo } from 'react-icons/fi';
 import { useSupplier } from '../contexts/SupplierProvider';
+import { SupplierContextType } from '../interfaces';
 
 interface SupplierComponentProps {
   key: string;
@@ -21,13 +22,16 @@ export default function SupplierComponent({
   setSupplierToDelete,
 }: // onDelete,
 SupplierComponentProps) {
-  const { setSupplierId, setSupplierName } = useSupplier();
+  const { updateSupplierId, updateSupplierName, supplierName, supplierId } =
+    useSupplier() as SupplierContextType;
 
   const navigate = useNavigate();
 
   function handleClick() {
-    setSupplierId(id);
-    setSupplierName(name);
+    updateSupplierId(id);
+    updateSupplierName(name);
+    console.log(id, name);
+    console.log(supplierId, supplierName);
     // navigate('/order', { state: { id, name } });
     navigate('/order');
   }
