@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { getSupplierProducts } from '../services/productService';
 import { ProductToOrderType, ProductType } from '../interfaces';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { LocationState } from '../interfaces';
+import { useNavigate } from 'react-router-dom';
 import ProductComponent from './ProductComponent';
 import Spinner from './Spinner';
+import { useSupplier } from '../contexts/SupplierProvider';
+import { useClient } from '../contexts/ClientProvider';
 
 export default function OrderingComponent() {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [loaded, setLoaded] = useState(false);
-  const location = useLocation();
   const navigate = useNavigate();
-  const clientId = (location.state as LocationState)?.id;
-  const supplierName = (location.state as LocationState)?.name;
+  const { clientId } = useClient();
+  const {supplierName} = useSupplier();
   const [productsToOrder, setProductsToOrder] = useState<ProductToOrderType[]>(
     []
   );

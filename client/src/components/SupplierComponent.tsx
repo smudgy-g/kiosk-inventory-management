@@ -2,8 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
 import { FiInfo } from 'react-icons/fi';
-
-import { useSupplierContext } from '../contexts/store';
+import { useSupplier } from '../contexts/SupplierProvider';
 
 interface SupplierComponentProps {
   key: string;
@@ -22,12 +21,15 @@ export default function SupplierComponent({
   setSupplierToDelete,
 }: // onDelete,
 SupplierComponentProps) {
-  const { setSupplierId } = useSupplierContext();
+  const { setSupplierId, setSupplierName } = useSupplier();
+
   const navigate = useNavigate();
 
   function handleClick() {
     setSupplierId(id);
-    navigate('/order', { state: { id, name } });
+    setSupplierName(name);
+    // navigate('/order', { state: { id, name } });
+    navigate('/order');
   }
 
   function handleDelete() {

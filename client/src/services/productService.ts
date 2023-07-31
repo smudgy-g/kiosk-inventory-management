@@ -1,9 +1,9 @@
 import { newProductType } from '../interfaces';
 const BASE_URL = 'http://localhost:8080/product';
 
-export function getSupplierProducts(supplierId: string) {
-  const id = parseInt(supplierId);
-  return fetch(`${BASE_URL}/product/${id}`);
+export function getSupplierProducts(supplierId: number) {
+  // const id = parseInt(supplierId);
+  return fetch(`${BASE_URL}/product/${supplierId}`);
 }
 
 export function addProductToSupplier(
