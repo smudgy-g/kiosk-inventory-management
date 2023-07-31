@@ -8,21 +8,23 @@ import AddSupplier from './components/AddSupplier';
 import ConfirmOrder from './components/ConfirmOrder';
 import AddProduct from './components/AddProduct';
 import ClientProvider from './contexts/ClientProvider';
+import SupplierProvider from './contexts/SupplierProvider';
 
 function App() {
-  
   return (
     <Router>
       <ClientProvider>
-        <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/client' element={<Client />} />
-          <Route path='/order' element={<Ordering />} />
-          <Route path='/order/confirm' element={<ConfirmOrder />} />
-          <Route path='/supplier/add' element={<AddSupplier />} />
-          <Route path='/supplier/add/product' element={<AddProduct />} />
-          <Route path='*' element={<h3>Adam sent you here, right?</h3>} />
-        </Routes>
+        <SupplierProvider>
+          <Routes>
+            <Route path='/' element={<Login />} />
+            <Route path='/client' element={<Client />} />
+            <Route path='/order' element={<Ordering />} />
+            <Route path='/order/confirm' element={<ConfirmOrder />} />
+            <Route path='/supplier/add' element={<AddSupplier />} />
+            <Route path='/supplier/add/product' element={<AddProduct />} />
+            <Route path='*' element={<h3>Adam sent you here, right?</h3>} />
+          </Routes>
+        </SupplierProvider>
       </ClientProvider>
     </Router>
   );

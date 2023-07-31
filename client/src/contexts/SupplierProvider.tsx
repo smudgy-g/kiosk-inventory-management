@@ -11,12 +11,12 @@ export default function SupplierProvider({
   const [supplierId, setSupplierId] = useState<number>(0);
   const [supplierName, setSupplierName] = useState<string>('');
 
-  const updateSupplierId = (id: number) => {
-    setSupplierId(id)
+  const updateSupplierId = async (id: number) => {
+    await setSupplierId(id)
   }
 
-  const updateSupplierName = (name: string) => {
-    setSupplierName(name);
+  const updateSupplierName = async (name: string) => {
+    await setSupplierName(name);
   }
   return (
     <SupplierContext.Provider

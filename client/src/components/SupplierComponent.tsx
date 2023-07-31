@@ -27,13 +27,20 @@ SupplierComponentProps) {
 
   const navigate = useNavigate();
 
-  function handleClick() {
+  async function handleClick() {
+    await updateSupplierId(id);
+    await updateSupplierName(name);
+    // navigate('/order', { state: { id, name } });
+    navigate('/order');
+  }
+
+  function handleAddProduct() {
     updateSupplierId(id);
     updateSupplierName(name);
     console.log(id, name);
     console.log(supplierId, supplierName);
     // navigate('/order', { state: { id, name } });
-    navigate('/order');
+    navigate('/supplier/add/product');
   }
 
   function handleDelete() {
@@ -54,6 +61,11 @@ SupplierComponentProps) {
           <div
             className='bg-blue-600 p-3 rounded-xl cursor-pointer'
             onClick={handleDelete}>
+            <FaTrash color='white' />
+          </div>
+          <div
+            className='bg-blue-600 p-3 rounded-xl cursor-pointer'
+            onClick={handleAddProduct}>
             <FaTrash color='white' />
           </div>
           <div className='bg-blue-600 p-3 rounded-xl cursor-pointer'>

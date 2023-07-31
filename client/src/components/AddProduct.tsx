@@ -22,7 +22,7 @@ export default function AppProduct() {
       productId: productId,
       price: price,
     };
-
+    console.log(product);
     addProductToSupplier(product)
       .then(() => {
         navigate('/client');
