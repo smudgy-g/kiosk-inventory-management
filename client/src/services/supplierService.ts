@@ -20,8 +20,8 @@ export function addSupplierToClient(supplier: newSupplier): Promise<Response> {
   });
 }
 
-export function deleteSupplier(id: number) {
-  return fetch(`${BASE_URL}`, {
+export async function deleteSupplier(id: number): Promise<Response> {
+  return await fetch(`${BASE_URL}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

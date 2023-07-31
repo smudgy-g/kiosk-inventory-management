@@ -9,15 +9,19 @@ interface SupplierComponentProps {
   key: string;
   name: string;
   id: number;
+  setIsOpen: (x: boolean) => void;
   // eslint-disable-next-line @typescript-eslint/ban-types
-  onDelete: Function;
+  // onDelete: Function;
+  setSupplierToDelete: (x: number) => void;
 }
 
 export default function SupplierComponent({
   id,
   name,
-  onDelete,
-}: SupplierComponentProps) {
+  setIsOpen,
+  setSupplierToDelete,
+}: // onDelete,
+SupplierComponentProps) {
   const { setSupplierId } = useSupplierContext();
   const navigate = useNavigate();
 
@@ -27,7 +31,8 @@ export default function SupplierComponent({
   }
 
   function handleDelete() {
-    onDelete();
+    setSupplierToDelete(id);
+    setIsOpen(true);
   }
 
   return (

@@ -1,16 +1,15 @@
 import React from 'react';
 
 interface DeleteModalProps {
-  onDelete: () => void;
+  setIsOpen: (x: boolean) => void;
+  handleDelete: () => void;
 }
-
-export default function DeleteModal({ onDelete }: DeleteModalProps) {
-  // const [isOpen, setIsOpen] = useState(false);
-
-  function handleDelete() {
-    onDelete();
-  }
-
+// onDelete={() => handleDelete(supplier.id)}
+// { onDelete }: DeleteModalProps
+export default function DeleteModal({
+  setIsOpen,
+  handleDelete,
+}: DeleteModalProps) {
   return (
     <div>
       <div className='fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50 z-40'>
@@ -19,12 +18,17 @@ export default function DeleteModal({ onDelete }: DeleteModalProps) {
             Are you sure you want to delete this?
           </p>
           <div className='flex justify-around mt-3'>
-            <button className='bg-red-800 py-2 px-6 rounded-md text-white cursor-pointer'>
+            <button
+              className='bg-black py-2 px-6 rounded-md text-white cursor-pointer'
+              onClick={() => setIsOpen(false)}>
               Cancel
             </button>
             <button
-              className='bg-black py-2 px-10 rounded-md text-white cursor-pointer'
-              onClick={handleDelete}>
+              className='bg-red-800 py-2 px-10 rounded-md text-white cursor-pointer'
+              onClick={() => {
+                setIsOpen(false);
+                handleDelete();
+              }}>
               Yes
             </button>
           </div>
