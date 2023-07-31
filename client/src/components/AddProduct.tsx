@@ -1,23 +1,23 @@
 import React, { FormEvent } from 'react';
 import { addProductToSupplier } from '../services/productService';
-import { newProductType } from '../app/interfaces';
+import { newProductType } from '../interfaces';
 import { useState } from 'react';
-import { useSupplierContext } from '../app/store';
+import { useSupplier } from '../contexts/SupplierProvider';
 import { useNavigate } from 'react-router-dom';
 
 export default function AppProduct() {
   const [productName, setProductName] = useState<string>('');
-  const [productId, setProductId] = useState<number | undefined>();
+  const [productId, setProductId] = useState<number | undefined>(undefined);
   const [price, setPrice] = useState<number>(0);
   const navigate = useNavigate();
 
-  const { supplierId } = useSupplierContext();
+  const { supplierId } = useSupplier();
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
     const product: newProductType = {
-      supplierId: supplierId,
+      supplierId: 2,
       productName: productName,
       productId: productId,
       price: price,

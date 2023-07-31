@@ -1,9 +1,9 @@
-const nodemailer = require('nodemailer');
-const { getClientDetails } = require('../models/clientModel');
-const { getSupplierDetails } = require('../models/supplierModel');
-const { getProductId } = require('../models/productModel');
+import { createTransport } from 'nodemailer';
+import { getClientDetails } from '../models/clientModel.js';
+import { getSupplierDetails } from '../models/supplierModel.js';
+import { getProductId } from '../models/productModel.js';
 
-const transporter = nodemailer.createTransport({
+const transporter = createTransport({
   service: 'gmail',
   auth: {
     user: 'kioskinventorymanagement@gmail.com',
@@ -24,8 +24,8 @@ async function main(supplier, client, productList) {
       <p>Dear ${supplier.companyName},</p>
 
       <p>${
-        client.companyName
-      } would like to order the following items for the next available delivery date: </p>
+  client.companyName
+} would like to order the following items for the next available delivery date: </p>
 
       <ul>
         <li><strong>Supplier:</strong> ${supplier.companyName}</li>
@@ -42,16 +42,16 @@ async function main(supplier, client, productList) {
         </thead>
         <tbody>
           ${productList
-            .map(
-              (product) => `
+    .map(
+      (product) => `
             <tr>
               <td>${product.productId}</td>
               <td>${product.productName}</td>
               <td>${product.quantity}</td>
             </tr>
           `
-            )
-            .join('')}
+    )
+    .join('')}
         </tbody>
       </table>
 
@@ -67,7 +67,7 @@ async function main(supplier, client, productList) {
   console.log('Message sent: %s', info.messageId);
 }
 
-async function sendOrder(clientId, supplierId, productList) {
+export async function sendOrder(clientId, supplierId, productList) {
   try {
     const supplier = await getSupplierDetails(supplierId);
     const client = await getClientDetails(clientId);
@@ -86,4 +86,3 @@ async function sendOrder(clientId, supplierId, productList) {
     console.log(error);
   }
 }
-module.exports = { sendOrder };

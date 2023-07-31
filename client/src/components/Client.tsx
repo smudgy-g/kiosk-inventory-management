@@ -1,27 +1,28 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import SupplierComponent from './SupplierComponent';
-import { useClientContext } from '../app/store';
+import { useClient } from '../contexts/ClientProvider';
 import { getClientSuppliers } from '../services/supplierService';
 import { getClientDetails } from '../services/clientService';
 import { deleteSupplier } from '../services/supplierService';
-import { Supplier } from '../app/interfaces';
+import { Supplier } from '../interfaces';
 import { useNavigate } from 'react-router-dom';
 import Spinner from './Spinner';
 import ClientHeaderComponent from './ClientHeaderComponent';
 import DeleteModal from './DeleteModal';
 
 export default function Client() {
-  const { clientId } = useClientContext();
-  const [clientName, setClientName] = useState<string>('');
+  const { clientId, clientName, setClientName } = useClient();
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [supplierToDelete, setSupplierToDelete] = useState<number>(0);
 
   useEffect(() => {
-    const fetchClient = async () => {
+    const fetchClientName = async () => {
+      console.log(clientId);
       const res = await getClientDetails(clientId);
+      console.log(res);
       setClientName(res.companyName);
     };
 
@@ -30,7 +31,7 @@ export default function Client() {
       setSuppliers(res);
       setLoaded(true);
     };
-    fetchClient();
+    fetchClientName();
     fetchSuppliers();
   }, [clientId, loaded]);
 

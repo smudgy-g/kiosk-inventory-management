@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import * as supplier from './controllers/suppliercontroller';
-import * as client from './controllers/clientcontroller';
-import * as product from './controllers/productcontroller';
-import * as order from './controllers/ordercontroller';
+import * as supplier from './controllers/suppliercontroller.js';
+import * as client from './controllers/clientcontroller.js';
+import * as product from './controllers/productcontroller.js';
+import * as order from './controllers/ordercontroller.js';
 
-export const router = new Router();
+export const router = Router();
 // client
 router.post('/client', client.createClient);
 router.get('/client/:clientId', client.getClient);
@@ -20,5 +20,3 @@ router.get('/product/:supplierId', product.getProducts);
 
 // order
 router.post('/order', order.createOrder);
-
-module.exports = router;

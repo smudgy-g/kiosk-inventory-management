@@ -1,7 +1,9 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+// import { PrismaClient } from '@prisma/client';
+// const prisma = new PrismaClient();
 
-async function getProductId(id) {
+import { prisma } from '../prisma/client.js';
+
+export async function getProductId(id) {
   await prisma.$connect();
   const product = await prisma.product.findUnique({
     where: {
@@ -11,6 +13,3 @@ async function getProductId(id) {
   return product.productId;
 }
 
-module.exports = {
-  getProductId,
-};

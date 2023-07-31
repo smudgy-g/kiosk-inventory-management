@@ -18,14 +18,19 @@ export interface newSupplier {
 export interface ClientContextType {
   clientId: number;
   setClientId: (c: number) => void;
+  clientName: string;
+  setClientName: (c: string) => void;
 }
+
 export interface SupplierContextType {
   supplierId: number;
   setSupplierId: (c: number) => void;
+  supplierName: string;
+  setSupplierName: (c: string) => void;
 }
 export interface CurrentOrderContextType {
   supplierId: number;
-  setSupplierId: (c: number) => void;
+  setSupplierId: (c: number) => number;
 }
 
 export interface ProductType {

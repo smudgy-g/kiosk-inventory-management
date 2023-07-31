@@ -1,16 +1,12 @@
-import { PrismaClient } from '@prisma/client';
+// import { PrismaClient } from '@prisma/client';
+import { prisma } from '../prisma/client.js';
 import { sendOrder } from '../services/orderService.js';
-// import { getSupplierDetails } from './suppliercontroller';
-const prisma = new PrismaClient();
-
 export async function createOrder(req, res) {
   try {
     const { clientId, supplierId, products, price } = req.body;
 
     if (!supplierId || !clientId || !price || !products)
       res.status(400).send('Incomplete fields.');
-
-    await prisma.$connect();
     const order = await prisma.order.create({
       data: {
         clientId: parseInt(clientId),
@@ -27,17 +23,9 @@ export async function createOrder(req, res) {
         products: true,
       },
     });
-    console.log(order);
     res.status(201).send(order);
     await sendOrder(clientId, supplierId, products);
-    await prisma.$disconnect;
   } catch (error) {
     res.status(400).send(`Error creating new order: ${error}`);
   }
 }
-
-//get suuplierDetails
-//get clientdetails
-//get product details
-
-// export default { createOrder };

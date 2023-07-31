@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
 import { FiInfo } from 'react-icons/fi';
 
-import { useSupplierContext } from '../app/store';
+import { useSupplierContext } from '../contexts/store';
 
 interface SupplierComponentProps {
   key: string;

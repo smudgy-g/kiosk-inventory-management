@@ -1,18 +1,18 @@
-import { ProductType, newProductType } from '../app/interfaces';
-
-// import { newSupplier } from '../app/interfaces';
-const BASE_URL = 'http://localhost:8080';
+import { newProductType } from '../interfaces';
+const BASE_URL = 'http://localhost:8080/product';
 
 export function getSupplierProducts(supplierId: string) {
   const id = parseInt(supplierId);
   return fetch(`${BASE_URL}/product/${id}`);
 }
 
-export function addProductToSupplier(product: newProductType) {
-  return fetch(`${BASE_URL}/product`, {
+export function addProductToSupplier(
+  product: newProductType
+): Promise<Response> {
+  return fetch(`${BASE_URL}`, {
     method: 'POST',
     headers: {
-      'content-type': 'application/json',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(product),
   });

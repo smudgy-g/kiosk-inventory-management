@@ -1,8 +1,8 @@
 import React, { FormEvent } from 'react';
 import { addSupplierToClient } from '../services/supplierService';
-import { newSupplier } from '../app/interfaces';
+import { newSupplier } from '../interfaces';
 import { useState } from 'react';
-import { useClientContext } from '../app/store';
+import { useClient } from '../contexts/ClientProvider';
 import { useNavigate } from 'react-router-dom';
 
 export default function AddSupplier() {
@@ -11,7 +11,7 @@ export default function AddSupplier() {
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
 
-  const { clientId } = useClientContext();
+  const { clientId } = useClient();
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();

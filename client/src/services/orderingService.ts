@@ -1,4 +1,4 @@
-import { OrderType } from '../app/interfaces';
+import { OrderType } from '../interfaces';
 const BASE_URL = 'http://localhost:8080/order';
 
 export function sendOrder(order: OrderType) {

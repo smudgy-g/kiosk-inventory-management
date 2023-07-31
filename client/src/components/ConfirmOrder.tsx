@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { ProductToOrderType, OrderType } from '../app/interfaces';
-import { useSupplierContext, useClientContext } from '../app/store';
+import { ProductToOrderType, OrderType } from '../interfaces';
+import { useSupplier } from '../contexts/SupplierProvider';
+import { useClient } from '../contexts/ClientProvider';
 import Spinner from './Spinner';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { sendOrder } from '../services/orderingService';
 
 //props: { products: ProductToOrder[] }
 export default function ConfirmOrder() {
-  const { supplierId } = useSupplierContext();
-  const { clientId } = useClientContext();
+  const { supplierId, supplierName } = useSupplier();
+  const { clientId } = useClient();
   const [orderAmount, setOrderAmount] = useState<number>(0);
   const [loaded, setLoaded] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const productsToOrder: ProductToOrderType[] =
     location.state?.productsToOrder || [];
-  const supplierName = location.state?.supplierName || '';
 
   useEffect(() => {
     const total = totalOrderAmount(productsToOrder);

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { getSupplierProducts } from '../services/productService';
-import { ProductToOrderType, ProductType } from '../app/interfaces';
+import { ProductToOrderType, ProductType } from '../interfaces';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { LocationState } from '../app/interfaces';
+import { LocationState } from '../interfaces';
 import ProductComponent from './ProductComponent';
 import Spinner from './Spinner';
 
@@ -35,7 +35,6 @@ export default function OrderingComponent() {
     fetchSupplierProducts();
   }, [loaded]);
 
-  
   const updateProductQuantity = (item: ProductToOrderType) => {
     const updatedProducts = [...productsToOrder];
     const productIndex = updatedProducts.findIndex(

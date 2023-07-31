@@ -1,12 +1,8 @@
-import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient();
+import { prisma } from '../prisma/client.js';
 
 export async function getSuppliers(req, res) {
   try {
-    // get suppliers for client using client id
     const { client } = req.params.clientId;
-
-    await prisma.$connect();
     const suppliers = await prisma.supplier.findMany({
       where: {
         clientId: client,
@@ -14,7 +10,6 @@ export async function getSuppliers(req, res) {
     });
 
     res.status(200).send(suppliers);
-    await prisma.$disconnect;
   } catch (error) {
     res.status(400).send(`Error getting suppliers: ${error}`);
   }
@@ -25,8 +20,6 @@ export async function createSupplier(req, res) {
     const { companyName, email, contactName, clientId } = req.body;
     if (!companyName || !email || !contactName || !clientId)
       res.status(400).send('Incomplete fields.');
-
-    await prisma.$connect();
     const foundSupplier = await prisma.supplier.findUnique({
       where: {
         companyName: companyName,
@@ -45,8 +38,6 @@ export async function createSupplier(req, res) {
       },
     });
     res.status(201).send(newSupplier);
-
-    await prisma.$disconnect;
   } catch (error) {
     res.status(400).send(`Error creating new supplier: ${error}`);
   }
@@ -55,7 +46,6 @@ export async function createSupplier(req, res) {
 export async function deleteSupplier(req, res) {
   try {
     const { supplierId } = req.body;
-    await prisma.$connect();
     const result = await prisma.supplier.delete({
       where: {
         id: supplierId,
@@ -63,14 +53,7 @@ export async function deleteSupplier(req, res) {
     });
 
     res.status(200).send(result);
-    await prisma.$disconnect;
   } catch (error) {
     res.status(400).send(`Error getting suppliers: ${error}`);
   }
 }
-
-// export default {
-//   getSuppliers,
-//   createSupplier,
-//   deleteSupplier,
-// };

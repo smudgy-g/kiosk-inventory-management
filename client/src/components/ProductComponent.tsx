@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
-import { ProductComponentTypes } from '../app/interfaces';
+import { ProductComponentTypes } from '../interfaces';
 
 export default function ProductComponent(props: ProductComponentTypes) {
   const [quantity, setQuantity] = useState(0);

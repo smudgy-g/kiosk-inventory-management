@@ -1,4 +1,4 @@
-import { newSupplier } from '../app/interfaces';
+import { newSupplier } from '../interfaces';
 const BASE_URL = 'http://localhost:8080/supplier';
 
 export function getClientSuppliers(id: number) {
