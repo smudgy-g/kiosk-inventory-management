@@ -1,5 +1,9 @@
 const BASE_URL = 'http://localhost:8080/client';
 
 export function getClientDetails(id: number) {
-  return fetch(`${BASE_URL}/${id}`).then(async (response) => response.json());
+  return fetch(`${BASE_URL}/${id}`)
+    .then(async (response) => {
+      const data = await response.json();
+      return data;
+    });
 }
