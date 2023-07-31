@@ -1,9 +1,9 @@
-const { PrismaClient } = require('@prisma/client');
-const { sendOrder } = require('../services/orderService.js');
-const { getSupplierDetails } = require('./suppliercontroller');
+import { PrismaClient } from '@prisma/client';
+import { sendOrder } from '../services/orderService.js';
+// import { getSupplierDetails } from './suppliercontroller';
 const prisma = new PrismaClient();
 
-async function createOrder(req, res) {
+export async function createOrder(req, res) {
   try {
     const { clientId, supplierId, products, price } = req.body;
 
@@ -40,4 +40,4 @@ async function createOrder(req, res) {
 //get clientdetails
 //get product details
 
-module.exports = { createOrder };
+// export default { createOrder };

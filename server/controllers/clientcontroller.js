@@ -1,7 +1,7 @@
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-async function createClient(req, res) {
+export async function createClient(req, res) {
   try {
     const { companyName, email, contactName } = req.body;
 
@@ -32,8 +32,7 @@ async function createClient(req, res) {
   }
 }
 
-async function getClient(req, res) {
-  // use the id
+export async function getClient(req, res) {
   try {
     const clientId = req.params.clientId;
 
@@ -51,7 +50,7 @@ async function getClient(req, res) {
   }
 }
 
-module.exports = {
-  createClient,
-  getClient,
-};
+// module.exports = {
+//   createClient,
+//   getClient,
+// };

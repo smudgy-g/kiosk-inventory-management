@@ -31,6 +31,11 @@ export default function ConfirmOrder() {
     }, 0);
   }
 
+  function navigateBack() {
+    // navigate('/order', { state: { productsToOrder: productsToOrder } });
+    navigate(-1);
+  }
+
   function send() {
     const order: OrderType = {
       clientId: clientId,
@@ -78,7 +83,7 @@ export default function ConfirmOrder() {
       </main>
       <footer className='flex justify-between fixed bottom-0 left-0 w-full py-4 px-5'>
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigateBack()}
           className='bg-black py-2 w-36 rounded-full font-bold text-white cursor-pointer'>
           Back
         </button>

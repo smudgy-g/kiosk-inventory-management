@@ -23,6 +23,10 @@ export interface SupplierContextType {
   supplierId: number;
   setSupplierId: (c: number) => void;
 }
+export interface CurrentOrderContextType {
+  supplierId: number;
+  setSupplierId: (c: number) => void;
+}
 
 export interface ProductType {
   id: number;
@@ -60,4 +64,11 @@ export interface OrderType {
     id: number;
     quantity: number;
   }[];
+}
+
+export interface newProductType {
+  supplierId: number;
+  productName: string;
+  productId: number | undefined;
+  price: number;
 }

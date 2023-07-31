@@ -27,7 +27,7 @@ SupplierComponentProps) {
 
   function handleClick() {
     setSupplierId(id);
-    navigate('/products/', { state: { id, name } });
+    navigate('/order', { state: { id, name } });
   }
 
   function handleDelete() {

@@ -1,10 +1,11 @@
-const { PrismaClient } = require('@prisma/client');
+import PrismaClient from '@prisma/client';
 const prisma = new PrismaClient();
 
-async function createProduct(req, res) {
+export async function createProduct(req, res) {
   try {
-    const { supplierId, productId, name, price } = req.body;
-    if (!supplierId || !name || !price)
+    const { supplierId, productId, productName, price } = req.body;
+    console.log(req.body);
+    if (!supplierId || !productName || !price)
       res.status(400).send('Incomplete fields.');
 
     await prisma.$connect();
@@ -12,19 +13,19 @@ async function createProduct(req, res) {
       data: {
         supplierId: parseInt(supplierId),
         productId: parseInt(productId),
-        name: name,
+        name: productName,
         price: parseFloat(price),
       },
     });
     res.status(201).send(newProduct);
-
+    console.log('new product', newProduct);
     await prisma.$disconnect;
   } catch (error) {
     res.status(400).send(`Error creating new product: ${error}`);
   }
 }
 
-async function getProducts(req, res) {
+export async function getProducts(req, res) {
   try {
     const id = parseInt(req.params.supplierId);
     await prisma.$connect();
@@ -40,7 +41,7 @@ async function getProducts(req, res) {
   }
 }
 
-module.exports = {
-  createProduct,
-  getProducts,
-};
+// export default {
+//   createProduct,
+//   getProducts,
+// };

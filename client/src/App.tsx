@@ -7,6 +7,7 @@ import Client from './components/Client';
 import AddSupplier from './components/AddSupplier';
 import { ClientContext, SupplierContext } from './app/store';
 import ConfirmOrder from './components/ConfirmOrder';
+import AddProduct from './components/AddProduct';
 
 function App() {
   const [clientId, setClientId] = useState<number>(0);
@@ -19,9 +20,10 @@ function App() {
           <Routes>
             <Route path='/' element={<Login />} />
             <Route path='/client' element={<Client />} />
-            <Route path='/products/' element={<Ordering />} />
-            <Route path='/order' element={<ConfirmOrder />} />
+            <Route path='/order' element={<Ordering />} />
+            <Route path='/order/confirm' element={<ConfirmOrder />} />
             <Route path='/supplier/add' element={<AddSupplier />} />
+            <Route path='/supplier/add/product' element={<AddProduct />} />
             <Route path='*' element={<h3>Adam sent you here, right?</h3>} />
           </Routes>
         </Router>

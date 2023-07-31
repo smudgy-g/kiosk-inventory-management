@@ -22,7 +22,7 @@ export default function OrderingComponent() {
   }
 
   useEffect(() => {
-    const fetchSuppliers = async () => {
+    const fetchSupplierProducts = async () => {
       if (clientId) {
         const res = await getSupplierProducts(clientId).then((response) =>
           response.json()
@@ -32,10 +32,10 @@ export default function OrderingComponent() {
       }
     };
 
-    fetchSuppliers();
+    fetchSupplierProducts();
   }, [loaded]);
 
-  // Callback function to update the quantity of a product in the state
+  
   const updateProductQuantity = (item: ProductToOrderType) => {
     const updatedProducts = [...productsToOrder];
     const productIndex = updatedProducts.findIndex(
@@ -86,7 +86,9 @@ export default function OrderingComponent() {
         <button
           className='bg-green-700 text-white font-bold py-2 w-36 rounded-full cursor-pointer'
           onClick={() =>
-            navigate('/order', { state: { productsToOrder, supplierName } })
+            navigate('/order/confirm', {
+              state: { productsToOrder, supplierName },
+            })
           }>
           Next
         </button>

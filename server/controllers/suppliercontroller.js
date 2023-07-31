@@ -1,7 +1,7 @@
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-async function getSuppliers(req, res) {
+export async function getSuppliers(req, res) {
   try {
     // get suppliers for client using client id
     const { client } = req.params.clientId;
@@ -20,7 +20,7 @@ async function getSuppliers(req, res) {
   }
 }
 
-async function createSupplier(req, res) {
+export async function createSupplier(req, res) {
   try {
     const { companyName, email, contactName, clientId } = req.body;
     if (!companyName || !email || !contactName || !clientId)
@@ -52,7 +52,7 @@ async function createSupplier(req, res) {
   }
 }
 
-async function deleteSupplier(req, res) {
+export async function deleteSupplier(req, res) {
   try {
     const { supplierId } = req.body;
     await prisma.$connect();
@@ -69,8 +69,8 @@ async function deleteSupplier(req, res) {
   }
 }
 
-module.exports = {
-  getSuppliers,
-  createSupplier,
-  deleteSupplier,
-};
+// export default {
+//   getSuppliers,
+//   createSupplier,
+//   deleteSupplier,
+// };
