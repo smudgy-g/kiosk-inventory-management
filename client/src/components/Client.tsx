@@ -56,9 +56,9 @@ export default function Client() {
 
   return (
     <>
-      <div>
+      <header className='fixed top-0 right-0 left-0 py-5 px-7 mb-2 bg-background'>
         <ClientHeaderComponent />
-      </div>
+      </header>
       <main className='text-left px-5 overflow-auto mb-16 pb-2 mt-24'>
         {!loaded && <Spinner />}
         <h1 className='text-3xl font-bold'>{clientName}</h1>
@@ -76,8 +76,8 @@ export default function Client() {
           <DeleteModal handleDelete={handleDelete} setIsOpen={setIsOpen} />
         )}
       </main>
-      <footer className='fixed bottom-0 left-0 flex justify-between bg-white w-full py-4 px-5'>
-        <button className='bg-primary py-2 w-36 rounded-full font-bold text-dark cursor-pointer'>
+      <footer className='fixed bottom-0 left-0 flex justify-between bg-white w-full py-4 px-5 bg-background'>
+        <button className='bg-accent py-2 w-36 rounded-full font-bold text-dark cursor-pointer'>
           Stocktake
         </button>
         <button

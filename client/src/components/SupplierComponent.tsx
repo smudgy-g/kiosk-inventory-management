@@ -19,7 +19,7 @@ export default function SupplierComponent({
   setSupplierToDelete,
 }: // onDelete,
 SupplierComponentProps) {
-  const { updateSupplierId, updateSupplierName, supplierName, supplierId } =
+  const { updateSupplierId, updateSupplierName } =
     useSupplier() as SupplierContextType;
 
   const navigate = useNavigate();
@@ -27,16 +27,12 @@ SupplierComponentProps) {
   async function handleClick() {
     await updateSupplierId(id);
     await updateSupplierName(name);
-    // navigate('/order', { state: { id, name } });
     navigate('/order');
   }
 
   function handleAddProduct() {
     updateSupplierId(id);
     updateSupplierName(name);
-    console.log(id, name);
-    console.log(supplierId, supplierName);
-    // navigate('/order', { state: { id, name } });
     navigate('/supplier/add/product');
   }
 
@@ -62,9 +58,9 @@ SupplierComponentProps) {
         </div>
         <div className='flex justify-end gap-6'>
           <div
-            className='bg-primary p-3 rounded-xl cursor-pointer'
+            className='bg-secondary p-3 rounded-xl cursor-pointer'
             onClick={handleDelete}>
-            <FaTrash color='black' />
+            <FaTrash color='white' />
           </div>
           <div
             className='bg-secondary p-3 rounded-xl cursor-pointer'
@@ -72,7 +68,7 @@ SupplierComponentProps) {
             <FaPlus color='white' />
           </div>
           <div
-            className='bg-secondary p-3 rounded-xl cursor-pointer'
+            className='bg-primary p-3 rounded-xl cursor-pointer'
             onClick={handleViewInfo}>
             <FaInfo color='white' />
           </div>

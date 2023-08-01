@@ -20,8 +20,9 @@ export default function OrderingComponent() {
   const [productsToOrder, setProductsToOrder] = useState<ProductToOrderType[]>(
     []
   );
-  const [filteredProductList, setFilteredProductList] =
-    useState < ProductType[]>([]);
+  const [filteredProductList, setFilteredProductList] = useState<ProductType[]>(
+    []
+  );
 
   function handleGoBack() {
     navigate(-1);
@@ -60,11 +61,11 @@ export default function OrderingComponent() {
     return arr.filter((item) => item.quantity > 0);
   }
 
-  function filterBySearch (event: any) {
+  function filterBySearch(event: any) {
     const query = event.target.value;
     let updatedList = [...products];
-    updatedList = updatedList.filter(item => {
-      return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+    updatedList = updatedList.filter((item) => {
+      return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
     });
     setFilteredProductList(updatedList);
   }
@@ -86,7 +87,7 @@ export default function OrderingComponent() {
           type='text'
           name='search'
           placeholder='Enter product name'
-          className='bg-background text-light'
+          className='bg-background text-light p-2 rounded-md w-3/4 text-center'
           onChange={filterBySearch}
         />
         <ul>
