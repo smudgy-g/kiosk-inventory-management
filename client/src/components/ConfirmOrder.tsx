@@ -12,9 +12,24 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { sendOrder } from '../services/orderingService';
 import { GiPineapple } from 'react-icons/gi';
 import { DatePicker } from '@mui/x-date-pickers';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
+import styled from '@emotion/styled';
 
-//props: { products: ProductToOrder[] }
+const StyledDatePicker = styled(DatePicker)(() => ({
+  '& .MuiInputBase-input': {
+    backgroundColor: 'white', // set background color of input field
+    borderRadius: '4px', // set border radius of input field
+    padding: '10px', // set padding of input field
+    boxShadow: 'none', // remove box shadow of input field
+    '&:hover': {
+      boxShadow: 'none', // remove box shadow on hover
+    },
+    '&:focus': {
+      boxShadow: 'none', // remove box shadow on focus
+    },
+  },
+}));
+
 export default function ConfirmOrder() {
   const { supplierId, supplierName } = useSupplier() as SupplierContextType;
   const { clientId } = useClient() as ClientContextType;
@@ -80,7 +95,7 @@ export default function ConfirmOrder() {
           <h3 className='text-xl'>Confirm Order</h3>
         </div>
       </header>
-      <main className='px-5'>
+      <main className='px-5 overflow-auto mb-16 pb-2'>
         {!loaded && <Spinner />}
         <ul className='border border-slate-100 p-2'>
           {productsToOrder.map((product) => (
@@ -94,21 +109,23 @@ export default function ConfirmOrder() {
             </li>
           ))}
         </ul>
-        <DatePicker
-          label='delivery date'
-          format='DD/MM/YYYY'
-          onChange={handleDateChange}
-        />
-        <input
-          name='comment'
-          value={comment}
-          placeholder='Additional comments'
-          onChange={(e) => setComment(e.target.value)}
-        />
         <div className='mt-8'>
           <span className='font-bold text-xl'>
             Total order: <span className=''>${orderAmount.toFixed(2)}</span>
           </span>
+        </div>
+        <div className='flex flex-col items-center mt-6'>
+          <input
+            name='comment'
+            value={comment}
+            placeholder='Additional comments'
+            onChange={(e) => setComment(e.target.value)}
+            className='mb-3 w-3/4 border border-solid border-slate-100 p-2 rounded-md'
+          />
+          <StyledDatePicker
+            format='DD/MM/YYYY'
+            onChange={handleDateChange}
+          />
         </div>
       </main>
       <footer className='flex justify-between fixed bottom-0 left-0 w-full py-4 px-5'>

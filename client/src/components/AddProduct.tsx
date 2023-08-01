@@ -80,7 +80,7 @@ export default function AppProduct() {
           />
           <button
             type='submit'
-            className='bg-secondary rounded-lg mt-10 p-2 font-bold'>
+            className='bg-primary text-dark rounded-full mt-10 p-2 font-bold'>
             Add Product
           </button>
         </form>
@@ -88,7 +88,7 @@ export default function AppProduct() {
       <footer className='mt-8'>
         <button
           onClick={handleGoBack}
-          className='bg-primary py-2 w-36 rounded-full font-bold text-dark cursor-pointer'>
+          className='bg-secondary py-2 w-36 rounded-full font-bold  cursor-pointer'>
           Back
         </button>
       </footer>
