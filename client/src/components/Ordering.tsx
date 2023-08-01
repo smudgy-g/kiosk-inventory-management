@@ -16,6 +16,7 @@ export default function OrderingComponent() {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [loaded, setLoaded] = useState(false);
   const navigate = useNavigate();
+  const [search, setSearch] = useState('');
   // const { clientId } = useClient() as ClientContextType;
   const { supplierId, supplierName } = useSupplier() as SupplierContextType;
   const [productsToOrder, setProductsToOrder] = useState<ProductToOrderType[]>(
@@ -61,9 +62,9 @@ export default function OrderingComponent() {
   return (
     <>
       <header className='flex py-5 px-7 mb-2 gap-4'>
-        <GiPineapple size={'40px'} />
+        <GiPineapple size={'40px'} color={'#E58806'} />
         <div className='grow text-left'>
-          <h1 className='text-4xl font-bold mb-2 font-DMSerif'>
+          <h1 className='text-4xl font-bold mb-2 font-DMSerif text-accent'>
             {supplierName}
           </h1>
           <h3 className='text-2xl font-bold'>Create Order</h3>
@@ -71,6 +72,7 @@ export default function OrderingComponent() {
       </header>
       <main className='h-full overflow-y-auto pb-10'>
         {!loaded && <Spinner />}
+        <input type='text' name='search' value={search} placeholder='Enter product name' className='bg-background'/>
         <ul>
           {products.map((item) => (
             <ProductComponent
@@ -86,11 +88,11 @@ export default function OrderingComponent() {
       <footer className='flex justify-between fixed bottom-0 left-0 w-full py-4 px-5'>
         <button
           onClick={handleGoBack}
-          className='bg-primary text-dark py-2 w-36 rounded-full font-bold cursor-pointer'>
+          className='bg-secondary py-2 w-36 rounded-full font-bold cursor-pointer'>
           Back
         </button>
         <button
-          className='bg-secondary text-white font-bold py-2 w-36 rounded-full cursor-pointer'
+          className='bg-primary text-dark font-bold py-2 w-36 rounded-full cursor-pointer'
           onClick={() =>
             navigate('/order/confirm', {
               state: { productsToOrder, supplierName },

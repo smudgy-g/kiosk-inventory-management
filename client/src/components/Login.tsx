@@ -22,8 +22,8 @@ export default function Login() {
     <>
       <header className='text-left py-5 px-7 mb-2'>
         <div className='flex flex-col items-center mb-4 gap-1'>
-          <GiPineapple size={'80px'} />
-          <h1 className='text-5xl font-bold font-DMSerif'>
+          <GiPineapple size={'80px'} color={'#E58806'} />
+          <h1 className='text-5xl font-bold font-DMSerif text-accent'>
             k<span className='italic'>i</span>osk
           </h1>
         </div>

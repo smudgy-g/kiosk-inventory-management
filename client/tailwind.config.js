@@ -2,11 +2,11 @@
 export const content = ['./src/**/*.{js,jsx,ts,tsx}'];
 export const theme = {
   colors: {
-    background: '#091B11',
+    background: '#09111C',
     text: 'currentColor',
-    primary: '#5C64B6',
-    secondary: '#64DBCC',
-    accent: '#9FD93A',
+    primary: '#1BC029',
+    secondary: '#091F3E',
+    accent: '#E58806',
     dark: '#000000',
   },
   extend: {

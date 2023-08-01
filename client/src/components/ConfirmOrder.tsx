@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { ProductToOrderType, OrderType, ClientContextType, SupplierContextType } from '../interfaces';
+import {
+  ProductToOrderType,
+  OrderType,
+  ClientContextType,
+  SupplierContextType,
+} from '../interfaces';
 import { useSupplier } from '../contexts/SupplierProvider';
 import { useClient } from '../contexts/ClientProvider';
 import Spinner from './Spinner';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { sendOrder } from '../services/orderingService';
 import { GiPineapple } from 'react-icons/gi';
+import { BiSend } from 'react-icons/bi';
 
 //props: { products: ProductToOrder[] }
 export default function ConfirmOrder() {
@@ -13,6 +19,7 @@ export default function ConfirmOrder() {
   const { clientId } = useClient() as ClientContextType;
   const [orderAmount, setOrderAmount] = useState<number>(0);
   const [loaded, setLoaded] = useState(false);
+  const [comment, setComment] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
   const productsToOrder: ProductToOrderType[] =
@@ -56,9 +63,11 @@ export default function ConfirmOrder() {
   return (
     <div>
       <header className='flex py-5 px-7 mb-2'>
-        <GiPineapple size={'40px'} />
-        <div className='grow'>
-          <h1 className='text-3xl font-bold mb-2'>{supplierName}</h1>
+        <GiPineapple size={'40px'} color='#E58806' />
+        <div className='grow text-left ml-6'>
+          <h2 className='text-3xl font-bold mb-2 text-accent font-DMSerif'>
+            {supplierName}
+          </h2>
           <h3 className='text-xl'>Confirm Order</h3>
         </div>
       </header>
@@ -76,6 +85,10 @@ export default function ConfirmOrder() {
             </li>
           ))}
         </ul>
+        <input
+          name='comment'
+          value={comment}
+          placeholder='Additional comments'></input>
         <div className='mt-8'>
           <span className='font-bold text-xl'>
             Total order: <span className=''>${orderAmount.toFixed(2)}</span>
@@ -85,13 +98,14 @@ export default function ConfirmOrder() {
       <footer className='flex justify-between fixed bottom-0 left-0 w-full py-4 px-5'>
         <button
           onClick={() => navigateBack()}
-          className='bg-primary py-2 w-36 rounded-full text-dark font-bold cursor-pointer'>
+          className='bg-secondary py-2 w-36 rounded-full font-bold cursor-pointer'>
           Back
         </button>
         <button
-          className='bg-secondary text-white font-bold py-2 w-36 rounded-full cursor-pointer'
+          className='bg-primary text-dark  font-bold py-2 w-36 rounded-full cursor-pointer'
           onClick={send}>
-          Confirm
+          Send
+          {/* <BiSend size={'30px'} /> */}
         </button>
       </footer>
     </div>

@@ -37,7 +37,7 @@ export default function ProductComponent(props: ProductComponentTypes) {
         <div
           className='cursor-pointer'
           onClick={increment}>
-          <AiOutlinePlusCircle color='white' size='30px' />
+          <AiOutlinePlusCircle color='white' size='25px' />
         </div>
         <input
           name='quantity'
@@ -51,7 +51,7 @@ export default function ProductComponent(props: ProductComponentTypes) {
         <div
           className='cursor-pointer'
           onClick={decrement}>
-          <AiOutlineMinusCircle color='white' size='30px' />
+          <AiOutlineMinusCircle color='white' size='25px' />
         </div>
       </div>
     </div>
