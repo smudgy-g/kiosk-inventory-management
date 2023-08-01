@@ -25,7 +25,7 @@ export default function OrderingComponent() {
   const { supplierId, supplierName } = useSupplier() as SupplierContextType;
 
   function handleGoBack() {
-    navigate(-1);
+    navigate('/client');
   }
 
   useEffect(() => {
@@ -56,18 +56,17 @@ export default function OrderingComponent() {
     } else {
       updatedProducts.push(item);
     }
-    // const filteredProducts = removeZeroQuantities(updatedProducts);
 
     setProducts(updatedProducts);
-    // setFilteredProductList(updatedProducts);
   };
 
-  // function removeZeroQuantities(arr: ProductToOrderType[]) {
-  //   return arr.filter((item) => item.quantity > 0);
-  // }
+  function removeZeroQuantities(arr: ProductToOrderType[]) {
+    return arr.filter((item) => item.quantity > 0);
+  }
 
   function filterBySearch(event: any) {
     const query = event.target.value;
+    
     if (query) {
       let updatedList = [...products];
       updatedList = updatedList.filter((item) => {
@@ -77,6 +76,12 @@ export default function OrderingComponent() {
     } else {
       setFilteredProductList(products);
     }
+  }
+
+  function handleNext() {
+    const filteredProducts = removeZeroQuantities(products);
+    console.log(filteredProducts)
+    navigate('/order/confirm', { state: { filteredProducts, supplierName } });
   }
 
   return (
@@ -122,11 +127,7 @@ export default function OrderingComponent() {
         </button>
         <button
           className='bg-primary text-dark font-bold py-2 w-36 rounded-full cursor-pointer'
-          onClick={() =>
-            navigate('/order/confirm', {
-              state: { products, supplierName },
-            })
-          }>
+          onClick={handleNext}>
           Next
         </button>
       </footer>
