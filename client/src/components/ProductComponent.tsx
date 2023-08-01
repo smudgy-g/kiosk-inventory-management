@@ -34,9 +34,7 @@ export default function ProductComponent(props: ProductComponentTypes) {
     <div className='flex justify-between m-5'>
       <h3 className='text-md whitespace-normal text-left pr-1'>{props.name}</h3>
       <div className='flex items-center'>
-        <div
-          className='cursor-pointer'
-          onClick={increment}>
+        <div className='cursor-pointer' onClick={increment}>
           <AiOutlinePlusCircle color='white' size='25px' />
         </div>
         <input
@@ -46,11 +44,9 @@ export default function ProductComponent(props: ProductComponentTypes) {
           min={0}
           max={99}
           onChange={handleChange}
-          className='w-8 text-center text-xl text-text font-bold mx-2 bg-background'
+          className='w-7 text-center text-xl text-text font-bold mx-1 bg-background'
         />
-        <div
-          className='cursor-pointer'
-          onClick={decrement}>
+        <div className='cursor-pointer' onClick={decrement}>
           <AiOutlineMinusCircle color='white' size='25px' />
         </div>
       </div>

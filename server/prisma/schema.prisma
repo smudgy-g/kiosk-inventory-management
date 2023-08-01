@@ -40,6 +40,8 @@ model Order {
   clientId          Int
   supplierId        Int
   price             Int
+  comment           String
+  date              String
   client            Client      @relation(fields: [clientId], references: [id])
   supplier          Supplier    @relation(fields: [supplierId], references: [id])
   products          OrderProduct[]   

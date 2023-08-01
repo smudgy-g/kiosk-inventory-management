@@ -1,3 +1,4 @@
+import dayjs, { Dayjs } from 'dayjs';
 import React from 'react';
 
 export interface Supplier {
@@ -69,6 +70,8 @@ export interface OrderType {
     id: number;
     quantity: number;
   }[];
+  date: string;
+  comment: string;
 }
 
 export interface newProductType {

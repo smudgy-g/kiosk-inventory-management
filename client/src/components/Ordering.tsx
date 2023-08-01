@@ -16,12 +16,12 @@ export default function OrderingComponent() {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [loaded, setLoaded] = useState(false);
   const navigate = useNavigate();
-  const [search, setSearch] = useState('');
-  // const { clientId } = useClient() as ClientContextType;
   const { supplierId, supplierName } = useSupplier() as SupplierContextType;
   const [productsToOrder, setProductsToOrder] = useState<ProductToOrderType[]>(
     []
   );
+  const [filteredProductList, setFilteredProductList] =
+    useState < ProductType[]>([]);
 
   function handleGoBack() {
     navigate(-1);
@@ -34,6 +34,7 @@ export default function OrderingComponent() {
           response.json()
         );
         setProducts(res);
+        setFilteredProductList(products);
         setLoaded(true);
       }
     };
@@ -59,22 +60,37 @@ export default function OrderingComponent() {
     return arr.filter((item) => item.quantity > 0);
   }
 
+  function filterBySearch (event: any) {
+    const query = event.target.value;
+    let updatedList = [...products];
+    updatedList = updatedList.filter(item => {
+      return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+    });
+    setFilteredProductList(updatedList);
+  }
+
   return (
     <>
-      <header className='flex py-5 px-7 mb-2 gap-4'>
+      <header className='flex py-5 px-7 mb-2'>
         <GiPineapple size={'40px'} color={'#E58806'} />
-        <div className='grow text-left'>
-          <h1 className='text-4xl font-bold mb-2 font-DMSerif text-accent'>
+        <div className='ml-6 text-left'>
+          <h2 className='text-4xl font-bold mb-2 font-DMSerif text-accent'>
             {supplierName}
-          </h1>
+          </h2>
           <h3 className='text-2xl font-bold'>Create Order</h3>
         </div>
       </header>
       <main className='h-full overflow-y-auto pb-10'>
         {!loaded && <Spinner />}
-        <input type='text' name='search' value={search} placeholder='Enter product name' className='bg-background'/>
+        <input
+          type='text'
+          name='search'
+          placeholder='Enter product name'
+          className='bg-background text-light'
+          onChange={filterBySearch}
+        />
         <ul>
-          {products.map((item) => (
+          {filteredProductList.map((item) => (
             <ProductComponent
               key={item.id.toString()}
               id={item.id}

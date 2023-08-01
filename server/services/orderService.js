@@ -11,7 +11,7 @@ const transporter = createTransport({
   },
 });
 
-async function main(supplier, client, productList) {
+async function main(supplier, client, productList, comment, date) {
   console.log(supplier, client, productList);
   const info = await transporter.sendMail({
     from: '"Smudgy-G" <kioskinventorymanagement@gmail.com>',
@@ -25,7 +25,9 @@ async function main(supplier, client, productList) {
 
       <p>${
   client.companyName
-} would like to order the following items for the next available delivery date: </p>
+} would like to order the following items for deliery: ${date} </p>
+<p>Additional comments:</p>
+<p>${comment}</p>
 
       <ul>
         <li><strong>Supplier:</strong> ${supplier.companyName}</li>
@@ -67,7 +69,13 @@ async function main(supplier, client, productList) {
   console.log('Message sent: %s', info.messageId);
 }
 
-export async function sendOrder(clientId, supplierId, productList) {
+export async function sendOrder(
+  clientId,
+  supplierId,
+  productList,
+  comment,
+  date
+) {
   try {
     const supplier = await getSupplierDetails(supplierId);
     const client = await getClientDetails(clientId);
@@ -81,7 +89,7 @@ export async function sendOrder(clientId, supplierId, productList) {
         };
       })
     );
-    await main(supplier, client, productListWithId);
+    await main(supplier, client, productListWithId, comment, date);
   } catch (error) {
     console.log(error);
   }

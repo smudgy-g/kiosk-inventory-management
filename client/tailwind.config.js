@@ -8,6 +8,7 @@ export const theme = {
     secondary: '#091F3E',
     accent: '#E58806',
     dark: '#000000',
+    light: '#ffffff'
   },
   extend: {
     fontFamily: {

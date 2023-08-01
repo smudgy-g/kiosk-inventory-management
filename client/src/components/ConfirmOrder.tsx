@@ -11,7 +11,8 @@ import Spinner from './Spinner';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { sendOrder } from '../services/orderingService';
 import { GiPineapple } from 'react-icons/gi';
-import { BiSend } from 'react-icons/bi';
+import { DatePicker } from '@mui/x-date-pickers';
+import dayjs, { Dayjs } from 'dayjs';
 
 //props: { products: ProductToOrder[] }
 export default function ConfirmOrder() {
@@ -20,6 +21,9 @@ export default function ConfirmOrder() {
   const [orderAmount, setOrderAmount] = useState<number>(0);
   const [loaded, setLoaded] = useState(false);
   const [comment, setComment] = useState('');
+  const [selectedDate, setSelectedDate] = useState<string>(
+    dayjs().add(1, 'day').format('DD/MM/YYYY')
+  );
   const location = useLocation();
   const navigate = useNavigate();
   const productsToOrder: ProductToOrderType[] =
@@ -40,7 +44,6 @@ export default function ConfirmOrder() {
   }
 
   function navigateBack() {
-    // navigate('/order', { state: { productsToOrder: productsToOrder } });
     navigate(-1);
   }
 
@@ -54,10 +57,16 @@ export default function ConfirmOrder() {
         id: product.id,
         quantity: product.quantity,
       })),
+      date: selectedDate,
+      comment: comment,
     };
     sendOrder(order)
       .then(() => navigate('/client'))
-      .catch((err) => alert('Error sending order. PLease try again'));
+      .catch(() => alert('Error sending order. PLease try again.'));
+  }
+
+  function handleDateChange(date: any) {
+    setSelectedDate(date.format('DD/MM/YYYY'));
   }
 
   return (
@@ -85,10 +94,17 @@ export default function ConfirmOrder() {
             </li>
           ))}
         </ul>
+        <DatePicker
+          label='delivery date'
+          format='DD/MM/YYYY'
+          onChange={handleDateChange}
+        />
         <input
           name='comment'
           value={comment}
-          placeholder='Additional comments'></input>
+          placeholder='Additional comments'
+          onChange={(e) => setComment(e.target.value)}
+        />
         <div className='mt-8'>
           <span className='font-bold text-xl'>
             Total order: <span className=''>${orderAmount.toFixed(2)}</span>
