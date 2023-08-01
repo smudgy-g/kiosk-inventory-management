@@ -1,4 +1,5 @@
 import { prisma } from '../prisma/client.js';
+// import { getSuppliers } from './suppliercontroller.js';
 
 export async function createProduct(req, res) {
   try {
@@ -14,7 +15,6 @@ export async function createProduct(req, res) {
       },
     });
     res.status(201).send(newProduct);
-    console.log('new product', newProduct);
   } catch (error) {
     res.status(400).send(`Error creating new product: ${error}`);
   }
@@ -31,5 +31,32 @@ export async function getProducts(req, res) {
     res.status(200).send(products);
   } catch (error) {
     res.status(400).send(error);
+  }
+}
+
+export async function getAllProducts(req, res) {
+  try {
+    const id = req.params.cid;
+    //get suplier from supplier controller
+    const suppliers = await prisma.supplier.findMany({
+      where: {
+        clientId: parseInt(id),
+      },
+    });
+
+    const sidList = suppliers.map((e) => e.id);
+    let productList = [];
+    for (const el of sidList) {
+      const products = await prisma.product.findMany({
+        where: {
+          supplierId: el,
+        },
+      });
+      productList = productList.concat(products);
+    }
+    res.status(200).send(productList);
+    // use get products
+  } catch (error) {
+    console.log(error);
   }
 }

@@ -86,16 +86,16 @@ export default function ConfirmOrder() {
 
   return (
     <div>
-      <header className='flex py-5 px-7 mb-2'>
+      <header className='fixed top-0 left-0 right-0 flex pt-5 px-7 mb-2 bg-background'>
         <GiPineapple size={'40px'} color='#E58806' />
-        <div className='grow text-left ml-6'>
+        <div className='grow text-right mr-6'>
           <h2 className='text-3xl font-bold mb-2 text-accent font-DMSerif'>
             {supplierName}
           </h2>
           <h3 className='text-xl'>Confirm Order</h3>
         </div>
       </header>
-      <main className='px-5 overflow-auto mb-16 pb-2'>
+      <main className='px-5 overflow-auto mb-20 mt-34 pb-2'>
         {!loaded && <Spinner />}
         <ul className='border border-slate-100 p-2'>
           {productsToOrder.map((product) => (
@@ -122,13 +122,10 @@ export default function ConfirmOrder() {
             onChange={(e) => setComment(e.target.value)}
             className='mb-3 w-3/4 border border-solid border-slate-100 p-2 rounded-md'
           />
-          <StyledDatePicker
-            format='DD/MM/YYYY'
-            onChange={handleDateChange}
-          />
+          <StyledDatePicker format='DD/MM/YYYY' onChange={handleDateChange} />
         </div>
       </main>
-      <footer className='flex justify-between fixed bottom-0 left-0 w-full py-4 px-5'>
+      <footer className='flex justify-between fixed bottom-0 left-0 w-full py-4 px-5 bg-background'>
         <button
           onClick={() => navigateBack()}
           className='bg-secondary py-2 w-36 rounded-full font-bold cursor-pointer'>

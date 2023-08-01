@@ -12,6 +12,7 @@ import AddProduct from './components/AddProduct';
 import ClientProvider from './contexts/ClientProvider';
 import SupplierProvider from './contexts/SupplierProvider';
 import SupplierDetails from './components/SupplierDetails';
+import Stocktake from './components/Stocktake';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Login />} />
               <Route path='/client' element={<Client />} />
+              <Route path='/stocktake' element={<Stocktake />} />
               <Route path='/order' element={<Ordering />} />
               <Route path='/order/confirm' element={<ConfirmOrder />} />
               <Route path='/supplier/add' element={<AddSupplier />} />

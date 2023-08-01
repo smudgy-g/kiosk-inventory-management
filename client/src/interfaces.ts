@@ -39,7 +39,7 @@ export interface ProductType {
   supplierId: number;
   productId: number | undefined;
   name: string;
-  price: string;
+  price: number;
 }
 
 export interface LocationState {
@@ -50,7 +50,8 @@ export interface LocationState {
 export interface ProductComponentTypes {
   id: number;
   name: string;
-  price: string;
+  price: number;
+  quantity: number;
   // eslint-disable-next-line @typescript-eslint/ban-types
   onUpdateQuantity: Function;
 }

@@ -19,6 +19,7 @@ router.delete('/supplier', supplier.deleteSupplier);
 // product
 router.post('/product', product.createProduct);
 router.get('/product/:supplierId', product.getProducts);
+router.get('/product/all/:cid', product.getAllProducts)
 
 // order
 router.post('/order', order.createOrder);

@@ -19,12 +19,12 @@ export default function DeleteModal({
           </p>
           <div className='flex justify-around mt-3'>
             <button
-              className='bg-primary py-2 px-6 rounded-md text-dark cursor-pointer'
+              className='bg-secondary py-2 px-6 rounded-md  cursor-pointer'
               onClick={() => setIsOpen(false)}>
               Cancel
             </button>
             <button
-              className='bg-secondary py-2 px-10 rounded-md text-white cursor-pointer'
+              className='bg-primary py-2 px-10 rounded-md text-dark cursor-pointer'
               onClick={() => {
                 setIsOpen(false);
                 handleDelete();

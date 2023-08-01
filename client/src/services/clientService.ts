@@ -1,7 +1,7 @@
-const BASE_URL = 'http://localhost:8080/client';
+const BASE_URL = 'http://localhost:8080';
 
 export function getClientDetails(id: number) {
-  return fetch(`${BASE_URL}/${id}`)
+  return fetch(`${BASE_URL}/client/${id}`)
     .then(async (response) => {
       const data = await response.json();
       return data;

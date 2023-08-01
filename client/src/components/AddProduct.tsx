@@ -44,7 +44,7 @@ export default function AppProduct() {
     <>
       <header className='text-left py-5 px-7 mb-2'>
         <LogoComponent />
-        <h1 className='text-3xl font-bold'>Add Product</h1>
+        <h2 className='text-3xl font-bold'>Add Product</h2>
       </header>
       <main className='text-left'>
         <form onSubmit={handleSubmit} className='flex flex-col px-7 '>

@@ -42,7 +42,7 @@ export default function AddSupplier() {
     <>
       <header className='text-left py-5 px-7 mb-2'>
         <LogoComponent />
-        <h1 className='mt-6 text-3xl font-bold'>Add Supplier</h1>
+        <h2 className='mt-6 text-3xl font-bold'>Add Supplier</h2>
       </header>
       <main className='mt-1 text-left'>
         <form onSubmit={handleSubmit} className='flex flex-col px-7 '>

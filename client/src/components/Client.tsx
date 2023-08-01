@@ -21,7 +21,6 @@ export default function Client() {
 
   useEffect(() => {
     const fetchClientName = async () => {
-      console.log(clientId);
       const res = await getClientDetails(clientId);
       updateClientName(res.companyName);
     };
@@ -61,7 +60,7 @@ export default function Client() {
       </header>
       <main className='text-left px-5 overflow-auto mb-16 pb-2 mt-24'>
         {!loaded && <Spinner />}
-        <h1 className='text-3xl font-bold'>{clientName}</h1>
+        <h2 className='text-3xl font-bold'>{clientName}</h2>
 
         {suppliers.map((supplier) => (
           <SupplierComponent
@@ -77,7 +76,9 @@ export default function Client() {
         )}
       </main>
       <footer className='fixed bottom-0 left-0 flex justify-between bg-white w-full py-4 px-5 bg-background'>
-        <button className='bg-accent py-2 w-36 rounded-full font-bold text-dark cursor-pointer'>
+        <button
+          className='bg-accent py-2 w-36 rounded-full font-bold text-dark cursor-pointer'
+          onClick={() => navigate('/stocktake')}>
           Stocktake
         </button>
         <button

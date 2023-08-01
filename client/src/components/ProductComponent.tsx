@@ -5,6 +5,10 @@ import { ProductComponentTypes } from '../interfaces';
 export default function ProductComponent(props: ProductComponentTypes) {
   const [quantity, setQuantity] = useState(0);
 
+  useEffect (() => {
+    setQuantity(props.quantity)
+  }, [])
+
   useEffect(() => {
     const productToOrder = {
       id: props.id,

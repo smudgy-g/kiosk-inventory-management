@@ -1,8 +1,8 @@
 import { newSupplier } from '../interfaces';
-const BASE_URL = 'http://localhost:8080/supplier';
+const BASE_URL = 'http://localhost:8080';
 
 export function getClientSuppliers(id: number) {
-  return fetch(`${BASE_URL}/${id}`)
+  return fetch(`${BASE_URL}/supplier/${id}`)
     .then(async (response) => {
       const suppliers = await response.json();
       return suppliers;
@@ -11,7 +11,7 @@ export function getClientSuppliers(id: number) {
 }
 
 export function addSupplierToClient(supplier: newSupplier): Promise<Response> {
-  return fetch(`${BASE_URL}`, {
+  return fetch(`${BASE_URL}/supplier`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ export function addSupplierToClient(supplier: newSupplier): Promise<Response> {
 }
 
 export async function deleteSupplier(id: number): Promise<Response> {
-  return await fetch(`${BASE_URL}`, {
+  return await fetch(`${BASE_URL}/supplier`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ export async function deleteSupplier(id: number): Promise<Response> {
 }
 
 export async function getSupplierDetails(id: number) {
-  return fetch(`${BASE_URL}/details/`, {
+  return fetch(`${BASE_URL}/supplier/details/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
