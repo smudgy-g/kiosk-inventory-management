@@ -44,6 +44,7 @@ You will need to have **postgres** installed on your computer to run the databas
 
 ### Backend
 
+- Delete function not working. Need to delete all products related to the supplier and then delete the supplier.
 - Authentication
 - Functionality to update products and suppliers
 - Convert backend to typescript to be consistent with frontend.
