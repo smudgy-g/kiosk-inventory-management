@@ -56,7 +56,7 @@ export default function OrderingComponent() {
     } else {
       updatedProducts.push(item);
     }
-
+    
     setProducts(updatedProducts);
   };
 
