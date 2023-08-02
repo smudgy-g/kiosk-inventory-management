@@ -39,10 +39,18 @@ You will need to have **postgres** installed on your computer to run the databas
 - Seperate Components and Pages: each file in the Pages folder corresponds to a single page and their only job is to render components (no logic in these 'components') and your Components folder contains the actual components and the logic inside of them.
 - create Assets for logo, app name, labels etc to avoid repetition.
 - Create .env file for API_URL.
+- Authentication
+- Functionality to update products and suppliers
 
 ### Backend
 
+- Authentication
+- Functionality to update products and suppliers
 - Convert backend to typescript to be consistent with frontend.
 - Add model in database to store Stocktakes. An api will need to be set up to provide this functionality in the front end.
 
 ## Improvements
+
+- A stocktake report to be created.
+- A web version that allows the user a more comfortable experience to create, add, delete, update the products and suppliers.
+- Display a dashboard of past orders, past stocktakes, order totals tracking and stocktake totals tracking.
