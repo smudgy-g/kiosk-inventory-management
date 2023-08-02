@@ -9,7 +9,7 @@ import { useSupplier } from '../contexts/SupplierProvider';
 import { useClient } from '../contexts/ClientProvider';
 import Spinner from './Spinner';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { sendOrder } from '../services/orderingService';
+import { sendOrder } from '../services/ordering.service';
 import { GiPineapple } from 'react-icons/gi';
 import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';

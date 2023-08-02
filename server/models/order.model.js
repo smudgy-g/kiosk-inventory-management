@@ -1,13 +1,13 @@
 import { prisma } from '../prisma/client.js';
 
-export async function createOrder(
+export async function createOrder({
   clientId,
   supplierId,
   products,
   price,
   comment,
-  date
-) {
+  date,
+}) {
   const result = await prisma.order.create({
     data: {
       clientId: parseInt(clientId),

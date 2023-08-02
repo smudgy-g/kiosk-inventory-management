@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSupplier } from '../contexts/SupplierProvider';
 import { SupplierContextType } from '../interfaces';
-import { getSupplierDetails } from '../services/supplierService';
+import { getSupplierDetails } from '../services/supplier.service';
 import ClientHeaderComponent from './ClientHeaderComponent';
 import LogoComponent from './Logo';
 
@@ -41,7 +41,9 @@ export default function SupplierDetails() {
           <p className='text-lg'>Contact:</p>
           <p className='mt-1 text-2xl font-bold'>{details?.contact}</p>
         </div>
-        <a href='mailto:${details?.email}' className='text-xl'>{details?.email}</a>
+        <a href='mailto:${details?.email}' className='text-xl'>
+          {details?.email}
+        </a>
       </main>
       <footer className='fixed bottom-0 left-0 right-0 py-5'>
         <button

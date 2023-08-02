@@ -4,10 +4,11 @@ import { getSuppliersByClient } from '../models/supplier.model.js';
 export async function createProduct(req, res) {
   try {
     const { supplierId, productId, productName, price } = req.body;
-    const product = { supplierId, productId, productName, price };
+    const data = { supplierId, productId, productName, price };
+    console.log(data);
     if (!supplierId || !productName || !price)
       res.status(400).send('Incomplete fields.');
-    const result = await product.createProduct(product);
+    const result = await product.createProduct(data);
     res.status(201).send(result);
   } catch (error) {
     res.status(400).send(`Error creating new product: ${error}`);

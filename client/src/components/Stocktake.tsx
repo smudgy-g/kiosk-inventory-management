@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import ProductComponent from './ProductComponent';
 import Spinner from './Spinner';
 import { useClient } from '../contexts/ClientProvider';
-import { getAllProducts } from '../services/productService';
+import { getAllProducts } from '../services/product.service';
 
 export default function OrderingComponent() {
   const [products, setProducts] = useState<ProductToOrderType[]>([]);

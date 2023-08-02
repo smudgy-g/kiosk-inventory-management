@@ -1,7 +1,7 @@
 import express, { json } from 'express';
 import cors from 'cors';
-import config from 'dotenv';
-import {router} from './router.js';
+import { config } from 'dotenv';
+import { router } from './router.js';
 
 config();
 

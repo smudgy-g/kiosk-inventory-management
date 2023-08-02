@@ -28,6 +28,7 @@ export async function deleteSupplier(id: number): Promise<Response> {
     },
     body: JSON.stringify({ supplierId: id }),
   });
+  console.log(id);
 }
 
 export async function getSupplierDetails(id: number) {

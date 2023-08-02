@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getSupplierProducts } from '../services/productService';
+import { getSupplierProducts } from '../services/product.service';
 import {
   ProductToOrderType,
   ProductType,
@@ -66,7 +66,7 @@ export default function OrderingComponent() {
 
   function filterBySearch(event: any) {
     const query = event.target.value;
-    
+
     if (query) {
       let updatedList = [...products];
       updatedList = updatedList.filter((item) => {
@@ -80,7 +80,7 @@ export default function OrderingComponent() {
 
   function handleNext() {
     const filteredProducts = removeZeroQuantities(products);
-    console.log(filteredProducts)
+    console.log(filteredProducts);
     navigate('/order/confirm', { state: { filteredProducts, supplierName } });
   }
 

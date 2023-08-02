@@ -1,5 +1,5 @@
 import React, { FormEvent } from 'react';
-import { addSupplierToClient } from '../services/supplierService';
+import { addSupplierToClient } from '../services/supplier.service';
 import { ClientContextType, newSupplier } from '../interfaces';
 import { useState } from 'react';
 import { useClient } from '../contexts/ClientProvider';

@@ -1,7 +1,6 @@
 import { prisma } from '../prisma/client.js';
 
 export async function getSupplierDetails(id) {
-  await prisma.$connect();
   const supplier = await prisma.supplier.findUnique({
     where: {
       id: parseInt(id),
@@ -16,7 +15,7 @@ export async function checkSupplierByEmail(email) {
       email: email,
     },
   });
-  return result
+  return result;
 }
 
 export async function getSuppliersByClient(id) {
@@ -41,9 +40,10 @@ export async function createSupplier({ company, email, contact, clientId }) {
 }
 
 export async function deleteSupplier(id) {
+  console.log('model', id)
   const result = await prisma.supplier.delete({
     where: {
-      id: id,
+      id: parseInt(id),
     },
   });
   return result;

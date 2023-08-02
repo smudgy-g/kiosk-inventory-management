@@ -2,8 +2,8 @@ import * as supplier from '../models/supplier.model.js';
 
 export async function getSuppliers(req, res) {
   try {
-    const { client } = req.params.clientId;
-    const result = await supplier.getSuppliersByClient(client);
+    const id = req.params.clientId;
+    const result = await supplier.getSuppliersByClient(id);
     res.status(200).send(result);
   } catch (error) {
     res.status(400).send(`Error getting suppliers: ${error}`);
@@ -40,6 +40,7 @@ export async function createSupplier(req, res) {
 export async function deleteSupplier(req, res) {
   try {
     const { supplierId } = req.body;
+    console.log(supplierId)
     const result = supplier.deleteSupplier(supplierId);
     res.status(200).send(result);
   } catch (error) {
