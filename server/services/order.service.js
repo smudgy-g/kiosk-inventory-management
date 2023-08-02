@@ -1,7 +1,7 @@
 import { createTransport } from 'nodemailer';
-import { getClientDetails } from '../models/clientModel.js';
-import { getSupplierDetails } from '../models/supplierModel.js';
-import { getProductId } from '../models/productModel.js';
+import { getClientDetails } from '../models/client.model.js';
+import { getSupplierDetails } from '../models/supplier.model.js';
+import { getProductId } from '../models/product.model.js';
 
 const transporter = createTransport({
   service: 'gmail',
@@ -65,7 +65,7 @@ async function main(supplier, client, productList, comment, date) {
     </body>
     `,
   });
-  console.log('Message sent: %s', info.messageId);
+  return console.log('Message sent: ', info.messageId);
 }
 
 export async function sendOrder(
