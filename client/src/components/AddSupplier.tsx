@@ -35,7 +35,7 @@ export default function AddSupplier() {
   }
 
   function handleGoBack() {
-    navigate(-1);
+    navigate(-'/client');
   }
 
   return (

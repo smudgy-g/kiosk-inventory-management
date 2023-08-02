@@ -28,6 +28,12 @@ const StyledDatePicker = styled(DatePicker)(() => ({
       boxShadow: 'none', // remove box shadow on focus
     },
   },
+  '& .MuiButtonBase-input': {
+    backgroundColor: 'white', // set background color of input field
+    borderRadius: '4px', // set border radius of input field
+    padding: '10px', // set padding of input field
+    boxShadow: 'none', // remove box shadow of input field
+  },
 }));
 
 export default function ConfirmOrder() {
@@ -59,7 +65,7 @@ export default function ConfirmOrder() {
   }
 
   function navigateBack() {
-    navigate(-1);
+    navigate('/order');
   }
 
   function send() {

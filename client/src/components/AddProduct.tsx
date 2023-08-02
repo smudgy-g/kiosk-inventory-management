@@ -37,7 +37,7 @@ export default function AppProduct() {
   }
 
   function handleGoBack() {
-    navigate(-1);
+    navigate('/client');
   }
 
   return (

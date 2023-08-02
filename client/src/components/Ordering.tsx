@@ -25,7 +25,7 @@ export default function OrderingComponent() {
   const { supplierId, supplierName } = useSupplier() as SupplierContextType;
 
   function handleGoBack() {
-    navigate(-1);
+    navigate('/client');
   }
 
   useEffect(() => {
