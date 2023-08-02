@@ -13,16 +13,14 @@ import { getAllProducts } from '../services/product.service';
 
 export default function OrderingComponent() {
   const [products, setProducts] = useState<ProductToOrderType[]>([]);
-  const [filteredProductList, setFilteredProductList] = useState<
-    ProductToOrderType[]
-  >([]);
   const [loaded, setLoaded] = useState(false);
   const navigate = useNavigate();
   const { clientId, clientName } =
     useClient() as ClientContextType as ClientContextType;
+  const [productCount, setProductCount] = useState<ProductToOrderType[]>([]);
 
   function handleGoBack() {
-    navigate('/client');
+    navigate(-1);
   }
 
   useEffect(() => {
@@ -30,11 +28,7 @@ export default function OrderingComponent() {
       const res = await getAllProducts(clientId).then((response) =>
         response.json()
       );
-      const prodWithCounts = res.map((item: ProductType) => {
-        return { ...item, quantity: 0 };
-      });
-      setProducts(prodWithCounts);
-      setFilteredProductList(prodWithCounts);
+      setProducts(res);
       setLoaded(true);
     };
 
@@ -42,58 +36,36 @@ export default function OrderingComponent() {
   }, [loaded]);
 
   const updateProductQuantity = (item: ProductToOrderType) => {
-    const updatedProducts = [...products];
-    const productIndex = updatedProducts.findIndex(
+    const updatedCount = [...productCount];
+    const productIndex = updatedCount.findIndex(
       (product) => product.id === item.id
     );
     if (productIndex !== -1) {
-      updatedProducts[productIndex].quantity = item.quantity;
+      updatedCount[productIndex].quantity = item.quantity;
     } else {
-      updatedProducts.push(item);
+      updatedCount.push(item);
     }
-    // const filteredProducts = removeZeroQuantities(updatedProducts);
-
-    setProducts(updatedProducts);
-    // setFilteredProductList(updatedProducts);
+    const filteredProducts = filterProductsToOrder(updatedCount);
+    setProductCount(filteredProducts);
   };
 
-  function filterBySearch(event: any) {
-    const query = event.target.value;
-    if (query) {
-      let updatedList = [...products];
-      updatedList = updatedList.filter((item) => {
-        return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
-      });
-      setFilteredProductList(updatedList);
-    } else {
-      setFilteredProductList(products);
-    }
+  function filterProductsToOrder(arr: ProductToOrderType[]) {
+    return arr.filter((item) => item.quantity > 0);
   }
 
   return (
     <>
-      <header className='fixed top-0 right-0 left-0 pt-5 px-7 mb-2 bg-background'>
-        <div className='flex'>
-          <GiPineapple size={'40px'} color='#E58806' />
-          <div className='ml-6 text-right'>
-            <h2 className='text-3xl font-bold mb-2 font-DMSerif'>
-              {clientName}
-            </h2>
-            <h3 className='text-2xl font-bold'>Stocktake</h3>
-          </div>
+      <header className='flex fixed top-0 right-0 left-0 py-5 px-7 mb-2 bg-background'>
+        <GiPineapple size={'40px'} color='#E58806' />
+        <div className='ml-6 text-right'>
+          <h2 className='text-3xl font-bold mb-2 font-DMSerif'>{clientName}</h2>
+          <h3 className='text-2xl font-bold'>Stocktake</h3>
         </div>
-        <input
-          type='text'
-          name='search'
-          placeholder='Enter product name'
-          className='bg-background text-light mt-3 p-2 rounded-md w-3/4 text-center'
-          onChange={filterBySearch}
-        />
       </header>
-      <main className='overflow-y-auto pb-10 mb-6 mt-36'>
+      <main className='overflow-y-auto pb-10 mb-6 mt-24'>
         {!loaded && <Spinner />}
         <ul>
-          {filteredProductList.map((item) => (
+          {products.map((item) => (
             <ProductComponent
               key={item.id.toString()}
               id={item.id}
@@ -113,7 +85,7 @@ export default function OrderingComponent() {
         </button>
         <button
           className='bg-primary text-dark font-bold py-2 w-36 rounded-full cursor-pointer'
-          onClick={() => navigate('/client')}>
+          onClick={() => console.log(productCount)}>
           Next
         </button>
       </footer>

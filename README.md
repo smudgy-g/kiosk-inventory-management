@@ -43,8 +43,10 @@ You will need to have **postgres** installed on your computer to run the databas
 - Functionality to update products and suppliers
 
 ### Backend
-
-- Delete function not working. Need to delete all products related to the supplier and then delete the supplier.
+- apii services not working. 404 Not FOund
+- Delete function not working
+  -- either improve so that the supplier will stay in the DB and the reference to them in the client table will be deleted, or
+  -- delete all products an then delete the supplier from the database. (less real-world)
 - Authentication
 - Functionality to update products and suppliers
 - Convert backend to typescript to be consistent with frontend.

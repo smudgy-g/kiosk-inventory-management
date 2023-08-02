@@ -28,12 +28,6 @@ const StyledDatePicker = styled(DatePicker)(() => ({
       boxShadow: 'none', // remove box shadow on focus
     },
   },
-  '& .MuiButtonBase-input': {
-    backgroundColor: 'white', // set background color of input field
-    borderRadius: '4px', // set border radius of input field
-    padding: '10px', // set padding of input field
-    boxShadow: 'none', // remove box shadow of input field
-  },
 }));
 
 export default function ConfirmOrder() {
@@ -48,8 +42,7 @@ export default function ConfirmOrder() {
   const location = useLocation();
   const navigate = useNavigate();
   const productsToOrder: ProductToOrderType[] =
-    location.state?.filteredProducts || [];
-  
+    location.state?.productsToOrder || [];
 
   useEffect(() => {
     const total = totalOrderAmount(productsToOrder);
@@ -66,7 +59,7 @@ export default function ConfirmOrder() {
   }
 
   function navigateBack() {
-    navigate('/order');
+    navigate(-1);
   }
 
   function send() {
@@ -102,7 +95,7 @@ export default function ConfirmOrder() {
           <h3 className='text-xl'>Confirm Order</h3>
         </div>
       </header>
-      <main className='px-5 overflow-auto mb-20 mt-36 pb-2'>
+      <main className='px-5 overflow-auto mb-20 mt-34 pb-2'>
         {!loaded && <Spinner />}
         <ul className='border border-slate-100 p-2'>
           {productsToOrder.map((product) => (

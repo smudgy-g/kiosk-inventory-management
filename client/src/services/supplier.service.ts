@@ -11,6 +11,7 @@ export function getClientSuppliers(id: number) {
 }
 
 export function addSupplierToClient(supplier: newSupplier): Promise<Response> {
+  console.log(supplier)
   return fetch(`${BASE_URL}/supplier`, {
     method: 'POST',
     headers: {
@@ -32,7 +33,7 @@ export async function deleteSupplier(id: number): Promise<Response> {
 }
 
 export async function getSupplierDetails(id: number) {
-  return fetch(`${BASE_URL}/supplier/details/`, {
+  return fetch(`${BASE_URL}/supplier/details`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

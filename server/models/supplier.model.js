@@ -27,12 +27,23 @@ export async function getSuppliersByClient(id) {
   return result;
 }
 
-export async function createSupplier({ company, email, contact, clientId }) {
+export async function createSupplier(
+  companyName,
+  email,
+  contactName,
+  clientId
+) {
+  console.log({
+    companyName,
+    email,
+    contactName,
+    clientId,
+  });
   const supplier = await prisma.supplier.create({
     data: {
-      companyName: company,
+      companyName: companyName,
       email: email,
-      contactName: contact,
+      contactName: contactName,
       clientId: parseInt(clientId),
     },
   });
@@ -40,7 +51,7 @@ export async function createSupplier({ company, email, contact, clientId }) {
 }
 
 export async function deleteSupplier(id) {
-  console.log('model', id)
+  console.log('model', id);
   const result = await prisma.supplier.delete({
     where: {
       id: parseInt(id),
