@@ -41,12 +41,9 @@ You will need to have **postgres** installed on your computer to run the databas
 - Create .env file for API_URL.
 - Authentication
 - Functionality to update products and suppliers
+- State to holdd current order. Problem when navigating back from "confirm order page", order disappears
 
 ### Backend
-- apii services not working. 404 Not FOund
-- Delete function not working
-  -- either improve so that the supplier will stay in the DB and the reference to them in the client table will be deleted, or
-  -- delete all products an then delete the supplier from the database. (less real-world)
 - Authentication
 - Functionality to update products and suppliers
 - Convert backend to typescript to be consistent with frontend.
