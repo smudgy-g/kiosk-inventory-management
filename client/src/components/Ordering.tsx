@@ -56,22 +56,21 @@ export default function OrderingComponent() {
     } else {
       updatedProducts.push(item);
     }
-    // const filteredProducts = removeZeroQuantities(updatedProducts);
 
     setProducts(updatedProducts);
-    // setFilteredProductList(updatedProducts);
   };
 
-  // function removeZeroQuantities(arr: ProductToOrderType[]) {
-  //   return arr.filter((item) => item.quantity > 0);
-  // }
+  function handleNext() {
+    const filteredProducts = removeZeroQuantities(products);
+    console.log(filteredProducts);
+    navigate('/order/confirm', { state: { filteredProducts, supplierName } });
+  }
+  function removeZeroQuantities(arr: ProductToOrderType[]) {
+    return arr.filter((item) => item.quantity > 0);
+  }
 
   function filterBySearch(event: any) {
     const query = event.target.value;
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of ec9f7f6 (feat: stocktake and bug fixes)
     if (query) {
       let updatedList = [...products];
       updatedList = updatedList.filter((item) => {
@@ -83,15 +82,6 @@ export default function OrderingComponent() {
     }
   }
 
-<<<<<<< HEAD
-  function handleNext() {
-    const filteredProducts = removeZeroQuantities(products);
-    console.log(filteredProducts);
-    navigate('/order/confirm', { state: { filteredProducts, supplierName } });
-  }
-
-=======
->>>>>>> parent of ec9f7f6 (feat: stocktake and bug fixes)
   return (
     <>
       <header className='fixed top-0 left-0 right-0 pt-5 px-7 mb-2 bg-background'>
@@ -135,11 +125,7 @@ export default function OrderingComponent() {
         </button>
         <button
           className='bg-primary text-dark font-bold py-2 w-36 rounded-full cursor-pointer'
-          onClick={() =>
-            navigate('/order/confirm', {
-              state: { products, supplierName },
-            })
-          }>
+          onClick={handleNext}>
           Next
         </button>
       </footer>

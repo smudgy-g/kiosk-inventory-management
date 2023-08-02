@@ -42,7 +42,7 @@ export default function ConfirmOrder() {
   const location = useLocation();
   const navigate = useNavigate();
   const productsToOrder: ProductToOrderType[] =
-    location.state?.productsToOrder || [];
+    location.state?.filteredProducts || [];
 
   useEffect(() => {
     const total = totalOrderAmount(productsToOrder);
@@ -95,7 +95,7 @@ export default function ConfirmOrder() {
           <h3 className='text-xl'>Confirm Order</h3>
         </div>
       </header>
-      <main className='px-5 overflow-auto mb-20 mt-34 pb-2'>
+      <main className='px-5 overflow-auto mb-20 mt-36 pb-2'>
         {!loaded && <Spinner />}
         <ul className='border border-slate-100 p-2'>
           {productsToOrder.map((product) => (
