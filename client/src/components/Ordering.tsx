@@ -10,7 +10,7 @@ import ProductComponent from './ProductComponent';
 import Spinner from './Spinner';
 import { useSupplier } from '../contexts/SupplierProvider';
 import { GiPineapple } from 'react-icons/gi';
-// import { useClient } from '../contexts/ClientProvider';
+import Button from './Button';
 
 export default function OrderingComponent() {
   const [products, setProducts] = useState<ProductToOrderType[]>([]);
@@ -56,7 +56,7 @@ export default function OrderingComponent() {
     } else {
       updatedProducts.push(item);
     }
-    
+
     setProducts(updatedProducts);
   };
 
@@ -118,11 +118,12 @@ export default function OrderingComponent() {
         </ul>
       </main>
       <footer className='flex justify-between fixed bottom-0 left-0 w-full py-4 px-5'>
-        <button
+        <Button click={handleGoBack} text={'Back'} />
+        {/* <button
           onClick={handleGoBack}
           className='bg-secondary py-2 w-36 rounded-full font-bold cursor-pointer'>
           Back
-        </button>
+        </button> */}
         <button
           className='bg-primary text-dark font-bold py-2 w-36 rounded-full cursor-pointer'
           onClick={handleNext}>
