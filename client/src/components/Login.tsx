@@ -3,6 +3,7 @@ import { useClient } from '../contexts/ClientProvider';
 import { useNavigate } from 'react-router-dom';
 import { ClientContextType } from '../interfaces';
 import { GiPineapple } from 'react-icons/gi';
+import FormLabel from './FormLabel';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -30,7 +31,7 @@ export default function Login() {
       </header>
       <main className='text-left'>
         <form onSubmit={handleSubmit} className='mt-8 flex flex-col px-7'>
-          <label className='text-lg mb-2 mt-16 font-bold'>Email:</label>
+          <FormLabel label={'Email:'} />
           <input
             name='email'
             type='email'
@@ -41,7 +42,7 @@ export default function Login() {
             className='border border-solid border-slate-100 p-2 rounded-md'
           />
 
-          <label className='text-lg mb-2 mt-8 font-bold'>Password</label>
+          <FormLabel label={'Email:'} />
           <input
             name='password'
             type='password'
