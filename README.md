@@ -1,4 +1,4 @@
-# kiosk-inventory-management
+# Kiosk Inventory Management
 
 <p align="center">
    <img src="screenshots/kiosk-logo.png" alt="Kiosk Logo" height="300">
@@ -27,14 +27,11 @@ Say goodbye to the complexities of inventory management and embrace the simplici
 ## Tech Stack
 
 ### Frontend:
-- React
-- TypeScript
-- Tailwind CSS
-
-### Backend
-- Node.js
-- PostgreSQL
-- Prisma
+* [React](https://react.dev/)
+* [Tailwind CSS](https://tailwindcss.com/)
+* [Node.js](https://nodejs.org/en)
+* [PostgreSQL](https://www.postgresql.org/)
+* [Prisma](https://www.prisma.io/)
 
 ## Installation
 
