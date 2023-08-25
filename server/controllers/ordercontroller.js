@@ -1,4 +1,3 @@
-// import { PrismaClient } from '@prisma/client';
 import { prisma } from '../prisma/client.js';
 import { sendOrder } from '../services/orderService.js';
 export async function createOrder(req, res) {

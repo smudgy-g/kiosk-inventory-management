@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { getSupplierProducts } from '../services/product.service';
 import {
   ProductToOrderType,
@@ -14,12 +14,8 @@ import Button from './Button';
 
 export default function OrderingComponent() {
   const [products, setProducts] = useState<ProductToOrderType[]>([]);
-  // const [productsToOrder, setProductsToOrder] = useState<ProductToOrderType[]>(
-  //   []
-  // );
-  const [filteredProductList, setFilteredProductList] = useState<
-    ProductToOrderType[]
-  >([]);
+  // const [productsToOrder, setProductsToOrder] = useState<ProductToOrderType[]>([]);
+  const [filteredProductList, setFilteredProductList] = useState<ProductToOrderType[]>([]);
   const [loaded, setLoaded] = useState(false);
   const navigate = useNavigate();
   const { supplierId, supplierName } = useSupplier() as SupplierContextType;
@@ -68,7 +64,7 @@ export default function OrderingComponent() {
     return arr.filter((item) => item.quantity > 0);
   }
 
-  function filterBySearch(event: any) {
+  function filterBySearch(event: ChangeEvent<HTMLInputElement>) {
     const query = event.target.value;
     if (query) {
       let updatedList = [...products];
@@ -118,11 +114,6 @@ export default function OrderingComponent() {
       </main>
       <footer className='flex justify-between fixed bottom-0 left-0 w-full py-4 px-5'>
         <Button click={handleGoBack} text={'Back'} />
-        {/* <button
-          onClick={handleGoBack}
-          className='bg-secondary py-2 w-36 rounded-full font-bold cursor-pointer'>
-          Back
-        </button> */}
         <button
           className='bg-primary text-dark font-bold py-2 w-36 rounded-full cursor-pointer'
           onClick={handleNext}>

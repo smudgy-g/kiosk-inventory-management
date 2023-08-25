@@ -1,5 +1,4 @@
 import { prisma } from '../prisma/client.js';
-// import { getSuppliers } from './suppliercontroller.js';
 
 export async function createProduct(req, res) {
   try {

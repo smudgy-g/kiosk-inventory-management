@@ -1,6 +1,3 @@
-import dayjs, { Dayjs } from 'dayjs';
-import React from 'react';
-
 export interface Supplier {
   clientId: number;
   companyName: string;
@@ -19,19 +16,15 @@ export interface newSupplier {
 export interface ClientContextType {
   clientId: number;
   updateClientId: (id: number) => void;
-  // setClientId: React.Dispatch<React.SetStateAction<number>>;
   clientName: string;
   updateClientName: (name: string) => void;
-  // setClientName: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface SupplierContextType {
   supplierId: number;
   updateSupplierId: (id: number) => void;
-  // setSupplierId: React.Dispatch<React.SetStateAction<number>>;
   supplierName: string;
   updateSupplierName: (name: string) => void;
-  // setSupplierName: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface ProductType {
@@ -52,8 +45,7 @@ export interface ProductComponentTypes {
   name: string;
   price: number;
   quantity: number;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  onUpdateQuantity: Function;
+  onUpdateQuantity: (item: ProductToOrderType) => void;
 }
 
 export interface ProductToOrderType {

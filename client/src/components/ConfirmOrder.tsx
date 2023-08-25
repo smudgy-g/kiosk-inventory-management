@@ -17,22 +17,18 @@ import styled from '@emotion/styled';
 
 const StyledDatePicker = styled(DatePicker)(() => ({
   '& .MuiInputBase-input': {
-    backgroundColor: 'white', // set background color of input field
-    borderRadius: '4px', // set border radius of input field
-    padding: '10px', // set padding of input field
-    boxShadow: 'none', // remove box shadow of input field
-    '&:hover': {
-      boxShadow: 'none', // remove box shadow on hover
-    },
-    '&:focus': {
-      boxShadow: 'none', // remove box shadow on focus
-    },
+    backgroundColor: 'white',
+    borderRadius: '4px',
+    padding: '10px',
+    boxShadow: 'none',
+    '&:hover': { boxShadow: 'none' },
+    '&:focus': { boxShadow: 'none' },
   },
   '& .MuiButtonBase-input': {
-    backgroundColor: 'white', // set background color of input field
-    borderRadius: '4px', // set border radius of input field
-    padding: '10px', // set padding of input field
-    boxShadow: 'none', // remove box shadow of input field
+    backgroundColor: 'white',
+    borderRadius: '4px',
+    padding: '10px',
+    boxShadow: 'none',
   },
 }));
 
@@ -42,13 +38,10 @@ export default function ConfirmOrder() {
   const [orderAmount, setOrderAmount] = useState<number>(0);
   const [loaded, setLoaded] = useState(false);
   const [comment, setComment] = useState('');
-  const [selectedDate, setSelectedDate] = useState<string>(
-    dayjs().add(1, 'day').format('DD/MM/YYYY')
-  );
+  const [selectedDate, setSelectedDate] = useState<string>(dayjs().add(1, 'day').format('DD/MM/YYYY'));
   const location = useLocation();
   const navigate = useNavigate();
-  const productsToOrder: ProductToOrderType[] =
-    location.state?.filteredProducts || [];
+  const productsToOrder: ProductToOrderType[] = location.state?.filteredProducts || [];
 
   useEffect(() => {
     const total = totalOrderAmount(productsToOrder);
@@ -141,7 +134,6 @@ export default function ConfirmOrder() {
           className='bg-primary text-dark  font-bold py-2 w-36 rounded-full cursor-pointer'
           onClick={send}>
           Send
-          {/* <BiSend size={'30px'} /> */}
         </button>
       </footer>
     </div>

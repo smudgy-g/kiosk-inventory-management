@@ -7,7 +7,7 @@ export default function ClientHeaderComponent() {
   const navigate = useNavigate();
 
   return (
-    <div className=' flex justify-between '>
+    <div className=' flex justify-between'>
       <LogoComponent />
       <button
         onClick={() => navigate('/')}

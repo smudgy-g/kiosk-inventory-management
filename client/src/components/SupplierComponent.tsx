@@ -12,13 +12,7 @@ interface SupplierComponentProps {
   setSupplierToDelete: (x: number) => void;
 }
 
-export default function SupplierComponent({
-  id,
-  name,
-  setIsOpen,
-  setSupplierToDelete,
-}: // onDelete,
-SupplierComponentProps) {
+export default function SupplierComponent({ id, name, setIsOpen, setSupplierToDelete }:SupplierComponentProps) {
   const { updateSupplierId, updateSupplierName } =
     useSupplier() as SupplierContextType;
 

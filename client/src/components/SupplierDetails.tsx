@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useSupplier } from '../contexts/SupplierProvider';
 import { SupplierContextType } from '../interfaces';
 import { getSupplierDetails } from '../services/supplier.service';
-import ClientHeaderComponent from './ClientHeaderComponent';
 import LogoComponent from './Logo';
 
 interface SupplierDetails {
@@ -16,8 +15,6 @@ export default function SupplierDetails() {
   const navigate = useNavigate();
   const { supplierId } = useSupplier() as SupplierContextType;
   const [details, setDetails] = useState<SupplierDetails>();
-
-  // api call to get suplier deets
   useEffect(() => {
     const fetchDetails = async () => {
       const { companyName, contactName, email } = await getSupplierDetails(

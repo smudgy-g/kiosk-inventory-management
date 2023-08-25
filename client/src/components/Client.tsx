@@ -12,8 +12,7 @@ import ClientHeaderComponent from './ClientHeaderComponent';
 import DeleteModal from './DeleteModal';
 
 export default function Client() {
-  const { clientId, clientName, updateClientName } =
-    useClient() as ClientContextType;
+  const { clientId, clientName, updateClientName } = useClient() as ClientContextType;
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +48,7 @@ export default function Client() {
       })
       .catch((error) => {
         console.log(error);
-        alert('supplier couuld not be deleted. Please try again.');
+        alert('Supplier couuld not be deleted. Please try again.');
       });
   }
 

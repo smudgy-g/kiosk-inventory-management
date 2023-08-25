@@ -30,8 +30,6 @@ export default function AddSupplier() {
         console.log(error);
         alert('Unable to add supplier. Please try again.');
       });
-
-    //add message modal
   }
 
   function handleGoBack() {

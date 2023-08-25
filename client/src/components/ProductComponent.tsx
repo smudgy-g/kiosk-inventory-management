@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
 import { ProductComponentTypes } from '../interfaces';
 
@@ -27,7 +27,7 @@ export default function ProductComponent(props: ProductComponentTypes) {
     else setQuantity(quantity - 1);
   }
 
-  function handleChange(e: any) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const value = parseInt(e.target.value, 10);
     if (value - 1 < 0) setQuantity(0);
     else setQuantity(value);
@@ -44,6 +44,7 @@ export default function ProductComponent(props: ProductComponentTypes) {
         <input
           name='quantity'
           type='number'
+          step={0.1}
           value={quantity}
           min={0}
           max={99}
