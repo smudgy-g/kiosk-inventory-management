@@ -11,15 +11,15 @@ Ordering with suppliers has never been easier. With just a few clicks, you can c
 But that's not all. kiosk takes your convenience a step further by seamlessly communicating with your suppliers. When you finalize your order, the app automatically sends an email to your chosen supplier, ensuring they receive all the necessary information. You can include additional comments or special instructions for your supplier, ensuring accurate and personalized service every time.
 
 Say goodbye to the complexities of inventory management and embrace the simplicity of **kiosk**. A demo of the app can be found [here](https://youtu.be/sVBb7eZE4bQ)↗ and discover a world of effortless ordering for your restaurant or bar. Experience the power of streamlined inventory management with **kiosk** today!
-
-<img src="screenshots/kiosk-login.png" alt="Login screen" height="400">
-<img src="screenshots/kiosk-home.png" alt="Landing page with supplier list" height="400">
-<img src="screenshots/kiosk-add-supplier.png" alt="Add a supplier with details" height="400">
-<img src="screenshots/kiosk-add-product.png" alt="Add a product with details" height="400">
-<img src="screenshots/kiosk-create-order.png" alt="Create order" height="400">
-<img src="screenshots/kiosk-confirm.png" alt="Confirm an order" height="400">
-<img src="screenshots/kiosk-pick-date.png" alt="Pick a date for delivery" height="400">
-
+<div style="display: flex; justify-content: space-between">
+   <img src="screenshots/kiosk-login.png" alt="Login screen" height="600">
+   <img src="screenshots/kiosk-home.png" alt="Landing page with supplier list" height="600">
+   <img src="screenshots/kiosk-add-supplier.png" alt="Add a supplier with details" height="600">
+   <img src="screenshots/kiosk-add-product.png" alt="Add a product with details" height="600">
+   <img src="screenshots/kiosk-create-order.png" alt="Create order" height="600">
+   <img src="screenshots/kiosk-confirm.png" alt="Confirm an order" height="600">
+   <img src="screenshots/kiosk-pick-date.png" alt="Pick a date for delivery" height="600">
+</div>
 ## Tech Stack
 
 ### Frontend:
