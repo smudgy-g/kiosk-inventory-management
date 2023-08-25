@@ -1,7 +1,16 @@
 # kiosk-inventory-management
 
-Welcome to kiosk inventory management!
-A demo of the app can be found [here](https://youtu.be/sVBb7eZE4bQ).
+Introducing **kiosk**: The Mobile-Friendly Inventory Management App for Restaurants and Bars
+
+Are you tired of managing multiple systems and dealing with the hassle of ordering supplies for your restaurant or bar? Look no further than **kiosk**, the comprehensive inventory management app designed to streamline your ordering process and make it a breeze.
+
+With **kiosk**, you can say goodbye to the complexities of manual order placement. Our app consolidates all your ordering needs into one convenient platform, saving you time and effort. Whether you need to restock ingredients, beverages, or other supplies, **kiosk** has got you covered.
+
+Ordering with suppliers has never been easier. With just a few clicks, you can create and customize your orders directly within the app. **kiosk** allows you to select your desired products from your list of suppliers and add or remove items with ease. Once your order is complete, the app automatically generates a structured order summary for you.
+
+But that's not all. kiosk takes your convenience a step further by seamlessly communicating with your suppliers. When you finalize your order, the app automatically sends an email to your chosen supplier, ensuring they receive all the necessary information. You can include additional comments or special instructions for your supplier, ensuring accurate and personalized service every time.
+
+Say goodbye to the complexities of inventory management and embrace the simplicity of **kiosk**. A demo of the app can be found [here](https://youtu.be/sVBb7eZE4bQ)↗ and discover a world of effortless ordering for your restaurant or bar. Experience the power of streamlined inventory management with **kiosk** today!
 
 ## Installation
 
@@ -41,7 +50,7 @@ You will need to have **postgres** installed on your computer to run the databas
 - Create .env file for API_URL.
 - Authentication
 - Functionality to update products and suppliers
-- State to holdd current order. Problem when navigating back from "confirm order page", order disappears
+- State to hold current order. Problem when navigating back from "confirm order page", order disappears
 
 ### Backend
 - Authentication
@@ -51,6 +60,6 @@ You will need to have **postgres** installed on your computer to run the databas
 
 ## Improvements
 
-- A stocktake report to be created.
+- A stocktake report to be created that could be exported to CSV or excel for easier analysis.
 - A web version that allows the user a more comfortable experience to create, add, delete, update the products and suppliers.
 - Display a dashboard of past orders, past stocktakes, order totals tracking and stocktake totals tracking.
