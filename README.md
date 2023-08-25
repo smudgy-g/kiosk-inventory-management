@@ -1,6 +1,8 @@
 # kiosk-inventory-management
 
-<img style="align: center" src="screenshots/kiosk-logo.png" alt="Login screen" height="600">
+<p align="center">
+   <img src="screenshots/kiosk-logo.png" alt="Kiosk Logo" height="300">
+</p>
 
 Introducing **kiosk**: The Mobile-Friendly Inventory Management App for Restaurants and Bars
 
