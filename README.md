@@ -73,7 +73,7 @@ You will need to have **postgres** installed on your computer to run the databas
 - State to hold current order. Problem when navigating back from "confirm order page", order disappears
 
 ### Backend
-- Authentication
+- Authentication - currently the login page is not functional
 - Functionality to update products and suppliers
 - Convert backend to typescript to be consistent with frontend.
 - Add model in database to store Stocktakes. An api will need to be set up to provide this functionality in the front end.
