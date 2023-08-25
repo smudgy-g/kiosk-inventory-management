@@ -1,5 +1,7 @@
 # kiosk-inventory-management
 
+<img style="align: center" src="screenshots/kiosk-logo.png" alt="Login screen" height="600">
+
 Introducing **kiosk**: The Mobile-Friendly Inventory Management App for Restaurants and Bars
 
 Are you tired of managing multiple systems and dealing with the hassle of ordering supplies for your restaurant or bar? Look no further than **kiosk**, the comprehensive inventory management app designed to streamline your ordering process and make it a breeze.
