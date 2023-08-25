@@ -55,7 +55,6 @@ export async function createSupplier(req, res) {
 }
 
 export async function deleteSupplier(req, res) {
-  // update the client supplier list and keeep the supplier in the DB!
   try {
     const { supplierId } = req.body;
     const result = await prisma.supplier.delete({

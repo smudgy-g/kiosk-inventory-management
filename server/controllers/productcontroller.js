@@ -37,7 +37,6 @@ export async function getProducts(req, res) {
 export async function getAllProducts(req, res) {
   try {
     const id = req.params.cid;
-    //get suplier from supplier controller
     const suppliers = await prisma.supplier.findMany({
       where: {
         clientId: parseInt(id),
@@ -55,7 +54,6 @@ export async function getAllProducts(req, res) {
       productList = productList.concat(products);
     }
     res.status(200).send(productList);
-    // use get products
   } catch (error) {
     console.log(error);
   }

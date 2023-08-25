@@ -23,7 +23,6 @@ export default function AppProduct() {
       productId: productId,
       price: price,
     };
-    console.log(product);
     addProductToSupplier(product)
       .then(() => {
         navigate('/client');
@@ -32,8 +31,6 @@ export default function AppProduct() {
         console.log(error);
         alert('Unable to add product. Please try again.');
       });
-
-    //add message modal
   }
 
   function handleGoBack() {

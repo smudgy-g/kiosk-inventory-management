@@ -15,7 +15,7 @@ You will need to have **postgres** installed on your computer to run the databas
 
 2. Run `npm install prisma --save-dev` to get Prisma installed globally on your machine.
 
-3. In the servver folder, run `npm run create-db` from the terminal to create a database.
+3. In the server folder, run `npm run create-db` from the terminal to create a database.
 
 4. Create an .env file in the server folder with the following variables and populate with your local values:
 

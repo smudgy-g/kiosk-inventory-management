@@ -14,7 +14,7 @@ const transporter = createTransport({
 async function main(supplier, client, productList, comment, date) {
   const info = await transporter.sendMail({
     from: '"Smudgy-G" <kioskinventorymanagement@gmail.com>',
-    to: 'adamgriff86@gmail.com',
+    to: `${supplier.email}`,
     subject: `${client.companyName}`,
     html: `
     <body>

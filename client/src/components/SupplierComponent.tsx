@@ -49,10 +49,10 @@ SupplierComponentProps) {
 
   return (
     <div className='grid grid-cols-3 gap-1 w-90vw items-center mt-6 p-2 rounded border border-accent'>
-      <div className='col-span-1' onClick={handleClick}>
+      <div className='col-span-1 cursor-pointer' onClick={handleClick}>
         <img src='/images/cocktail.png' alt='img' className='h-24 rounded-lg' />
       </div>
-      <div className='flex flex-col justify-between h-full col-span-2'>
+      <div className='flex flex-col justify-between h-full col-span-2 cursor-pointer'>
         <div className='text-left text-xl font-bold mb-2' onClick={handleClick}>
           {name}
         </div>

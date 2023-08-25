@@ -62,7 +62,6 @@ export default function OrderingComponent() {
 
   function handleNext() {
     const filteredProducts = removeZeroQuantities(products);
-    console.log(filteredProducts);
     navigate('/order/confirm', { state: { filteredProducts, supplierName } });
   }
   function removeZeroQuantities(arr: ProductToOrderType[]) {

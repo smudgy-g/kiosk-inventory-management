@@ -42,7 +42,7 @@ export default function Login() {
             className='border border-solid border-slate-100 p-2 rounded-md'
           />
 
-          <FormLabel label={'Email:'} />
+          <FormLabel label={'Password:'} />
           <input
             name='password'
             type='password'
