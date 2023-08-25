@@ -17,7 +17,7 @@ But that's not all. kiosk takes your convenience a step further by seamlessly co
 Say goodbye to the complexities of inventory management and embrace the simplicity of **kiosk**. A demo of the app can be found [here](https://youtu.be/sVBb7eZE4bQ)↗ and discover a world of effortless ordering for your restaurant or bar. Experience the power of streamlined inventory management with **kiosk** today!
 
 <p align="center">
-   <img src="screenshots/screenshot1.png" alt="Kiosk Logo" height="400">
+   <img src="screenshots/screenshot1.png" alt="Kiosk Logo">
 <p align="center">
    <img src="screenshots/screenshot2.png" alt="Kiosk Logo">
 </p>
