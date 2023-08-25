@@ -12,13 +12,13 @@ But that's not all. kiosk takes your convenience a step further by seamlessly co
 
 Say goodbye to the complexities of inventory management and embrace the simplicity of **kiosk**. A demo of the app can be found [here](https://youtu.be/sVBb7eZE4bQ)↗ and discover a world of effortless ordering for your restaurant or bar. Experience the power of streamlined inventory management with **kiosk** today!
 
-![Login screen](screenshots/kiosk-login.png)
-![Landing page with supplier list](screenshots/kiosk-home.png)
-![Add a supplier with details](screenshots/kiosk-add-supplier.png)
-![Add a product with details](screenshots/kiosk-add-product.png)
-![Create order](screenshots/kiosk-create-order.png)
-![Confirm an order ](screenshots/kiosk-confirm.png)
-![Pick a date for delivery](screenshots/kiosk-pick-date.png)
+![Login screen](screenshots/kiosk-login.png | height=400)
+![Landing page with supplier list](screenshots/kiosk-home.png | height=400)
+![Add a supplier with details](screenshots/kiosk-add-supplier.png | height=400)
+![Add a product with details](screenshots/kiosk-add-product.png | height=400)
+![Create order](screenshots/kiosk-create-order.png | height=400)
+![Confirm an order ](screenshots/kiosk-confirm.png | height=400)
+![Pick a date for delivery](screenshots/kiosk-pick-date.png | height=400)
 
 ## Tech Stack
 
