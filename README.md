@@ -44,7 +44,7 @@ You will need to have **postgres** installed on your computer to run the databas
 
 3. In the server folder, run `npm run create-db` from the terminal to create a database.
 
-4. Create an .env file in the server folder with the following variables and populate with your local values:
+4. Create a .env file in the server folder with the following variables and populate it with your local values:
 
 - `PORT=8080`
 - `POSTGRES_USER=`
@@ -57,27 +57,27 @@ You will need to have **postgres** installed on your computer to run the databas
 5. Run `npx prisma migrate dev` to set up the database and create the necessary tables.
 
 6. Initiate the app, in the terminal run `npm run start` from the client folder and `nodemon index.js` or `node index.js`.
-   The app was designed for mobile view so the browser will have to be resized to mobile dimensions. This can be done in the chrome development tools.
+   The app was designed for mobile view so the browser will have to be resized to mobile dimensions. This can be done in the Chrome development tools.
 
 ## Bugs & Fixes
 
 ### Frontend
 
-- Seperate Components and Pages: each file in the Pages folder corresponds to a single page and their only job is to render components (no logic in these 'components') and your Components folder contains the actual components and the logic inside of them.
-- create Assets for logo, app name, labels etc to avoid repetition.
-- Create .env file for API_URL.
+- Separate Components and Pages: Each file in the Pages folder corresponds to a single page and their only job is to render components (no logic in these 'components') and your Components folder contains the actual components and the logic inside of them.
+- Create assets for logo, app name, labels, etc. to avoid repetition.
+- Create a .env file for API_URL.
 - Authentication
 - Functionality to update products and suppliers
-- State to hold current order. Problem when navigating back from "confirm order page", order disappears
+- State to hold current order. The problem when navigating back from the "confirm order page", order disappears
 
 ### Backend
-- Authentication - currently the login page is not functional
+- Authentication - Currently the login page is not functional
 - Functionality to update products and suppliers
-- Convert backend to typescript to be consistent with frontend.
-- Add model in database to store Stocktakes. An api will need to be set up to provide this functionality in the front end.
+- Convert the backend to typescript to be consistent with frontend.
+- Add model in the database to store Stocktakes. An API will need to be set up to provide this functionality in the front end.
 
 ## Improvements
 
-- A stocktake report to be created that could be exported to CSV or excel for easier analysis.
-- A web version that allows the user a more comfortable experience to create, add, delete, update the products and suppliers.
-- Display a dashboard of past orders, past stocktakes, order totals tracking and stocktake totals tracking.
+- A stocktake report to be created that could be exported to CSV or Excel for easier analysis.
+- A web version that allows the user a more comfortable experience to create, add, delete, and update the products and suppliers.
+- Display a dashboard of past orders, past stocktakes, order totals tracking, and stocktake totals tracking.
