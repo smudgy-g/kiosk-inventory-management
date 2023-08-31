@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "create-db": "psql -U postgres < db.sql"
+    "create-db": "psql -U postgres < db.sql",
+    "start": "node index.js"
+
   },
   "author": "Adam Griffiths",
   "license": "ISC",
