@@ -34,7 +34,6 @@ model Product {
   supplier          Supplier        @relation(fields: [supplierId], references: [id])
   orders            OrderProduct[]         
 
-  // @@index([supplierId])
 }
 
 model Order {
