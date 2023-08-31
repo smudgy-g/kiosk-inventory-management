@@ -1,5 +1,5 @@
 import { OrderType } from '../interfaces';
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = process.env.REACT_APP_SERVER_URL;
 
 export function sendOrder(order: OrderType) {
   return fetch(`${BASE_URL}/order`, {

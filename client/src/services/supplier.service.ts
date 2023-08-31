@@ -1,5 +1,5 @@
 import { newSupplier } from '../interfaces';
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = process.env.REACT_APP_SERVER_URL;
 
 export function getClientSuppliers(id: number) {
   return fetch(`${BASE_URL}/supplier/${id}`)
