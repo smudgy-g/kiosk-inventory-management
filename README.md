@@ -1,4 +1,5 @@
 # Kiosk Inventory Management
+<a href="https://warm-biscochitos-618c98.netlify.app/">kiosk inventory management demo site</a> (credentials not required for demo site)
 
 <p align="center">
    <img src="screenshots/kiosk-logo.png" alt="Kiosk Logo" height="300">
